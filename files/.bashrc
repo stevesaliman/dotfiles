@@ -179,20 +179,24 @@ elif [[ $os_type == Darwin ]]; then
     export MVN_HOME=/opt/local
     export MYSQL_HOME=/usr/local/mysql
     instant_client=1
-	export GRADLE_HOME=/opt/gradle-1.5
+	export GRADLE_HOME=/opt/gradle-1.7
     export CATALINA_HOME=/opt/tomcat-6.0.35
     cat_opts="-XX:PermSize=64m -XX:MaxPermSize=256m"
     cat_opts="$cat_opts -Xms512m -Xmx512m -Djava.awt.headless=true"
     export CATALINA_OPTS="$cat_opts"
     # Add Git to the path, since the OSX installer puts it in a subdir...
-    export PATH=$PATH:/usr/local/git/bin
+    export PATH=/usr/local/git/bin:$PATH
     # Specify what git statuses we want to see.
     export GIT_PS1_SHOWDIRTYSTATE=1
     export GIT_PS1_SHOWSTASHSTATE=1
     export GIT_PS1_SHOWUNTRACKEDFILES=1
     export GIT_PS1_SHOWUPSTREAM=1
 	# Add the macports dirs to the path
-    export PATH=$PATH:/opt/local/bin:/opt/local/sbin
+    export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+	# Set an alias for TextMate
+	alias mate=/Applications/TextMate.app/Contents/Resources/mate
+	# Make Parallels the default provider
+	export VAGRANT_DEFAULT_PROVIDER=parallels
 else
     echo "$HOSTNAME is unknown, I hope the path and ORACLE_HOME work out"
 fi
@@ -427,3 +431,13 @@ if [ -z "$SOURCED" ]; then
     cd
 fi
 export SOURCED=true
+# Add rvm to the path, if we've got RVM
+if [ -d "$HOME/.rvm/bin" ]; then
+	export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+fi
+
+# Source local customizations
+if [ -f "$HOME/.bashrc_local" ]; then
+	. "$HOME/.bashrc_local"
+fi
+

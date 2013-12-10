@@ -19,6 +19,9 @@ else
   set t_Sb=[4%dm
 endif
 
+" Load the puppet plugin
+call pathogen#infect()
+filetype plugin indent on
 ""Linux-Mandrake configuration.
 "Chmouel Boudjnah <chmouel@mandrakesoft.com>
 
