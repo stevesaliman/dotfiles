@@ -48,11 +48,12 @@ echo $HOSTNAME
 if [[ $HOSTNAME == valen || $HOSTNAME == lennier ]]; then
     me="steve"
 	export MY_HOME="/home/steve"
+	export WINEPREFIX="/opt/wine"
 elif [[ $HOSTNAME == delenn ]]; then
-    me="salimans"
+    me="steve"
 	export MY_HOME="/cygdrive/e/home/steve"
 elif [[ $HOSTNAME == whitestar ]]; then
-    me="salimans"
+    me="steve"
 	export MY_HOME="/cygdrive/c/home/steve"
 elif [[ $HOSTNAME == yoda ]]; then
     me="salimans"
@@ -120,13 +121,14 @@ if [[ $os_type == Linux ]]; then
     export ORACLE_HOME=/opt/oracle/product/11.2.0
     export ORACLE_SID=devl
     export JAVA_HOME=/opt/jdk1.6.0_30
-    #export JAVA_HOME=/opt/jdk1.5.0_12
+    #export JAVA_HOME=/opt/jdk1.7.0_09
     export JAVA_OPTS='-Xmx128m -Xms128m'
     # for X to start up right, we need gnome on the path.
     export PATH=$PATH:/opt/gnome/sbin:/opt/gnome/bin:/opt/kde3/bin
     export ANT_HOME=/opt/ant-1.7.1
     export MVN_HOME=/opt/maven-2.2.1
-	export GRADLE_HOME=/opt/gradle-1.5
+	export GRADLE_HOME=/opt/gradle-1.7
+	export GROOVY_HOME=/opt/groovy-2.0.7
     export CATALINA_HOME=/opt/tomcat-6.0.35
     cat_opts="-XX:PermSize=64m -XX:MaxPermSize=256m"
     cat_opts="$cat_opts -Xms512m -Xmx512m -Djava.awt.headless=true"
@@ -223,7 +225,7 @@ if [ -n "$ORACLE_HOME" ]; then
     fi
 fi
 
-# Add MYSql to the path, if we've got MYSQL_HOME
+# Add MySql to the path, if we've got MYSQL_HOME
 if [ -n "$MYSQL_HOME" ]; then
     export PATH=$PATH:$MYSQL_HOME/bin
     export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$MYSQL_HOME/lib
@@ -234,6 +236,7 @@ if [ -n "$GROOVY_HOME" ]; then
     export PATH=$PATH:$GROOVY_HOME/bin
     export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$GROOVY_HOME/lib
 fi
+
 # Add tomcat to the path, if we've got CATALINA_HOME
 if [ -n "$CATALINA_HOME" ]; then
     export PATH=$PATH:$CATALINA_HOME/bin
@@ -255,14 +258,15 @@ export CLASSPATH=${HOME}/lib/junit-4.1.jar:${HOME}/lib/catalina-ant.jar
 #############################################################################
 
 # standard aliases - make sure color ls is before /bin/ls in the path.
-alias backup='sudo rsync -avi --delete --exclude=/media/ --exclude=/proc/ --exclude=/sys/ / /media/Elements/valen | grep -v \.[fd]\/\/\/pog\.\.\.'
-alias backup_data='sudo rsync -avi --delete --exclude=/usr/local/oradata/ /usr/local/ /media/Elements/valen/usr/local | grep -v \.[fd]\/\/\/pog\.\.\.'
+alias backup='sudo rsync -avi --delete --exclude=/media/ --exclude=/run/ --exclude=/var/run/media/ --exclude=/run/media/ --exclude=/var/run/user --exclude=/proc/ --exclude=/var/lib/ntp/proc/ --exclude=/sys/ / /var/run/media/steve/Elements/valen | grep -v \.[fd]\/\/\/pog\.\.\.'
+alias backup_data='sudo rsync -avi --delete --exclude=/usr/local/oradata/ /usr/local/ /var/run/media/steve/Elements/valen/usr/local | grep -v \.[fd]\/\/\/pog\.\.\.'
 alias catalina=catalina.sh
 alias cls=clear
 alias df='df -h'
-alias du='du -h'
+alias du='du -hx'
 alias gradled='export GRADLE_OPTS=export GRADLE_OPTS="-Xdebug -Xnoagent -Djava.compiler=NONE -Xrunjdwp:transport=dt_socket,address=5005,server=y,suspend=y"'
 alias grep='grep --color'
+alias lame='lame -q 2 -b 256'
 alias nyx='telnet nyx10.nyx.net'
 alias path='echo $PATH'
 alias ssh='ssh -X'
@@ -309,14 +313,14 @@ function psg() {
     	#procps -eao "user pid ppid vsz stime etime time tty args" | grep "$1"
 		ps -eaW | grep $1
 	else
-    	ps -eao "user pid ppid vsz stime etime time tty args" | grep "$1"
+    	ps -eawo "user pid ppid vsz stime etime time tty args" | grep "$1"
 	fi
 }
 
 # The vi function plays with the home directory so that I can use my vim config
-# regardless of who I am. The double quotes around the $@ are important.  
-# Without them, a filename with spaces will be interpereted as several different
-# filenames.
+# regardless of who I am. The double quotes around the $@ are very important.  
+# Without them, filenames with spaces will be interpereted as several different
+# filenames when they are passed to vi.
 function vi() {
 	if [[ $user == $me ]]; then
 		vim -X "$@"
@@ -338,7 +342,6 @@ function zmore() {
 # Set up the aliases that needed host specific info
 alias ant="${ANT_HOME}/bin/ant"
 alias mvn="${MVN_HOME}/bin/mvn"
-#alias gradle="${GRADLE_HOME}/bin/gradle --daemon"
 alias gradle="${GRADLE_HOME}/bin/gradle"
 
 #############################################################################

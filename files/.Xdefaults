@@ -2,3 +2,5 @@ XTerm*toolBar: false
 XTerm*visualBell: false
 XTerm*scrollttyoutput: false
 XTerm*ScrollTTYKeypress: true
+# Fix double-click highlighting
+*charClass:  45:48

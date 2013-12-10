@@ -7,6 +7,8 @@ set showmatch
 set ts=4
 set shiftwidth=4
 
+" Allow spaces in filenames
+set isfname+=32
 if has("terminfo")
   set t_Co=8
   set t_Sf=[3%p1%dm
@@ -64,6 +66,7 @@ set bs=2
 "Some option desactivate by default (remove the no).
 set nobackup
 set nohlsearch
+" set noincsearch
 set incsearch "Highlight searches as you type
 
 "Display a status-bar.
