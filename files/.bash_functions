@@ -1,9 +1,9 @@
 # This file is sourced by .bashrc to load all the functions we want to use.
 
-# Aliases that need to be functions.
-#function decode() {
-  #'tr A-MN-Za-mn-z N-ZA-Mn-za-m < $1 > $1.out'
-#}
+# The decode function can't be an alias because we're using $1 twice.
+function decode() {
+  'tr A-MN-Za-mn-z N-ZA-Mn-za-m < $1 > $1.out'
+}
 
 # function to start a gpg agent so we can generate pgp keys.
 function start-gpg () {
