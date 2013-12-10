@@ -1,6 +1,6 @@
 [user]
-	name = Steve Saliman
-	email = ssaliman@tracom.com
+	name = @git.name@
+	email = @git.email@
 [alias]
     comit = commit
 	graph = log --graph --oneline
@@ -10,7 +10,7 @@
 [branch]
 	autosetuprebase = always
 [core]
-	excludesfile = /cygdrive/c/home/salimans/.gitignore
+	excludesfile = ~/.gitignore
 #	autocrlf = true
 [push]
     default = tracking
