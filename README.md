@@ -7,3 +7,8 @@ TODO:
    needs to be set before bashrc runs, and additions to the path need to
    happen after.
 3. Add mechanism to source .bash_aliases.
+
+
+to update vim plugins:
+
+git submodule foreach git pull origin master
