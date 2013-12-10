@@ -1,2 +1,14 @@
-df_git_name="My Name"
-df_git_email="myemail@mydomain.com"
+# Where should the dotfiles be installed?  (Optional, defaults to $HOME)
+# df_home_dir=/home/john
+
+# What is the "normal" user for the box? (Optional, defaults to $USER)
+# df_user=john
+
+# What name and email should I use for git? (Required)
+df_git_name="John Q. Public"
+df_git_email="john@mydomain.com"
+
+# What usernames should I use when setting up the .ssh config? (Optional)
+df_home_user=john
+df_work_user=jpublic
+df_app_user=tomcat

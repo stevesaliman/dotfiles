@@ -18,41 +18,40 @@ function verify_value() {
 	fi
 }
 
-# Defaults
-# Find out install dir, default to $HOME
-home_dir=$HOME
+# Step 1. Set up defaults for some of our variables.  We assume we're installing
+# to the current user's home directory. These defaults can be overridden in 
+# the local_env file, if for example we want to set up a different user, or
+# create a subdirectory in an application user's home to source my environment
+# from elsewhere.
+df_home_dir=$HOME
+df_user=$USER
+df_source_dir=$( cd "$( dirname "$0" )" && pwd )
 
-if [[ $# > 0 ]]; then
-  home_dir=$1
-fi
-
-# find out install user, default to $USER This is the user for determining the 
-# custom prompt.
-dotfile_user=$USER
-
-# Find out where to backup, default to $install_dir/dotfiles_bak
-backup_dir=$home_dir/.dotfiles.bak
-
-# Make sure we've got values for all the tokens we need
-dotfile_dir=$( cd "$( dirname "$0" )" && pwd )
-if [ ! -f $dotfile_dir/local_env ]; then
-    echo "Error: No local_env file."
+# source the local overrides.  This must define a couple of values, others are 
+# optional.
+if [ ! -f $df_source_dir/local_env ]; then
+    echo "Error: Can't find the local_env file."
     exit 1
 fi
 
-. $dotfile_dir/local_env
+. $df_source_dir/local_env
 
 verify_value "df_git_name" "$df_git_name"
 verify_value "df_git_email" "$df_git_email"
 
-echo -e "We're gonna destroy files in $home_dir Are you sure?"
+echo -e "Installing to $df_home_dir - THIS IS DESCRUCTIVE!  Are you sure?"
 read answer
 if [ $answer != 'y' ]; then
   exit
 fi
 
-echo "rsync -av ${dotfile_dir}/files/ $home_dir"
-rsync -av "${dotfile_dir}/files/" "$home_dir"
+echo "rsync -av ${df_source_dir}/files/ $df_home_dir"
+rsync -av "${df_source_dir}/files/" "$df_home_dir"
 
-sed -i "s/@git.name@/$df_git_name/" $home_dir/.gitconfig
-sed -i "s/@git.email@/$df_git_email/" $home_dir/.gitconfig
+# some files had tokens in them.  Replace the tokens.
+sed -i "s/@git.name@/$df_git_name/" $df_home_dir/.gitconfig
+sed -i "s/@git.email@/$df_git_email/" $df_home_dir/.gitconfig
+
+sed -i "s/@home.user@/$df_home_user/" $df_home_dir/.ssh/config
+sed -i "s/@work.user@/$df_work_user/" $df_home_dir/.ssh/config
+sed -i "s/@app.user@/$df_app_user/" $df_home_dir/.ssh/config
