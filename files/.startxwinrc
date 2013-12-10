@@ -1,0 +1,13 @@
+# Top Left
+sleep 3
+~/bin/xt green "xterm-1" 80x24+2+2
+#Bottom Right We need padding to get past the Office bar
+sleep 3
+~/bin/xt green "xterm-2" 80x24+800-10
+# Top Right We need padding to get past the Office bar
+sleep 3
+~/bin/xt gold "xterm-3" 80x24+800+1
+# Bottom Left
+sleep 3
+~/bin/xt purple "xterm-4" 80x24+1-10
+

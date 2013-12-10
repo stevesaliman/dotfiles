@@ -1,0 +1,23 @@
+[user]
+	name = Steve Saliman
+	email = ssaliman@tracom.com
+[alias]
+    comit = commit
+	graph = log --graph --oneline
+	k =  log --branches --simplify-by-decoration --decorate --oneline
+	lg = log --all --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ci) %C(bold blue)<%an>%Creset' --abbrev-commit
+	tagdate = log --tags --simplify-by-decoration --pretty='format:%ai %d'
+[branch]
+	autosetuprebase = always
+[core]
+	excludesfile = /cygdrive/c/home/salimans/.gitignore
+#	autocrlf = true
+[push]
+    default = tracking
+[color]
+	ui = true
+[color "status"]
+    changed = red
+    added = green bold
+    deleted = red bold
+    untracked = yellow

@@ -1,0 +1,59 @@
+#!/bin/bash
+[ -z "$DISPLAY" ] && export DISPLAY=:0.0
+
+bg=black
+fg=green
+color=$1
+name=$2
+geom=$3
+if [ -z $1 ]; then
+    color="green"
+fi
+
+if [ -z $2 ]; then
+    name="xterm"
+fi
+
+if [ -z $3 ]; then
+    geom="80x24+10+10"
+fi
+
+font=-adobe-courier-medium-r-normal--14-140-75-75-m-90-iso8859-1
+#font="-adobe-courier-medium-r-normal--0-0-75-75-m-0-iso8859-1"
+#xterm=/usr/openwin/bin/xterm
+#xterm=/home/inv-home/d795ai/bin/xterm-color
+os_type=$(uname)
+if [ -z $HOSTNAME ]; then
+    export HOSTNAME=`/bin/hostname`
+fi
+if [[ $os_type == Linux ]]; then
+    xterm=/usr/bin/xterm
+elif [[ $os_type == CYGWIN* ]]; then
+    xterm=/bin/xterm
+    #xterm=~salimas/bin/xterm
+elif [[ $os_type == Darwin ]]; then
+    xterm=/usr/X11R6/bin/xterm
+else
+	xterm=/opt/invs/bin/xterm
+fi
+
+if [ "$color" == "aqua" ]; then
+    fg=cyan
+fi
+
+if [ "$color" == "purple" ]; then
+    fg="#f3f"
+fi
+
+if [ "$color" == "gold" ]; then 
+    fg=gold
+fi    
+
+if [ "$color" == "cyan" ]; then
+    fg=cyan 
+    bg=navy
+fi    
+
+#$xterm -pc -ti vt220 -ls -sb -fg $fg -bg $bg -ms "#f3b" -cr "#f3b" -sl 80 -fn $font -name xterm -e tcsh &
+$xterm -pc -ti vt220 -ls -sb -fg $fg -bg $bg -ms "#f3b" -cr "#f3b" -sl 512 -fn $font -geometry $geom -T $name &
+

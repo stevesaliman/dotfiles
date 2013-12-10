@@ -1,0 +1,9 @@
+.settings/
+.project
+.classpath
+eclipse-build
+eclipse-target
+xx
+xx.xml
+*.bak
+gradle-selenium.properties

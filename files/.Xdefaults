@@ -1,0 +1,4 @@
+XTerm*toolBar: false
+XTerm*visualBell: false
+XTerm*scrollttyoutput: false
+XTerm*ScrollTTYKeypress: true
