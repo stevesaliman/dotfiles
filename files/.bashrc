@@ -46,7 +46,8 @@ else
     PS1="${bold_red}\u${normal}@\h: ${blue}\w\$(__git_ps1)\n\r${normal}\!>"
 fi
 
-# Load "z" for remembering directories 
+# Load "z" for remembering directories, but don't expand symlinks.
+export _Z_NO_RESOLVE_SYMLINKS=1
 . ${bash_script_dir}/bin/z.sh
 
 # Load aliases and functions.
