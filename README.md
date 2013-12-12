@@ -9,7 +9,7 @@ git submodule update
 Then, to update the plugins at anytime, just do:
 
 ```
-git submodule foreach git pull origin master
+git submodule update --recursive
 ```
 
 You still need to add/generate ssh keys.  I'm not checking those in a public 
