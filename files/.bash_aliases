@@ -26,7 +26,7 @@ alias which=type
 if [[ $os_type == Linux ]]; then
     alias dir='ls --color --human-readable -lFa'
     alias ls='ls --color --human-readable -FA'
-	alias psg='ps -eawo "user pid ppid vsz stime etime time tty args" | grep "$1"
+	alias psg="ps -eawo 'user pid ppid vsz stime etime time tty args' | grep"
 elif [[ $os_type == CYGWIN* ]]; then
     alias dir='ls --color --human-readable -lFa'
     # Cygwin has trouble with the groovy shell
@@ -38,7 +38,7 @@ elif [[ $os_type == Darwin ]]; then
     alias ls='ls -FAGh'
 	# Set an alias for TextMate
 	alias mate=/Applications/TextMate.app/Contents/Resources/mate
-	alias psg='ps -eawo "user pid ppid vsz stime etime time tty args" | grep'
+	alias psg="ps -eawo 'user pid ppid vsz stime etime time tty args' | grep"
 else
 	echo "$os_type is unknown, chaos will probably ensue..."
 fi
