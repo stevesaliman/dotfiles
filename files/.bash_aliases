@@ -46,10 +46,8 @@ fi
 # Aliases that depend on variables, like "gradle"
 if [ -n "$GRADLE_HOME" ]; then
 	alias gradle="${GRADLE_HOME}/bin/gradle"
-	alias gradled='export GRADLE_OPTS=export GRADLE_OPTS="-Xdebug -Xnoagent -Djava.compiler=NONE -Xrunjdwp:transport=dt_socket,address=5005,server=y,suspend=y"'
 else 
 	alias gradle="gradlew"
-	alias gradled='export GRADLE_OPTS=export GRADLE_OPTS="-Xdebug -Xnoagent -Djava.compiler=NONE -Xrunjdwp:transport=dt_socket,address=5005,server=y,suspend=y"'
 fi
 
 if [ -n "$ANT_HOME" ]; then

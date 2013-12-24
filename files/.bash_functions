@@ -22,6 +22,17 @@ function h() {
     history $num
 }
 
+# Function to run a single gradle build in debug mode.  It assumes that "gradle"
+# is in the path (or at least an alias).  Gradle runs in debug mode based on 
+# the GRADLE_OPTS variable.  This function will unset those options at the end
+# of the run.
+function gradled() {
+    old_gradle_opts="$GRADLE_OPTS"
+	export GRADLE_OPTS="$GRADLE_OPTS -Xdebug -Xnoagent -Djava.compiler=NONE -Xrunjdwp:transport=dt_socket,address=5005,server=y,suspend=y"
+	gradle $@
+	export GRADLE_OPTS="$old_gradle_opts"
+}
+
 # The vi function plays with the home directory so that I can use my vim config
 # regardless of who I am. The double quotes around the $@ are very important.  
 # Without them, filenames with spaces will be interpereted as several different
