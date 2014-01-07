@@ -30,8 +30,8 @@ fi
 
 # Load environment variables.
 . ${bash_script_dir}/.bash_vars
-if [ -f ${bash_script_dir}/.bashrc_local ]; then
-	. ${bash_script_dir}/.bashrc_local
+if [ -f ${bash_script_dir}/.bash_local ]; then
+	. ${bash_script_dir}/.bash_local
 fi
 
 # Load in the git functions and define what we want to see
