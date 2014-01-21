@@ -10,6 +10,7 @@ alias df='df -h'
 alias du='du -hx'
 alias grep='grep --color'
 alias lame='lame -q 2 -b 256'
+alias less='less -R'
 alias nyx='telnet nyx10.nyx.net'
 alias path='echo $PATH'
 alias ssh='ssh -X'
@@ -44,16 +45,16 @@ else
 fi
 
 # Aliases that depend on variables, like "gradle"
-if [ -n "$GRADLE_HOME" ]; then
+if [ -d "$GRADLE_HOME" ]; then
 	alias gradle="${GRADLE_HOME}/bin/gradle"
 else 
 	alias gradle="gradlew"
 fi
 
-if [ -n "$ANT_HOME" ]; then
+if [ -d "$ANT_HOME" ]; then
 	alias ant="${ANT_HOME}/bin/ant"
 fi
 
-if [ -n "$MVN_HOME" ]; then
+if [ -d "$MVN_HOME" ]; then
 	alias mvn="${MVN_HOME}/bin/mvn"
 fi
