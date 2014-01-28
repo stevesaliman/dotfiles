@@ -39,6 +39,9 @@ export LS_COLORS='no=00:fi=00:di=00;34:ln=01;36:pi=40;33:so=01;35:bd=40;33;01:cd
 me="steve"
 # what user am I currently using?
 user=`/usr/bin/whoami`
+# in what environment am I currently running.  This is set to a bogus value to
+# prevent bad builds.
+environment_name="bogus"
 
 # variables are easier to read later than escape sequences.
 normal="\[\e[0m\]"

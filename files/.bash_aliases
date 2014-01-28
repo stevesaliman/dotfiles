@@ -6,6 +6,7 @@ alias backup='sudo rsync -avi --delete --exclude=/media/ --exclude=/run/ --exclu
 alias backup_data='sudo rsync -avi --delete --exclude=/usr/local/oradata/ /usr/local/ /var/run/media/steve/Elements/valen/usr/local | grep -v \.[fd]\/\/\/pog\.\.\.'
 alias catalina=catalina.sh
 alias cls=clear
+alias deploy='sudo /usr/local/bin/deploy.sh'
 alias df='df -h'
 alias du='du -hx'
 alias grep='grep --color'
@@ -13,6 +14,7 @@ alias lame='lame -q 2 -b 256'
 alias less='less -R'
 alias nyx='telnet nyx10.nyx.net'
 alias path='echo $PATH'
+alias prepare="gradle clean; gradle -PenvironmentName=${environment_name} stageRelease"
 alias ssh='ssh -X'
 alias startx=/home/${me}/bin/startx
 alias temp='telnet thermhost.colorado.edu 451'
