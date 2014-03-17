@@ -54,6 +54,13 @@ bold_red="\[\033[01;31m\]"
 bold_green="\[\033[01;32m\]"
 bold_gray="\[\033[00;37m\]"
 
+# For some reason, cygwin is not setting the HOME variable properly when the
+# home directory is on a mounted drive.  I can't set this one in .bash_local
+# because the home directory is shared.
+if [ "$HOSTNAME" == "delenn" ]; then
+  export HOME="/e/home/steve"
+fi
+
 # We need to keep track of the user's real home directory for the VIM alias.
 export USER_HOME=${HOME}
 
