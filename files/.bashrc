@@ -6,6 +6,11 @@
 # NOTE: It is recommended to make language settings in ~/.profile rather than
 # here, since multilingual X sessions would not work properly if LANG is over-
 # ridden in every subshell.
+# Load in the system profile, if we have one.
+if [ -f /etc/bashrc ]; then
+	. /etc/bashrc
+fi
+
 # if we aren't in an interactive shell, just bail here.
 [ -z "$PS1" ] && return
 
@@ -30,8 +35,8 @@ fi
 
 # Load environment variables.
 . ${bash_script_dir}/.bash_vars
-if [ -f ${bash_script_dir}/.bashrc_local ]; then
-	. ${bash_script_dir}/.bashrc_local
+if [ -f ${bash_script_dir}/.bash_local ]; then
+	. ${bash_script_dir}/.bash_local
 fi
 
 # Load in the git functions and define what we want to see

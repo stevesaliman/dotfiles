@@ -6,12 +6,15 @@ alias backup='sudo rsync -avi --delete --exclude=/media/ --exclude=/run/ --exclu
 alias backup_data='sudo rsync -avi --delete --exclude=/usr/local/oradata/ /usr/local/ /var/run/media/steve/Elements/valen/usr/local | grep -v \.[fd]\/\/\/pog\.\.\.'
 alias catalina=catalina.sh
 alias cls=clear
+alias deploy='sudo /usr/local/bin/deploy.sh'
 alias df='df -h'
 alias du='du -hx'
 alias grep='grep --color'
 alias lame='lame -q 2 -b 256'
+alias less='less -R'
 alias nyx='telnet nyx10.nyx.net'
 alias path='echo $PATH'
+alias prepare="gradle clean; gradle -PenvironmentName=${environment_name} stageRelease"
 alias ssh='ssh -X'
 alias startx=/home/${me}/bin/startx
 alias temp='telnet thermhost.colorado.edu 451'
@@ -44,16 +47,16 @@ else
 fi
 
 # Aliases that depend on variables, like "gradle"
-if [ -n "$GRADLE_HOME" ]; then
+if [ -d "$GRADLE_HOME" ]; then
 	alias gradle="${GRADLE_HOME}/bin/gradle"
 else 
 	alias gradle="gradlew"
 fi
 
-if [ -n "$ANT_HOME" ]; then
+if [ -d "$ANT_HOME" ]; then
 	alias ant="${ANT_HOME}/bin/ant"
 fi
 
-if [ -n "$MVN_HOME" ]; then
+if [ -d "$MVN_HOME" ]; then
 	alias mvn="${MVN_HOME}/bin/mvn"
 fi
