@@ -1,6 +1,10 @@
 # Top Left
 sleep 3
 ~/bin/xt green "xterm-1" 80x24+2+2
+# We only want one window on Delenn...
+if [ "$HOSTNAME" == "delenn"]; then
+  return
+fi
 #Bottom Right We need padding to get past the Office bar
 sleep 3
 ~/bin/xt green "xterm-2" 80x24+800-10
