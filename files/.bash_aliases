@@ -14,7 +14,7 @@ alias lame='lame -q 2 -b 256'
 alias less='less -R'
 alias nyx='telnet nyx10.nyx.net'
 alias path='echo $PATH'
-alias prepare="gradle clean; gradle -PenvironmentName=${environment_name} stageRelease"
+alias prepare="gradle -PenvironmentName=${environment_name} clean; gradle -PenvironmentName=${environment_name} stageRelease"
 alias ssh='ssh -X'
 alias startx=/home/${me}/bin/startx
 alias temp='telnet thermhost.colorado.edu 451'
