@@ -22,6 +22,9 @@ export EDITOR=vi
 # Set the sorting to the order we'd expect
 export LC_COLLATE=POSIX
 
+# Where is the file that has the PID of the ssh-agent?
+export SSHRC="$HOME/.ssh/.sshrc"
+
 # Set misc. environment variables.
 export LINK_TIMEOUT=3
 export TERM=xterm
@@ -143,17 +146,3 @@ elif [[ $os_type == Darwin ]]; then
 else
     echo "$os_type is unknown, chaos will probably ensue..."
 fi
-
-# Start an ssh-agent, or builds won't work because we can't pass an ssh 
-# passphrase to git, and we can't get it to prompt.
-export SSHRC="$HOME/.ssh/.sshrc"
-#if [ -f "${SSHRC}" ]; then
-	#. "${SSHRC}" > /dev/null
-	## Just because we have an RC file, doesn't mean the process is 
-	## actually running.
-	#ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
-		#start_ssh_agent;
-	#}
-#else
-	#start_ssh_agent;
-#fi 
