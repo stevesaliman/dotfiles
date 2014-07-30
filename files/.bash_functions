@@ -61,6 +61,20 @@ function zmore() {
 # Only the first shell to start will ask for a password because other shells
 # will see the RC file.
 function start_ssh_agent {
+	if [ -f "${SSHRC}" ]; then
+		. "${SSHRC}" > /dev/null
+		# Just because we have an RC file, doesn't mean the process is 
+		# actually running.
+		ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
+			_start_ssh_agent;
+		}
+	else
+		_start_ssh_agent;
+	fi
+}
+
+# Helper function that does the actual work of starting an agent
+function _start_ssh_agent {
 	if [[ $os_type == Darwin ]]; then
         echo "skipping ssh-agent in an OSX environment"
     else
@@ -73,29 +87,3 @@ function start_ssh_agent {
     fi
 } 
 
-function env_backup() {
-	backup_dir=${HOME}/env_backup
-    mkdir -p $backup_dir
-    mkdir -p $backup_dir/.ssh
-	chmod 700 $backup_dir/.ssh
-    mkdir -p $backup_dir/.vim
-	mkdir -p $backup_dir/bin
-	cp -p $HOME/.Xdefaults $backup_dir
-	cp -p $HOME/.bashrc $backup_dir
-	cp -p $HOME/.bash_profile $backup_dir
-	cp -p $HOME/.bash_logout $backup_dir
-	cp -p $HOME/.git-completion $backup_dir
-	cp -p $HOME/.gitconfig $backup_dir
-	cp -p $HOME/.gitignore $backup_dir
-	cp -p $HOME/.ssh/authorized_keys $backup_dir/.ssh
-	cp -p $HOME/.ssh/config $backup_dir/.ssh
-	cp -p $HOME/.ssh/id_rsa $backup_dir/.ssh
-	cp -p $HOME/.ssh/id_rsa.pub $backup_dir/.ssh
-	cp -p $HOME/.vimrc $backup_dir
-	cp -pr $HOME/.vim $backup_dir
-	cp -p $HOME/bin/z.sh $backup_dir/bin
-	pushd $backup_dir
-	tar -cvf ${HOME}/env_backup.tar .
-	popd
-	#rm -r $backup_dir
-}
