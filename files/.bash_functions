@@ -87,3 +87,12 @@ function _start_ssh_agent {
     fi
 } 
 
+# Stop the ssh agent when the shell exits.  It is not really intended to 
+# called by users, as it exits the shell.
+function stop_ssh_agent {
+    if [ "$SSH_AGENT_PID" != "" ]; then
+		eval $(/usr/bin/ssh-agent -k)
+	fi
+	exit
+}
+

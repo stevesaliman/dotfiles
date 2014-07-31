@@ -142,7 +142,8 @@ if [ -d "$HOME/.rvm/bin" ]; then
 fi
 
 # Trap the shell exit and kill ssh-agent when it exits
-trap 'test -n "$SSH_AGENT_PID" && eval $(/usr/bin/ssh-agent -k)' 0
+trap stop_ssh_agent EXIT SIGINT SIGTERM SIGKILL
+
 
 # Make sure we start in the correct home directory.  Basically, if our env.
 # doesn't have a certain var, cd.  Then set the var
