@@ -142,7 +142,7 @@ if [ -d "$HOME/.rvm/bin" ]; then
 fi
 
 # Trap the shell exit and kill ssh-agent when it exits
-trap stop_ssh_agent EXIT SIGINT SIGTERM SIGKILL
+trap stop_ssh_agent EXIT SIGTERM
 
 
 # Make sure we start in the correct home directory.  Basically, if our env.
