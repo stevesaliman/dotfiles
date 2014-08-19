@@ -8,7 +8,7 @@
 # ridden in every subshell.
 # Load in the system profile, if we have one.
 if [ -f /etc/bashrc ]; then
-	. /etc/bashrc
+    . /etc/bashrc
 fi
 
 # if we aren't in an interactive shell, just bail here.
@@ -36,7 +36,7 @@ fi
 # Load environment variables.
 . ${bash_script_dir}/.bash_vars
 if [ -f ${bash_script_dir}/.bash_local ]; then
-	. ${bash_script_dir}/.bash_local
+    . ${bash_script_dir}/.bash_local
 fi
 
 # Load in the git functions and define what we want to see
@@ -72,8 +72,8 @@ umask 022
 # Add paths that depend on variables. Only add things for which we've defined a
 # variable that says we've got the package.
 if [ -n "$X11_HOME" ]; then
-	export PATH=$PATH:$X11_HOME/bin
-	export FONTPATH=$X11_HOME/lib/fonts
+    export PATH=$PATH:$X11_HOME/bin
+    export FONTPATH=$X11_HOME/lib/fonts
 fi
 
 if [ -n "$ORACLE_HOME" ]; then
@@ -119,8 +119,8 @@ export MANPATH=$HOME/man:/usr/man:/usr/share/man:/usr/local/man:$X11_HOME/man
 
 if [ -n "$JAVA_HOME" ]; then
     export PATH=$JAVA_HOME/bin:$PATH
-	export JAVA_LIB_DIR=$JAVA_HOME/lib
-	export CLASSPATH=${HOME}/lib/junit-4.1.jar:${HOME}/lib/catalina-ant.jar
+    export JAVA_LIB_DIR=$JAVA_HOME/lib
+    export CLASSPATH=${HOME}/lib/junit-4.1.jar:${HOME}/lib/catalina-ant.jar
 fi
 
 if [[ $os_type == CYGWIN* ]]; then
@@ -138,7 +138,7 @@ fi
 
 # Add rvm to the path, if we've got RVM
 if [ -d "$HOME/.rvm/bin" ]; then
-	export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+    export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 fi
 
 # Trap the shell exit and kill ssh-agent when it exits

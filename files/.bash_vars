@@ -83,8 +83,8 @@ export GIT_PS1_SHOWUPSTREAM=1
 # the fact that I tend to be pretty consistent from machine to machine
 if [[ $os_type == Linux ]]; then
     echo "Setting variables for Linux"
-	export X11_HOME=/usr/X11R6
-	export WINEPREFIX="/opt/wine"
+    export X11_HOME=/usr/X11R6
+    export WINEPREFIX="/opt/wine"
     export ORACLE_HOME=/opt/oracle/product/11.2.0
     export ORACLE_SID=devl
     export JAVA_HOME=/opt/jdk1.6.0_30
@@ -94,8 +94,9 @@ if [[ $os_type == Linux ]]; then
     path_suffix=/opt/gnome/sbin:/opt/gnome/bin:/opt/kde3/bin
     export ANT_HOME=/opt/ant-1.7.1
     export MVN_HOME=/opt/maven-2.2.1
-	export GRADLE_HOME=/opt/gradle-1.10
-	export GROOVY_HOME=/opt/groovy-2.0.7
+    export GRADLE_HOME=/opt/gradle-1.10
+    export GROOVY_HOME=/opt/groovy-2.0.7
+    export GRAILS_HOME=/opt/grails-2.1.2
     export CATALINA_HOME=/opt/tomcat-6.0.35
     cat_opts="-XX:PermSize=64m -XX:MaxPermSize=256m"
     cat_opts="$cat_opts -Xms512m -Xmx512m -Djava.awt.headless=true"
@@ -106,10 +107,11 @@ elif [[ $os_type == CYGWIN* ]]; then
     export ANT_HOME=/c/opt/ant-1.7.1
     export JAVA_HOME=/c/opt/jdk1.6.0_30
     export JRUBY_HOME=/opt/jruby-1.3.0
-	export GROOVY_HOME=/opt/groovy-2.1.3
+    export GROOVY_HOME=/opt/groovy-2.1.3
     #export RUBY_HOME=c:/opt/ruby-1.8.7
     export MVN_HOME=/opt/maven-2.2.1
-	export GRADLE_HOME=/opt/gradle-1.10
+    export GRADLE_HOME=/opt/gradle-1.10
+    export GRAILS_HOME=/opt/grails-2.1.2
     export CATALINA_HOME=/cygdrive/c/opt/tomcat-6.0.35
     #export CATALINA_PID $CATALINA_HOME/work/catalina.pid
     cat_opts="-XX:PermSize=64m -XX:MaxPermSize=256m"
@@ -125,24 +127,25 @@ elif [[ $os_type == CYGWIN* ]]; then
     export GIT_PS1_SHOWSTASHSTATE=0
     # On Cygwin hosts, we want the windows dirs in the path
     path_suffix=/cygdrive/c/WINDOWS/System32:/cygdrive/c/WINDOWS/System32/Wbem
-	# We also need Firefox in the path for Selenium to work...
-	path_suffix=$path_suffix:/cygdrive/c/network/firefox
+    # We also need Firefox in the path for Selenium to work...
+    path_suffix=$path_suffix:/cygdrive/c/network/firefox
 elif [[ $os_type == Darwin ]]; then
     echo "Setting variables for OSX"
-	export JAVA_HOME=$(/usr/libexec/java_home)
+    export JAVA_HOME=$(/usr/libexec/java_home)
     export MVN_HOME=/opt/local
     export MYSQL_HOME=/usr/local/mysql
     instant_client=1
-	export GRADLE_HOME=/opt/gradle-1.10
+    export GRADLE_HOME=/opt/gradle-1.10
+    export GRAILS_HOME=/opt/grails-2.1.2
     export CATALINA_HOME=/opt/tomcat-6.0.35
     cat_opts="-XX:PermSize=64m -XX:MaxPermSize=256m"
     cat_opts="$cat_opts -Xms512m -Xmx512m -Djava.awt.headless=true"
     export CATALINA_OPTS="$cat_opts"
     # Add Git to the path, since the OSX installer puts it in a subdir, and
-	# macports
+    # macports
     path_prefix=/usr/local/git/bin:/opt/local/bin:/opt/local/sbin
-	# Make Parallels the default Vagrant provider
-	export VAGRANT_DEFAULT_PROVIDER=parallels
+    # Make Parallels the default Vagrant provider
+    export VAGRANT_DEFAULT_PROVIDER=parallels
 else
     echo "$os_type is unknown, chaos will probably ensue..."
 fi
