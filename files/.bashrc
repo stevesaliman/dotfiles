@@ -63,6 +63,15 @@ export _Z_NO_RESOLVE_SYMLINKS=1
 # Pathing and environment variables for things like Oracle, Maven, etc.
 #############################################################################
 
+# Set bash options, starting with the one that checks for background jobs before
+# exiting.
+shopt -s checkjobs
+# check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
+shopt -s checkwinsize
+# Include ditfiles when globbing (expanding wildcards)
+shopt -s dogglob
+
 # Fix terminal oddities
 stty erase 
 stty intr 
