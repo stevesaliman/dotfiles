@@ -55,3 +55,6 @@ sed -i "s/@git.email@/$df_git_email/" $df_home_dir/.gitconfig
 sed -i "s/@home.user@/$df_home_user/" $df_home_dir/.ssh/config
 sed -i "s/@work.user@/$df_work_user/" $df_home_dir/.ssh/config
 sed -i "s/@app.user@/$df_app_user/" $df_home_dir/.ssh/config
+sed -i "s/@local.user@/$df_user/" $df_home_dir/.ssh/config
+
+sed -i "s/@local.user@/$df_user/" $df_home_dir/.bash_vars

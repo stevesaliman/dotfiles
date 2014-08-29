@@ -69,8 +69,8 @@ shopt -s checkjobs
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
-# Include ditfiles when globbing (expanding wildcards)
-shopt -s dogglob
+# Include dotfiles when globbing (expanding wildcards)
+shopt -s dotglob
 
 # Fix terminal oddities
 stty erase 

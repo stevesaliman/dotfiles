@@ -45,7 +45,7 @@ export LS_COLORS='no=00:fi=00:di=00;34:ln=01;36:pi=40;33:so=01;35:bd=40;33;01:cd
 # will be used later to set the prompt based on whether or not I'm currently
 # logged in as the normal user. $me will probably need to be overridden in 
 # .bash_local.
-me="steve"
+me="@local.user@"
 # what user am I currently using?
 user=`/usr/bin/whoami`
 # in what environment am I currently running.  This is set to a bogus value to
