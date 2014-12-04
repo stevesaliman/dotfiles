@@ -65,7 +65,9 @@ export _Z_NO_RESOLVE_SYMLINKS=1
 
 # Set bash options, starting with the one that checks for background jobs before
 # exiting.
-shopt -s checkjobs
+if [[ $BASH_VERSION > 4 ]]; then
+    shopt -s checkjobs
+fi
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize

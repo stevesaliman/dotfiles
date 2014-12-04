@@ -7,6 +7,9 @@
 # rsync -av files/ ~
 # chmod 700 ~/.ssh
 # Then find a way to do template substitutions, such as with SED
+# 
+# NOTE: OSX doesn't have an ANSI compliant sed, so you'll need install gsed
+# from macports, and make a link to it in the path before proceding.
 
 # define a function to check the existince of a property
 function verify_value() {
