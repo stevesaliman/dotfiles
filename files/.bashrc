@@ -145,7 +145,7 @@ fi
 
 ## RVM
 # Load RVM into a shell session *as a function*
-[[ -s "${MY_HOME}/.rvm/scripts/rvm" ]] && source "${MY_HOME}/.rvm/scripts/rvm"
+[[ -s "${HOME}/.rvm/scripts/rvm" ]] && source "${HOME}/.rvm/scripts/rvm"
 
 # Add rvm to the path, if we've got RVM
 if [ -d "$HOME/.rvm/bin" ]; then
