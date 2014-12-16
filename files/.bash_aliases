@@ -2,16 +2,19 @@
 # by .bashrc
 
 # standard aliases - make sure color ls is before /bin/ls in the path.
+# Also make sure OSX machines has the GNU coreutils installed.
 alias backup='sudo rsync -avi --delete --exclude=/media/ --exclude=/run/ --exclude=/var/run/media/ --exclude=/run/media/ --exclude=/var/run/user --exclude=/proc/ --exclude=/var/lib/ntp/proc/ --exclude=/sys/ / /var/run/media/steve/Elements/valen | grep -v \.[fd]\/\/\/pog\.\.\.'
 alias backup_data='sudo rsync -avi --delete --exclude=/usr/local/oradata/ /usr/local/ /var/run/media/steve/Elements/valen/usr/local | grep -v \.[fd]\/\/\/pog\.\.\.'
 alias catalina=catalina.sh
 alias cls=clear
 alias deploy='sudo /usr/local/bin/deploy.sh'
+alias dir='ls --color --human-readable -lFa'
 alias df='df -h'
 alias du='du -hx'
 alias grep='grep --color'
 alias lame='lame -q 2 -b 256'
 alias less='less -R'
+alias ls='ls --color --human-readable -FA'
 alias nyx='telnet nyx10.nyx.net'
 alias path='echo $PATH'
 alias prepare="gradle -PenvironmentName=${environment_name} clean; gradle -PenvironmentName=${environment_name} stageRelease"
@@ -27,18 +30,12 @@ alias which=type
 
 # Aliases that differ by OS
 if [[ $os_type == Linux ]]; then
-    alias dir='ls --color --human-readable -lFa'
-    alias ls='ls --color --human-readable -FA'
 	alias psg="ps -eawo 'user pid ppid vsz stime etime time tty args' | grep"
 elif [[ $os_type == CYGWIN* ]]; then
-    alias dir='ls --color --human-readable -lFa'
     # Cygwin has trouble with the groovy shell
 	alias groovysh='stty -icanon min 1 -echo; groovysh --terminal=unix; stty icanon echo'
-    alias ls='ls --color --human-readable -FA'
 	alias psg="ps -eaW | grep"
 elif [[ $os_type == Darwin ]]; then
-    alias dir='ls -lFaGh'
-    alias ls='ls -FAGh'
 	# Set an alias for TextMate
 	alias mate=/Applications/TextMate.app/Contents/Resources/mate
 	alias psg="ps -eawo 'user pid ppid vsz stime etime time tty args' | grep"
