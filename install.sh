@@ -41,6 +41,7 @@ fi
 
 verify_value "df_git_name" "$df_git_name"
 verify_value "df_git_email" "$df_git_email"
+verify_value "df_env_label" "$df_env_label"
 
 echo -e "Installing to $df_home_dir - THIS IS DESCRUCTIVE!  Are you sure?"
 read answer
@@ -61,3 +62,4 @@ sed -i "s/@app.user@/$df_app_user/" $df_home_dir/.ssh/config
 sed -i "s/@local.user@/$df_user/" $df_home_dir/.ssh/config
 
 sed -i "s/@local.user@/$df_user/" $df_home_dir/.bash_vars
+sed -i "s/@env.label@/$df_env_label/" $df_home_dir/.bash_vars

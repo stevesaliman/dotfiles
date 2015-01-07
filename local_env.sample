@@ -12,3 +12,6 @@ df_git_email="john@mydomain.com"
 df_home_user=john
 df_work_user=jpublic
 df_app_user=tomcat
+
+# What is the label for this environment? 
+df_env_label=bogus
