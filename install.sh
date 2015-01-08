@@ -49,6 +49,10 @@ if [ $answer != 'y' ]; then
   exit
 fi
 
+# Short term: remove the old .git-completion file, since it it is now 
+# .git-prompt.
+rm $df_home_dir/.git-completion
+
 echo "rsync -av ${df_source_dir}/files/ $df_home_dir"
 rsync -av "${df_source_dir}/files/" "$df_home_dir"
 

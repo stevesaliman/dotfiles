@@ -30,7 +30,7 @@ if [ -z "$HOSTNAME" ]; then
 fi
 
 #############################################################################
-# Load helper scripts like git-completion and .bash_vars
+# Load helper scripts like .git-prompt and .bash_vars
 #############################################################################
 
 # Load environment variables.
@@ -40,7 +40,7 @@ if [ -f ${bash_script_dir}/.bash_local ]; then
 fi
 
 # Load in the git functions and define what we want to see
-. ${bash_script_dir}/.git-completion
+. ${bash_script_dir}/.git-prompt
 
 # If I'm not myself, add the username to the prompt.
 if [[ $user == $me ]]; then
