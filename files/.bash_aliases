@@ -19,7 +19,6 @@ alias nyx='telnet nyx10.nyx.net'
 alias path='echo $PATH'
 alias prepare="gradle -PenvironmentName=${environment_name} clean; gradle -PenvironmentName=${environment_name} stageRelease"
 alias ssh='ssh -X'
-alias startx=/home/${me}/bin/startx
 alias temp='telnet thermhost.colorado.edu 451'
 alias weather='finger weather@unidata.ucar.edu'
 alias vil=vi
@@ -31,14 +30,17 @@ alias which=type
 # Aliases that differ by OS
 if [[ $os_type == Linux ]]; then
 	alias psg="ps -eawo 'user pid ppid vsz stime etime time tty args' | grep"
+	alias startx=/home/${me}/bin/startx
 elif [[ $os_type == CYGWIN* ]]; then
     # Cygwin has trouble with the groovy shell
 	alias groovysh='stty -icanon min 1 -echo; groovysh --terminal=unix; stty icanon echo'
 	alias psg="ps -eaW | grep"
+	alias startx=/home/${me}/bin/startx
 elif [[ $os_type == Darwin ]]; then
 	# Set an alias for TextMate
 	alias mate=/Applications/TextMate.app/Contents/Resources/mate
 	alias psg="ps -eawo 'user pid ppid vsz stime etime time tty args' | grep"
+	alias startx=/Users/${me}/bin/startx
 else
 	echo "$os_type is unknown, chaos will probably ensue..."
 fi
