@@ -1,4 +1,5 @@
 #!/bin/bash
+# This script is used on Lunux systems to start X windows.
 #export DISPLAY=valen:0
 XTERM=~steve/bin/xt
 

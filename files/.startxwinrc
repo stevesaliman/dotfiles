@@ -1,3 +1,4 @@
+# This script is used by Cygwin to start X sessions.
 # Top Left
 sleep 3
 ~/bin/xt green "xterm-1" 80x24+2+2
