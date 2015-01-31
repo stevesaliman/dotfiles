@@ -149,7 +149,7 @@ fi
 
 # Add rvm to the path, if we've got RVM
 if [ -d "$HOME/.rvm/bin" ]; then
-    export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+    export PATH=$HOME/.rvm/bin:$PATH # Add RVM to the PATH for scripting
 fi
 
 # Trap the shell exit and kill ssh-agent when it exits
