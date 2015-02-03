@@ -3,4 +3,4 @@
 	url = git://github.com/rodjek/vim-puppet.git
 [submodule "files/.vim/bundle/vim-markdown"]
 	path = files/.vim/bundle/vim-markdown
-	url = https://github.com/hallison/vim-markdown.git
+	url = git://github.com/hallison/vim-markdown.git
