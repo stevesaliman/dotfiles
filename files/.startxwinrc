@@ -16,3 +16,8 @@ sleep 3
 sleep 3
 ~/bin/xt purple "xterm-4" 80x24+1-10
 
+# Cygwin's x-server exists when this script exits, so let's prevent that.
+while :
+do
+    sleep 3600
+done
