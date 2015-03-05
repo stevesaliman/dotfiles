@@ -1,0 +1,6 @@
+# Bind Ctrl-Up and Ctrl-Down to top and bottom of history
+"\e[1;5A": beginning-of-history
+"\e[1;5B": end-of-history
+"\e[1;2A": history-search-backward
+"\e[1;2B": history-search-forward
+

@@ -78,6 +78,8 @@ shopt -s dotglob
 stty erase 
 stty intr 
 stty kill 
+# Turn off the ctrl-s "freezing" behavior
+stty -ixon
 umask 022
 
 # Add paths that depend on variables. Only add things for which we've defined a
