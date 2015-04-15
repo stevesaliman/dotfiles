@@ -32,7 +32,7 @@ export term=xterm
 # Don't put duplicate lines or lines starting with spaces in the history.
 export HISTCONTROL=ignoredups:ignorespace
 # Limit the history buffer to 100.
-export HISTSIZE=100
+export HISTSIZE=500
 # Limit the size of the history file to 2000 entries.
 export HISTFILESIZE=2000
 # append to the history file, don't overwrite it
