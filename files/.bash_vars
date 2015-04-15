@@ -140,6 +140,10 @@ elif [[ $os_type == CYGWIN* ]]; then
     path_suffix=/cygdrive/c/WINDOWS/System32:/cygdrive/c/WINDOWS/System32/Wbem
     # We also need Firefox in the path for Selenium to work...
     path_suffix=$path_suffix:/cygdrive/c/network/firefox
+	# If we have NVMW, add it to the path
+	if [ -d "$HOME/.nvmw" ]; then
+	  path_suffix="$HOME/.nvmw:$path_suffix"
+	fi
 elif [[ $os_type == Darwin ]]; then
     echo "Setting variables for OSX"
     export JAVA_HOME=$(/usr/libexec/java_home)

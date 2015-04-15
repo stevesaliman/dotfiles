@@ -36,6 +36,10 @@ elif [[ $os_type == CYGWIN* ]]; then
 	alias groovysh='stty -icanon min 1 -echo; groovysh --terminal=unix; stty icanon echo'
 	alias psg="ps -eaW | grep"
 	alias startx=/home/${me}/bin/startx
+	# If we have NVMW, add an alias for it.
+	if [ -d "$HOME/.nvmw" ]; then
+	    alias nvmw=nvmw.bat
+	fi
 elif [[ $os_type == Darwin ]]; then
 	# Set an alias for TextMate
 	alias mate=/Applications/TextMate.app/Contents/Resources/mate
