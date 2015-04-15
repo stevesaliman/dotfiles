@@ -154,6 +154,10 @@ if [ -d "$HOME/.rvm/bin" ]; then
     export PATH=$HOME/.rvm/bin:$PATH # Add RVM to the PATH for scripting
 fi
 
+## NVM
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
 # Trap the shell exit and kill ssh-agent when it exits
 trap stop_ssh_agent EXIT SIGTERM
 
