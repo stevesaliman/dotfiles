@@ -4,9 +4,11 @@
 [alias]
     comit = commit
 	graph = log --graph --oneline
+	homeprofile = config user.email "support@saliman.net"
 	k =  log --branches --simplify-by-decoration --decorate --oneline
 	lg = log --all --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ci) %C(bold blue)<%an>%Creset' --abbrev-commit
 	tagdate = log --tags --simplify-by-decoration --pretty='format:%ai %d'
+	workprofile = config user.email "ssaliman@tracom.com"
 [branch]
 	autosetuprebase = always
 [core]
