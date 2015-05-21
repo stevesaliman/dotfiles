@@ -23,3 +23,5 @@
     added = green bold
     deleted = red bold
     untracked = yellow
+[status]
+	displayCommentPrefix = true
