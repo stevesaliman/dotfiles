@@ -59,6 +59,11 @@ export _Z_NO_RESOLVE_SYMLINKS=1
 . ${bash_script_dir}/.bash_aliases
 . ${bash_script_dir}/.bash_functions
 
+# On a mac, we need to enable completion manually.
+if [[ $os_type == Darwin ]]; then
+	. /opt/local/etc/profile.d/bash_completion.sh
+fi
+
 #############################################################################
 # Pathing and environment variables for things like Oracle, Maven, etc.
 #############################################################################
