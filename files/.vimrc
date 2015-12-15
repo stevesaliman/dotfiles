@@ -26,8 +26,10 @@ filetype plugin indent on
 "Chmouel Boudjnah <chmouel@mandrakesoft.com>
 
 "Syntax highlighting only for enhanced-vi
+"Also, map .gradle files to the groovy syntax
 "if has("terminfo") && filereadable("/usr/local/share/vim/syntax/syntax.vim")
   syntax on
+  au BufNewFile,BufRead *.gradle set filetype=groovy
 "endif
 
 "Set a statusbar
