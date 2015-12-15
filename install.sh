@@ -56,6 +56,9 @@ rm $df_home_dir/.git-completion
 echo "rsync -av ${df_source_dir}/files/ $df_home_dir"
 rsync -av "${df_source_dir}/files/" "$df_home_dir"
 
+# Cygwin requires .startxwinrc to be executable
+chmod 755 $df_home_dir/.startxwinrc
+
 # some files had tokens in them.  Replace the tokens.
 sed -i "s/@git.name@/$df_git_name/" $df_home_dir/.gitconfig
 sed -i "s/@git.email@/$df_git_email/" $df_home_dir/.gitconfig
