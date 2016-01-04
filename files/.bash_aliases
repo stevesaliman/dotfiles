@@ -18,7 +18,7 @@ alias ls='ls --color --human-readable -FA'
 alias nyx='telnet nyx10.nyx.net'
 alias path='echo $PATH'
 alias prepare="gradle -PenvironmentName=${environment_name} clean; gradle -PenvironmentName=${environment_name} stageRelease"
-alias ssh='ssh -X'
+alias ssh='ssh -X --oHostKeyAlgorithms=+ssh-dss'
 alias temp='telnet thermhost.colorado.edu 451'
 alias weather='finger weather@unidata.ucar.edu'
 alias vil=vi
