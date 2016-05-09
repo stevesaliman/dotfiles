@@ -14,4 +14,4 @@ df_work_user=jpublic
 df_app_user=tomcat
 
 # What is the label for this environment? 
-df_env_label=bogus
+df_env_label=local
