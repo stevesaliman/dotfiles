@@ -17,7 +17,7 @@ fi
 # First set up a basic path that works for all environments. This is needed
 # to execute the rest of this script which uses things like uname, grep, etc.
 export PATH=/usr/local/bin:/sbin:/usr/sbin:/bin:/usr/bin:/opt/bin:/etc
-export PATH=$PATH:/usr/local/etc:/usr/etc:/usr/ccs/bin
+export PATH=$PATH:/usr/local/etc:/usr/etc:/usr/ccs/bin:${HOME}/bin
 
 # Next, figure out where this .bashrc file lives so we can source the right
 # files later.
