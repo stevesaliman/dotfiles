@@ -95,7 +95,7 @@ if [[ $os_type == Linux ]]; then
     export ORACLE_HOME=/opt/oracle/product/12.1.0
     export ORACLE_SID=devl
     export JAVA_HOME=/opt/jdk1.8.0_101
-    export JAVA_OPTS='-Xmx128m -Xms128m'
+    export JAVA_OPTS='-Xmx256m -Xms256m'
     # for X to start up right, we need gnome on the path.
     path_suffix=/opt/gnome/sbin:/opt/gnome/bin:/opt/kde3/bin
     export ANT_HOME=/opt/ant-1.7.1
