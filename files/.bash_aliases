@@ -19,8 +19,9 @@ alias microdeploy='sudo /usr/local/bin/microdeploy.sh'
 alias nyx='telnet nyx10.nyx.net'
 alias path='echo $PATH'
 alias prepare="gradle -PenvironmentName=${environment_name} clean; gradle -PenvironmentName=${environment_name} -x test stageRelease"
-alias scp='scp -oHostKeyAlgorithms=+ssh-dss'
-alias ssh='ssh -X -oHostKeyAlgorithms=+ssh-dss'
+#alias scp='scp -oHostKeyAlgorithms=+ssh-dss'
+# alias ssh='ssh -X -oHostKeyAlgorithms=+ssh-dss'
+alias ssh='ssh -X'
 alias temp='telnet thermhost.colorado.edu 451'
 alias weather='finger weather@unidata.ucar.edu'
 alias vil=vi
