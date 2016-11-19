@@ -20,7 +20,7 @@ sleep 2
 # Bottom Left
 xt purple "xterm-4" "80x24+1-1"
 
-/opt/mucommander-0.9.0/mucommander.sh &
+/opt/mucommander-0.9.1/mucommander.sh &
 sleep 2
 
 sleep 2
