@@ -4,3 +4,6 @@
 [submodule "files/.vim/bundle/vim-markdown"]
 	path = files/.vim/bundle/vim-markdown
 	url = git://github.com/hallison/vim-markdown.git
+[submodule "files/.vim/bundle/typescript-vim"]
+	path = files/.vim/bundle/typescript-vim
+	url = https://github.com/leafgarland/typescript-vim.git
