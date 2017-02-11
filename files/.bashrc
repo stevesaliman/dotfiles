@@ -162,7 +162,7 @@ fi
 ## NVM
 # Load NVM if we have an nvm directory.  The readlink command is used to get
 # the real location of $HOME because nvm has issues with symlinks
-export NVM_DIR="$HOME/.nvm"
+export NVM_DIR="$(readlink -f $HOME)/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 # Trap the shell exit and kill ssh-agent when it exits
