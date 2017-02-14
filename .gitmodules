@@ -7,3 +7,6 @@
 [submodule "files/.vim/bundle/typescript-vim"]
 	path = files/.vim/bundle/typescript-vim
 	url = https://github.com/leafgarland/typescript-vim.git
+[submodule "files/.vim/bundle/editorconfig-vim"]
+	path = files/.vim/bundle/editorconfig-vim
+	url = https://github.com/editorconfig/editorconfig-vim.git
