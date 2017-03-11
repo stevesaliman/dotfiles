@@ -20,8 +20,11 @@ sleep 2
 # Bottom Left
 xt purple "xterm-4" "80x24+1-1"
 
-/opt/mucommander-0.9.1/mucommander.sh &
 sleep 2
+thunderbird &
+
+sleep 2
+/opt/mucommander-0.9.1/mucommander.sh &
 
 sleep 2
 firefox &
