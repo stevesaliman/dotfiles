@@ -3,7 +3,7 @@ set term=xterm-vt220
 set autoindent
 set showmatch
 "set mouse=a
-" Set the devault tabstop to 4, override it in language plugins.
+" Set the default tabstop to 4, override it in language plugins.
 set ts=4
 set shiftwidth=4
 
@@ -19,18 +19,25 @@ else
   set t_Sb=[4%dm
 endif
 
-" Load the puppet plugin
+" Load plugins
 call pathogen#infect()
 filetype plugin indent on
-""Linux-Mandrake configuration.
-"Chmouel Boudjnah <chmouel@mandrakesoft.com>
 
-"Syntax highlighting only for enhanced-vi
-"Also, map .gradle files to the groovy syntax
+"Map .gradle files to the groovy syntax
 "if has("terminfo") && filereadable("/usr/local/share/vim/syntax/syntax.vim")
   syntax on
   au BufNewFile,BufRead *.gradle set filetype=groovy
 "endif
+
+" Tweaks to the markdown colors and languages
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+let g:markdown_fenced_languages = ['bash=sh', 'css', 'erb=eruby',
+'javascript', 'js=javascript', 'json=javascript', 'ruby', 'sass', 'xml']
+let g:markdown_syntax_conceal = 0
+hi markdowncode ctermfg=Red guifg=Red
+
+" Fix a color issue.
+hi Statement  ctermfg=Yellow guifg=Yellow
 
 "Set a statusbar
 "set statusline=~
