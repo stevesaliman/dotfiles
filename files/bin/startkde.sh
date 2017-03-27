@@ -27,9 +27,14 @@ sleep 2
 /opt/mucommander-0.9.1/mucommander.sh &
 
 sleep 2
-firefox &
+if [ -f "${WINEPREFIX}/drive_c/multimedia/winamp/winamp.exe" ]; then
+	env WINEPREFIX="$WINEPREFIX" wine C:\\windows\\command\\start.exe /Unix /opt/wine/dosdevices/c:/multimedia/winamp/winamp.exe
+fi
 
 sleep 2
+firefox &
+
+sleep 3
 virtualbox &
 
 
