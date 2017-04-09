@@ -4,6 +4,7 @@
 XTERM=~steve/bin/xt
 
 conky &
+cairo-dock --opengl --keep-above &
 
 #top left
 xt green "xterm-1" "80x24+2+2"
