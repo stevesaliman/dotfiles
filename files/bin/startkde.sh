@@ -27,8 +27,8 @@ sleep 2
 /opt/mucommander-0.9.1/mucommander.sh &
 
 sleep 2
-if [ -f "${WINEPREFIX}/drive_c/multimedia/winamp/winamp.exe" ]; then
-	env WINEPREFIX="$WINEPREFIX" wine C:\\windows\\command\\start.exe /Unix /opt/wine/dosdevices/c:/multimedia/winamp/winamp.exe
+if [ -f "/opt/wine/drive_c/multimedia/winamp/winamp.exe" ]; then
+	env WINEPREFIX="/opt/wine" wine C:\\windows\\command\\start.exe /Unix /opt/wine/dosdevices/c:/multimedia/winamp/winamp.exe
 fi
 
 sleep 2
