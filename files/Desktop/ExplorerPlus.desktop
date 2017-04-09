@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=ExplorerPlus
+Exec=env WINEPREFIX="/opt/wine" wine C:\\\\utilities\\\\explorerPlus\\\\NXExplo.exe 
+Type=Application
+StartupNotify=true
+Path=/opt/wine/dosdevices/c:/utilities/explorerPlus
+Icon=A3F4_NXExplo.0

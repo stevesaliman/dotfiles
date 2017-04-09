@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=Winamp
+Exec=env WINEPREFIX="/opt/wine" wine C:\\\\multimedia\\\\winamp\\\\winamp.exe 
+Type=Application
+StartupNotify=true
+Icon=0CC6_winamp.0
