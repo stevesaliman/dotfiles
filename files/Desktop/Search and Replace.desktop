@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=Search and Replace
+Exec=env WINEPREFIX="/opt/wine" wine C:\\\\utilities\\\\searchReplace\\\\SR32.exe 
+Type=Application
+StartupNotify=true
+Icon=5594_Sr32.0
