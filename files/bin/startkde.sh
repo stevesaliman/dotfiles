@@ -4,7 +4,8 @@
 XTERM=~steve/bin/xt
 
 conky &
-cairo-dock --opengl --keep-above &
+#cairo-dock --opengl --keep-above &
+cairo-dock --cairo --keep-above &
 
 #top left
 xt green "xterm-1" "80x24+2+2"
@@ -21,6 +22,9 @@ sleep 2
 # Bottom Left
 xt purple "xterm-4" "80x24+1-1"
 
+sleep 3
+virtualbox &
+
 sleep 2
 thunderbird &
 
@@ -35,7 +39,5 @@ fi
 sleep 2
 firefox &
 
-sleep 3
-virtualbox &
 
 
