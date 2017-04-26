@@ -3,5 +3,8 @@ XTerm*visualBell: false
 XTerm*scrollttyoutput: false
 XTerm*ScrollTTYKeypress: true
 XTerm*selectToClipboard: true
+XTerm*cursorColor: #f3b
+XTerm*pointerColor: #f3b
+
 # Fix double-click highlighting
 *charClass:  45:48

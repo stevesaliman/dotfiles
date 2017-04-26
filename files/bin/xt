@@ -18,6 +18,8 @@ if [ -z $3 ]; then
     geom="80x24+10+10"
 fi
 
+export XTERM_NAME="$name"
+
 font=-adobe-courier-medium-r-normal--14-140-75-75-m-90-iso8859-1
 #font="-adobe-courier-medium-r-normal--0-0-75-75-m-0-iso8859-1"
 #xterm=/usr/openwin/bin/xterm

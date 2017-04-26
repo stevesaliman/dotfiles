@@ -42,13 +42,16 @@ fi
 # Load in the git functions and define what we want to see
 . ${bash_script_dir}/.git-prompt
 
-# If I'm not myself, add the username to the prompt.
+# If I'm not myself, add the username to the prompt and xterm title. This needs
+# to be done before adding "z".
 if [[ $user == $me ]]; then
     #PS1="\h: \[\033[00;34m\]\w ${yellow}\$(parse_git_branch)\n\[\033[00m\]\!>"
     PS1="\h: ${blue}\w\$(__git_ps1)\n${normal}\!>"
+    PROMPT_COMMAND='printf "\033]0;%s %s:%s\007" "${XTERM_NAME}" "${HOSTNAME%%.*}" "${PWD/#$HOME/~}"'
 else
     #PS1="\[\033[01;31m\]\u\[\033[00m\]@\h: \[\033[00;34m\]\w \$(parse_git_branch)\n\r\[\033[00m\]\!>"
     PS1="${bold_red}\u${normal}@\h: ${blue}\w\$(__git_ps1)\n\r${normal}\!>"
+    PROMPT_COMMAND='printf "\033]0;%s %s@%s:%s\007" "${XTERM_NAME}" "${USER}" "${HOSTNAME%%.*}" "${PWD/#$HOME/~}"'
 fi
 
 # Load "z" for remembering directories, but don't expand symlinks.
