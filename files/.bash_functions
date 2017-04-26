@@ -49,6 +49,7 @@ function vi() {
 
 function xtitle() {
     printf "\033]0;$*\007\r"
+	export XTERM_NAME="$*"
 }
 
 function zmore() {
