@@ -43,15 +43,17 @@ fi
 . ${bash_script_dir}/.git-prompt
 
 # If I'm not myself, add the username to the prompt and xterm title. This needs
-# to be done before adding "z".
+# to be done before adding "z". I'm using the dirs command instead of the more
+# usual ${PWD/#$HOME/~} substitution because, for some reason, the substitution
+# wasn't happening in some environments.
 if [[ $user == $me ]]; then
     #PS1="\h: \[\033[00;34m\]\w ${yellow}\$(parse_git_branch)\n\[\033[00m\]\!>"
     PS1="\h: ${blue}\w\$(__git_ps1)\n${normal}\!>"
-    PROMPT_COMMAND='printf "\033]0;%s %s:%s\007" "${XTERM_NAME}" "${HOSTNAME%%.*}" "${PWD/#$HOME/\~}"'
+	PROMPT_COMMAND='printf "\033]0;%s %s:%s\007" "${XTERM_NAME}" "${HOSTNAME%%.*}" "$(dirs)"'
 else
     #PS1="\[\033[01;31m\]\u\[\033[00m\]@\h: \[\033[00;34m\]\w \$(parse_git_branch)\n\r\[\033[00m\]\!>"
     PS1="${bold_red}\u${normal}@\h: ${blue}\w\$(__git_ps1)\n\r${normal}\!>"
-    PROMPT_COMMAND='printf "\033]0;%s %s@%s:%s\007" "${XTERM_NAME}" "${USER}" "${HOSTNAME%%.*}" "${PWD/#$HOME/\~}"'
+	PROMPT_COMMAND='printf "\033]0;%s %s@%s:%s\007" "${XTERM_NAME}" "${USER}" "${HOSTNAME%%.*}" "$(dirs)"'
 fi
 
 # Load "z" for remembering directories, but don't expand symlinks.
