@@ -12,3 +12,4 @@
 projects/**/node_modules/**
 projects/**/build/**
 projects/**/classes/**
+tomcat*/logs/**
