@@ -1,0 +1,14 @@
+/dev/
+/media/
+/proc/
+/run/
+/run/media/
+/var/run/media/
+/var/run/user/
+/var/lib/ntp/proc/
+/sys/
+.m2/repository/**
+.gradle/caches/**
+projects/**/node_modules/**
+projects/**/build/**
+projects/**/classes/**
