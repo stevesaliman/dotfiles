@@ -19,13 +19,24 @@ else
   set t_Sb=[4%dm
 endif
 
-" Load plugins
-call pathogen#infect()
-filetype plugin indent on
+" Load vim-plug plugin manager
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+      \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+" Load plugins.  Each of the names below is the name of the plugin's github
+" repo, minus the git://github.com prefix and '.git' suffix.
+call plug#begin('~/.vim/plugged')
+Plug 'editorconfig/editorconfig-vim'
+Plug 'leafgarland/typescript-vim'
+Plug 'rodjek/vim-puppet'
+Plug 'tpope/vim-markdown'
+call plug#end()
 
 "Map .gradle files to the groovy syntax
 "if has("terminfo") && filereadable("/usr/local/share/vim/syntax/syntax.vim")
-  syntax on
   au BufNewFile,BufRead *.gradle set filetype=groovy
 "endif
 
