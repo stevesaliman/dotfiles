@@ -33,7 +33,11 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'leafgarland/typescript-vim'
 Plug 'rodjek/vim-puppet'
 Plug 'tpope/vim-markdown'
+Plug 'ekalinin/Dockerfile.vim'
 call plug#end()
+
+" Define alias to update plugins and vim-plug
+command! PU PlugUpdate | PlugUpgrade
 
 "Map .gradle files to the groovy syntax
 "if has("terminfo") && filereadable("/usr/local/share/vim/syntax/syntax.vim")
