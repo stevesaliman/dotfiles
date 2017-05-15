@@ -70,3 +70,5 @@ sed -i "s/@local.user@/$df_user/" $df_home_dir/.ssh/config
 
 sed -i "s/@local.user@/$df_user/" $df_home_dir/.bash_vars
 sed -i "s/@env.label@/$df_env_label/" $df_home_dir/.bash_vars
+
+sed -i "s/@xterm.font@/$df_xterm_font/" $df_home_dir/.Xdefaults

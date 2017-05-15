@@ -15,3 +15,8 @@ df_app_user=tomcat
 
 # What is the label for this environment? 
 df_env_label=local
+# What Xterm font do we want?  Uncomment one of the following...
+# For Leap 42.2 and Plasma 5 on the hardware:
+# df_xterm_font=-misc-fixed-medium-r-normal-*-15-140-*-*-c-90-*-*
+# For all others:
+# df_xterm_font=-adobe-courier-medium-r-normal--14-140-75-75-m-90-iso8859-1

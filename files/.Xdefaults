@@ -1,10 +1,26 @@
 XTerm*toolBar: false
 XTerm*visualBell: false
-XTerm*scrollttyoutput: false
-XTerm*ScrollTTYKeypress: true
+!XTerm*scrollTtyOutput: false
+!XTerm*ScrollTtyKeypress: true
 XTerm*selectToClipboard: true
 XTerm*cursorColor: #f3b
+!XTerm*vt100.cursorColor:
 XTerm*pointerColor: #f3b
-
-# Fix double-click highlighting
+!XTerm*vt100.pointerColor:
+!XTerm*scrollLines:
+!XTerm*utf8: 1
+! Fix double-click highlighting
 *charClass:  45:48
+! XTerm*font:  -adobe-courier-medium-r-normal--14-140-75-75-m-90-iso8859-1
+! XTerm*font:  -*-*-medium-r-normal-*-14-140-*-*-m-*-*-*
+! XTerm*font:  -misc-dejavu sans mono-medium-r-normal--*-*-*-*-m-*-*-*
+! XTerm*font:  -misc-dejavu sans-medium-r-normal--*-*-*-*-*-*-*-*
+! Default: XTerm*font: -misc-fixed-medium-r-semicondensed-*-13-120-75-75-c-60-iso10646-1
+! Close... 
+XTerm*font: @xterm.font@
+! 
+! medium seems ok
+! r seems ok
+! normal seems ok
+! m seems ok
+! 90 seems ok

@@ -22,8 +22,6 @@ export XTERM_NAME="$name"
 
 font=-adobe-courier-medium-r-normal--14-140-75-75-m-90-iso8859-1
 #font="-adobe-courier-medium-r-normal--0-0-75-75-m-0-iso8859-1"
-#xterm=/usr/openwin/bin/xterm
-#xterm=/home/inv-home/d795ai/bin/xterm-color
 os_type=$(uname)
 if [ -z $HOSTNAME ]; then
     export HOSTNAME=`/bin/hostname`
@@ -32,7 +30,6 @@ if [[ $os_type == Linux ]]; then
     xterm=/usr/bin/xterm
 elif [[ $os_type == CYGWIN* ]]; then
     xterm=/bin/xterm
-    #xterm=~salimas/bin/xterm
 elif [[ $os_type == Darwin ]]; then
     xterm=/usr/X11R6/bin/xterm
 else
@@ -57,5 +54,8 @@ if [ "$color" == "cyan" ]; then
 fi    
 
 #$xterm -pc -ti vt220 -ls -sb -fg $fg -bg $bg -ms "#f3b" -cr "#f3b" -sl 80 -fn $font -name xterm -e tcsh &
-$xterm -pc -ti vt220 -ls -sb -fg $fg -bg $bg -ms "#f3b" -cr "#f3b" -sl 1000 -fn $font -geometry $geom -T $name &
+# For Leap and Plasma 5
+$xterm -pc -ti vt220 -ls -sb -fg $fg -bg $bg -sl 1000 -geometry $geom -T $name &
+# For all else.
+# $xterm -pc -ti vt220 -ls -sb -fg $fg -bg $bg -ms "#f3b" -cr "#f3b" -sl 1000 -fn $font -geometry $geom -T $name &
 
