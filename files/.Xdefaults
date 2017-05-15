@@ -17,6 +17,7 @@ XTerm*pointerColor: #f3b
 ! XTerm*font:  -misc-dejavu sans-medium-r-normal--*-*-*-*-*-*-*-*
 ! Default: XTerm*font: -misc-fixed-medium-r-semicondensed-*-13-120-75-75-c-60-iso10646-1
 ! Close... 
+! XTerm*font: -misc-fixed-medium-r-normal-*-15-140-*-*-c-90-*-*
 XTerm*font: @xterm.font@
 ! 
 ! medium seems ok
