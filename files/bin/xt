@@ -31,7 +31,7 @@ if [[ $os_type == Linux ]]; then
 elif [[ $os_type == CYGWIN* ]]; then
     xterm=/bin/xterm
 elif [[ $os_type == Darwin ]]; then
-    xterm=/usr/X11R6/bin/xterm
+    xterm=/opt/x11/bin/xterm
 else
 	xterm=/opt/invs/bin/xterm
 fi
