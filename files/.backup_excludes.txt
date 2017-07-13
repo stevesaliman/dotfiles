@@ -5,6 +5,7 @@
 /run/media/
 /var/run/media/
 /var/run/user/
+/var/lib/docker/devicemapper/devicemapper/*
 /var/lib/ntp/proc/
 /sys/
 .m2/repository/**
