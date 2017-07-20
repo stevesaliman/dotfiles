@@ -22,6 +22,7 @@ alias path='echo $PATH'
 alias prepare="gradle -PenvironmentName=${environment_name} clean; gradle -PenvironmentName=${environment_name} -x test stageRelease"
 alias temp='telnet thermhost.colorado.edu 451'
 alias weather='finger weather@unidata.ucar.edu'
+alias unkube='unset ${!DOCKER_*}'
 alias vil=vi
 alias vncserv='vncserver :1 -depth 16 -geometry 1870x1140'
 alias vncserv-low='vncserver :1 -depth 16 -geometry 1280x800'
