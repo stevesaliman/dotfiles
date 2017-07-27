@@ -1,25 +1,26 @@
 # This file is sourced by .bashrc to load all the functions we want to use.
 
+# Run the aws-shell after moving the LD_LIBRARY_PATH out of the way.
+function aws-shell() {
+  export old_ld_library_path=$LD_LIBRARY_PATH
+  unset LD_LIBRARY_PATH
+  /usr/bin/aws-shell
+  export LD_LIBRARY_PATH=$old_ld_library_path
+}
+
 # The decode function can't be an alias because we're using $1 twice.
 function decode() {
   'tr A-MN-Za-mn-z N-ZA-Mn-za-m < $1 > $1.out'
 }
 
-# function to start a gpg agent so we can generate pgp keys.
-function start-gpg () {
-    unset DISPLAY
-	export GPG_TTY=$(tty)
-	eval $(gpg-agent --daemon --pinentry-program /usr/bin/pinentry)
+# Remove all exited docker containers
+function drm() {
+  docker rm $(docker ps -a -f status=exited -q)
 }
 
-# function to show history.
-function h() {
-    num=$1
-    if [ -z $num ]; then
-        num=40
-    fi
-    # if no arg is passed, just get the first 39...
-    history $num
+# Remove all unused images
+function drmi() {
+  docker rmi $(docker images -f dangling=true -q)
 }
 
 # Function to run a single gradle build in debug mode.  It assumes that "gradle"
@@ -33,27 +34,21 @@ function old_gradled() {
 	export GRADLE_OPTS="$old_gradle_opts"
 }
 
-# The vi function plays with the home directory so that I can use my vim config
-# regardless of who I am. The double quotes around the $@ are very important.  
-# Without them, filenames with spaces will be interpereted as several different
-# filenames when they are passed to vi.
-function vi() {
-	if [[ $user == $me ]]; then
-		vim -X "$@"
-	else
-		HOME=${bash_script_dir}
-		vim -X -c "let \$HOME = \"${bash_script_dir}\"" "$@"
-		HOME=${USER_HOME}
-	fi
+# function to show history.
+function h() {
+    num=$1
+    if [ -z $num ]; then
+        num=40
+    fi
+    # if no arg is passed, just get the first 39...
+    history $num
 }
 
-function xtitle() {
-    printf "\033]0;$*\007\r"
-	export XTERM_NAME="$*"
-}
-
-function zmore() {
-    zcat $*| more
+# function to start a gpg agent so we can generate pgp keys.
+function start-gpg () {
+    unset DISPLAY
+	export GPG_TTY=$(tty)
+	eval $(gpg-agent --daemon --pinentry-program /usr/bin/pinentry)
 }
 
 # Function to start Cygwin's ssh-agent. It starts the agent, then creates an
@@ -95,5 +90,28 @@ function stop_ssh_agent {
 		eval $(/usr/bin/ssh-agent -k)
 	fi
 	exit
+}
+
+# The vi function plays with the home directory so that I can use my vim config
+# regardless of who I am. The double quotes around the $@ are very important.  
+# Without them, filenames with spaces will be interpereted as several different
+# filenames when they are passed to vi.
+function vi() {
+	if [[ $user == $me ]]; then
+		vim -X "$@"
+	else
+		HOME=${bash_script_dir}
+		vim -X -c "let \$HOME = \"${bash_script_dir}\"" "$@"
+		HOME=${USER_HOME}
+	fi
+}
+
+function xtitle() {
+    printf "\033]0;$*\007\r"
+	export XTERM_NAME="$*"
+}
+
+function zmore() {
+    zcat $*| more
 }
 
