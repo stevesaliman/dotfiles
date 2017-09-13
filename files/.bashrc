@@ -180,3 +180,7 @@ if [ -z "$SOURCED" ]; then
     cd
 fi
 export SOURCED=true
+
+# tabtab source for jhipster package
+# uninstall by removing these lines or running `tabtab uninstall jhipster`
+[ -f /opt/local/home/ssaliman/.nvm/versions/node/v6.9.5/lib/node_modules/generator-jhipster/node_modules/tabtab/.completions/jhipster.bash ] && . /opt/local/home/ssaliman/.nvm/versions/node/v6.9.5/lib/node_modules/generator-jhipster/node_modules/tabtab/.completions/jhipster.bash

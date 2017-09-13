@@ -100,7 +100,7 @@ if [[ $os_type == Linux ]]; then
     path_suffix=/opt/gnome/sbin:/opt/gnome/bin:/opt/kde3/bin
     export ANT_HOME=/opt/ant-1.7.1
     export MVN_HOME=/opt/maven-3.0.5
-    export GRADLE_HOME=/opt/gradle-3.3
+    export GRADLE_HOME=/opt/gradle-4.1
     export GROOVY_HOME=/opt/groovy-2.4.4
     export GRAILS_HOME=/opt/grails-2.4.4
     export CATALINA_HOME=/opt/tomcat-8.0.39
@@ -116,7 +116,7 @@ elif [[ $os_type == CYGWIN* ]]; then
     export GROOVY_HOME=/opt/groovy-2.4.4
     #export RUBY_HOME=c:/opt/ruby-1.8.7
     export MVN_HOME=/opt/maven-3.0.5
-    export GRADLE_HOME=/opt/gradle-3.3
+    export GRADLE_HOME=/opt/gradle-4.1
     export GRAILS_HOME=/opt/grails-2.4.4
     export CATALINA_HOME=/cygdrive/c/opt/tomcat-8.0.39
     #export CATALINA_PID $CATALINA_HOME/work/catalina.pid
@@ -145,7 +145,7 @@ elif [[ $os_type == Darwin ]]; then
     export MVN_HOME=/opt/local
     export MYSQL_HOME=/usr/local/mysql
     instant_client=1
-    export GRADLE_HOME=/opt/gradle-3.3
+    export GRADLE_HOME=/opt/gradle-4.1
     export GRAILS_HOME=/opt/grails-2.4.4
     export CATALINA_HOME=/opt/tomcat-8.0.39
     cat_opts="-XX:PermSize=64m -XX:MaxPermSize=256m"

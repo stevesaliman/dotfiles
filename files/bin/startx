@@ -2,6 +2,21 @@
 # This script is used to start xterms in an OSX environment
 #export DISPLAY=valen:0
 
+# First things first.  Figure out what our display resolution is and set some
+# variables accordingly.  Start with defaults.
+. $HOME/.bashrc
+left_xterm_offset=1
+right_xterm_offset=800
+screen_width=$(get_screen_res_x)
+screen_height=$(get_screen_res_x)
+
+#On ultrawides, we want our xterms more centered.
+if [ "$screen_width" -gt "3000" ]; then
+    left_xterm_offset=800
+    right_xterm_offset=1600
+fi
+
+
 #top left
 xt green "xterm-1" "80x24+2+2"
 

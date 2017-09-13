@@ -23,6 +23,23 @@ function drmi() {
   docker rmi $(docker images -f dangling=true -q)
 }
 
+# Functions to get the screen resolution
+function get_screen_res_x {
+  if [[ $os_type == Darwin ]]; then
+    system_profiler SPDisplaysDataType | awk -F '[ x ]+' '/Resolution:/{print $3}'
+  else
+    xdpyinfo | awk -F '[ x]+' '/dimensions:/{print $3}'
+  fi
+}
+
+function get_screen_res_y {
+  if [[ $os_type == Darwin ]]; then
+    system_profiler SPDisplaysDataType | awk -F '[ x ]+' '/Resolution:/{print $4}'
+  else
+    xdpyinfo | awk -F '[ x]+' '/dimensions:/{print $4}'
+  fi
+}
+
 # Function to run a single gradle build in debug mode.  It assumes that "gradle"
 # is in the path (or at least an alias).  Gradle runs in debug mode based on 
 # the GRADLE_OPTS variable.  This function will unset those options at the end

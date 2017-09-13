@@ -2,25 +2,37 @@
 # This script is used on Lunux systems to start X windows.
 #export DISPLAY=valen:0
 
-conky &
+# First things first.  Figure out what our display resolution is and set some
+# variables accordingly.  Start with defaults.
+left_xterm_offset=1
+right_xterm_offset=800
+screen_width=$(xdpyinfo | awk -F '[ x]+' '/dimensions:/{print $3}')
+screen_height=$(xdpyinfo | awk -F '[ x]+' '/dimensions:/{print $4}')
+
+#On ultrawides, we want our xterms more centered.
+if [ "$screen_width" -gt "3000" ]; then
+	left_xterm_offset=800
+	right_xterm_offset=1600
+fi
+
 #cairo-dock --opengl --keep-above &
 cairo-dock --cairo --keep-above &
 
 #top left
 sleep 2
-xt green "xterm-1" "80x24+2+2"
+xt green "xterm-1" "80x24+${left_xterm_offset}+2"
 
-# Bottom Right We need padding to get past the Office bar
+# Bottom Right.
 sleep 2
-xt green "xterm-2" "80x24+800-1"
+xt green "xterm-2" "80x24+${right_xterm_offset}-1"
 
-# Top Right We need padding to get past the Office bar
+# Top Right.
 sleep 2
-xt gold "xterm-3" "80x24+800+1"
+xt gold "xterm-3" "80x24+${right_xterm_offset}+1"
 
 # Bottom Left
 sleep 2
-xt purple "xterm-4" "80x24+1-1"
+xt purple "xterm-4" "80x24+${left_xterm_offset}-1"
 
 sleep 2
 thunderbird &
@@ -38,3 +50,6 @@ firefox &
 
 sleep 3
 virtualbox &
+
+# Start conky last to give the screen time to adjust to large monitors.
+conky &
