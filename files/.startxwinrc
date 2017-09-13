@@ -1,20 +1,34 @@
 # This script is used by Cygwin to start X sessions.
+
+# First things first.  Figure out what our display resolution is and set some
+# variables accordingly.  Start with defaults.
+left_xterm_offset=1
+right_xterm_offset=800
+screen_width=$(xdpyinfo | awk -F '[ x]+' '/dimensions:/{print $3}')
+screen_height=$(xdpyinfo | awk -F '[ x]+' '/dimensions:/{print $4}')
+
+#On ultrawides, we want our xterms more centered.
+if [ "$screen_width" -gt "3000" ]; then
+    left_xterm_offset=800
+    right_xterm_offset=1600
+fi
+
 # Top Left
 sleep 3
-~/bin/xt green "xterm-1" 80x24+2+2
+~/bin/xt green "xterm-1" 80x24+${left_xterm_offset}+2
 # We only want one window on Delenn...
 if [ "$HOSTNAME" == "delenn"]; then
   return
 fi
-#Bottom Right We need padding to get past the Office bar
+#Bottom Right.
 sleep 3
-~/bin/xt green "xterm-2" 80x24+800-10
-# Top Right We need padding to get past the Office bar
+~/bin/xt green "xterm-2" 80x24+${right_xterm_offset}-10
+# Top Right.
 sleep 3
-~/bin/xt gold "xterm-3" 80x24+800+1
+~/bin/xt gold "xterm-3" 80x24+${right_xterm_offset}+1
 # Bottom Left
 sleep 3
-~/bin/xt purple "xterm-4" 80x24+1-10
+~/bin/xt purple "xterm-4" 80x24+${left_xterm_offset}-10
 
 # Cygwin's x-server exists when this script exits, so let's prevent that.
 while :
