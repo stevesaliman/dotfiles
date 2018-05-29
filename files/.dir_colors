@@ -37,7 +37,7 @@ TERM vt100
 # 40=black 41=red 42=green 43=yellow 44=blue 45=magenta 46=cyan 47=white
 NORMAL 00   # global default, although everything should be something.
 FILE 00     # normal file
-DIR 00;34   # directory - blue
+DIR 01;34   # directory - bold blue
 LINK 01;36  # symbolic link.  bold cyan. (If you set this to 'target' instead 
             # of a  numerical value, the color is as for the file pointed to.)
 FIFO 40;33  # pipe: yellow on black.
