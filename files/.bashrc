@@ -83,6 +83,8 @@ fi
 shopt -s checkwinsize
 # Include dotfiles when globbing (expanding wildcards)
 shopt -s dotglob
+# append to the history file, don't overwrite it
+shopt -s histappend
 
 # Fix terminal oddities
 stty erase 
