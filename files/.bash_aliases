@@ -51,13 +51,7 @@ else
 	echo "$os_type is unknown, chaos will probably ensue..."
 fi
 
-# Aliases that depend on variables, like "gradle"
-if [ -d "$GRADLE_HOME" ]; then
-	alias gradle="${GRADLE_HOME}/bin/gradle"
-else 
-	alias gradle="gradlew"
-fi
-
+# Aliases that depend on variables, like "grails"
 if [ -d "$GRAILS_HOME" ]; then
 	alias grails="${GRAILS_HOME}/bin/grails"
 fi

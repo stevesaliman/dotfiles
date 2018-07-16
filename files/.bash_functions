@@ -40,17 +40,6 @@ function get_screen_res_y {
   fi
 }
 
-# Function to run a single gradle build in debug mode.  It assumes that "gradle"
-# is in the path (or at least an alias).  Gradle runs in debug mode based on 
-# the GRADLE_OPTS variable.  This function will unset those options at the end
-# of the run.
-function old_gradled() {
-    old_gradle_opts="$GRADLE_OPTS"
-	export GRADLE_OPTS="$GRADLE_OPTS -Xdebug -Xnoagent -Djava.compiler=NONE -Xrunjdwp:transport=dt_socket,address=5005,server=y,suspend=y"
-	gradle $@
-	export GRADLE_OPTS="$old_gradle_opts"
-}
-
 # function to show history.
 function h() {
     num=$1
