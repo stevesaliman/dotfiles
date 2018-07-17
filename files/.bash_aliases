@@ -17,6 +17,7 @@ alias lame='lame -q 2 -b 256'
 alias less='less -R'
 alias ls='ls --color --human-readable -FA'
 alias microdeploy='sudo /usr/local/bin/microdeploy.sh'
+alias mini-env='eval $(minikube docker-env)'
 alias nyx='telnet nyx10.nyx.net'
 alias path='echo $PATH'
 alias prepare="gradle -PenvironmentName=${environment_name} clean; gradle -PenvironmentName=${environment_name} -x test stageRelease"
