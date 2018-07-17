@@ -68,6 +68,11 @@ export _Z_NO_RESOLVE_SYMLINKS=1
 if [[ $os_type == Darwin ]]; then
 	. /opt/local/etc/profile.d/bash_completion.sh
 fi
+# Load local completion scripts.
+for bcfile in ~/.bash_completion.d/* ; do
+	. $bcfile
+done
+
 
 #############################################################################
 # Pathing and environment variables for things like Oracle, Maven, etc.
