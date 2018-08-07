@@ -69,7 +69,7 @@ if [[ $os_type == Darwin ]]; then
 	. /opt/local/etc/profile.d/bash_completion.sh
 fi
 # Load local completion scripts.
-for bcfile in ~/.bash_completion.d/* ; do
+for bcfile in ${bash_script_dir}/.bash_completion.d/* ; do
 	. $bcfile
 done
 
