@@ -92,6 +92,7 @@ EXEC 01;32 # bold green.
 
 # movie formats bold white
 .mpg 01;37
+.mp4 01;37
 .mkv 01;37
 .avi 01;37
 .fli 01;37
