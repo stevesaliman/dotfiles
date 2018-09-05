@@ -21,16 +21,12 @@ alias microdeploy='sudo /usr/local/bin/microdeploy.sh'
 alias mk=minikube
 alias mk-env='eval $(minikube docker-env)'
 alias ms=minishift
-alias ms-env'eval $(minishift oc-env); eval $(minishift docker-env)'
+alias ms-env='eval $(minishift oc-env); eval $(minishift docker-env)'
 alias nyx='telnet nyx10.nyx.net'
 alias path='echo $PATH'
 alias prepare="gradle -PenvironmentName=${environment_name} clean; gradle -PenvironmentName=${environment_name} -x test stageRelease"
-alias temp='telnet thermhost.colorado.edu 451'
-alias weather='finger weather@unidata.ucar.edu'
 alias unkube='unset ${!DOCKER_*}'
 alias vil=vi
-alias vncserv='vncserver :1 -depth 16 -geometry 1870x1140'
-alias vncserv-low='vncserver :1 -depth 16 -geometry 1280x800'
 alias vt100='set term=vt100; stty rows 24'
 alias which=type
 
