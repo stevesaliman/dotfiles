@@ -36,7 +36,7 @@ else
 	xterm=/opt/invs/bin/xterm
 fi
 
-if [ "$color" == "aqua" ]; then
+if [ "$color" == "cyan" ]; then
     fg=cyan
 fi
 
@@ -48,7 +48,7 @@ if [ "$color" == "gold" ]; then
     fg=gold
 fi    
 
-if [ "$color" == "cyan" ]; then
+if [ "$color" == "aqua" ]; then
     fg=cyan 
     bg=navy
 fi    
