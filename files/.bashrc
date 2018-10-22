@@ -72,6 +72,10 @@ fi
 for bcfile in ${bash_script_dir}/.bash_completion.d/* ; do
 	. $bcfile
 done
+# The AWS cli has its own way of doing autocomplete
+if hash aws_completer 2>/dev/null; then
+	complete -C aws_completer aws
+fi
 
 
 #############################################################################
