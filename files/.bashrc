@@ -104,30 +104,36 @@ stty -ixon
 umask 022
 
 # Add paths that depend on variables. Only add things for which we've defined a
-# variable that says we've got the package.
+# variable that says we've got the package. We'll use a helper variable for the
+# Load Library Path. This variable gets used with a funny looking syntax that
+# only puts in a separating colon if there is already a value in the variable.
+unset local_libs
+
 if [ -n "$X11_HOME" ]; then
     export PATH=$PATH:$X11_HOME/bin
     export FONTPATH=$X11_HOME/lib/fonts
 fi
 
+# Set the Oracle path.  Setting LD_LIBRARY_PATH appears to interfere with 
+# Python, so we won't add it ot the library path.
 if [ -n "$ORACLE_HOME" ]; then
     if [ $instant_client == 1 ]; then
         export PATH=$PATH:$ORACLE_HOME
-        export LD_LIBRARY_PATH=$ORACLE_HOME
+		# export local_libs=${local_libs:+${local_libs}:}:$ORACLE_HOME
     else
         export PATH=$PATH:$ORACLE_HOME/bin
-        export LD_LIBRARY_PATH=$ORACLE_HOME/lib
+		# export local_libs=${local_libs:+${local_libs}:}:$ORACLE_HOME/lib
     fi
 fi
 
 if [ -n "$MYSQL_HOME" ]; then
     export PATH=$PATH:$MYSQL_HOME/bin
-    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$MYSQL_HOME/lib
+	local_libs=${local_libs:+${local_libs}:}:$MYSQL_HOME/lib
 fi
 
 if [ -n "$GROOVY_HOME" ]; then
     export PATH=$PATH:$GROOVY_HOME/bin
-    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$GROOVY_HOME/lib
+	local_libs=${local_libs:+${local_libs}:}$GROOVY_HOME/lib
 fi
 
 if [ -n "$CATALINA_HOME" ]; then
@@ -148,7 +154,7 @@ if [ -n "$path_suffix" ]; then
 fi
 
 # Set up the library load path, manpath, etc.
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib:$X11_HOME/lib:/usr/ccs/lib:$HOME/lib
+export LD_LIBRARY_PATH=$local_libs:/usr/local/lib:$X11_HOME/lib:/usr/ccs/lib:$HOME/lib
 export MANPATH=$HOME/man:/usr/man:/usr/share/man:/usr/local/man:$X11_HOME/man
 
 if [ -n "$JAVA_HOME" ]; then

@@ -1,13 +1,5 @@
 # This file is sourced by .bashrc to load all the functions we want to use.
 
-# Run the aws-shell after moving the LD_LIBRARY_PATH out of the way.
-function aws-shell() {
-  export old_ld_library_path=$LD_LIBRARY_PATH
-  unset LD_LIBRARY_PATH
-  /usr/bin/aws-shell
-  export LD_LIBRARY_PATH=$old_ld_library_path
-}
-
 # The decode function can't be an alias because we're using $1 twice.
 function decode() {
   'tr A-MN-Za-mn-z N-ZA-Mn-za-m < $1 > $1.out'
