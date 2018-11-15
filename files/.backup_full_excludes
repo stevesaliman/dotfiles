@@ -1,3 +1,7 @@
+# Files that should be excluded when doing a "file" backup.  It includes 
+# directories we don't need to backup like the /dev directory, but also files
+# in project directories we don't need to backup because they are created by a
+# build.
 /dev/
 /media/
 /netdrive/

@@ -1,0 +1,6 @@
+# Files that should be excluded when doing a "file" backup.  It is mainly files
+# inside project directories we don't need to backup because they are created 
+# by a build.
+**/node_modules/**
+**/build/**
+**/classes/**
