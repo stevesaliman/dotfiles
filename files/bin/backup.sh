@@ -74,7 +74,7 @@ process_args() {
 # being set.
 full_backup() {
 	local backup_user=$1
-	local exclude_file="/home/${backup_user}/.backup_excludes"
+	local exclude_file="/home/${backup_user}/.backup_full_excludes"
 	echo "Performing a full backup to $BACKUP_DIR for user $backup_user"
 	rsync -avi --delete --exclude-from="${exclude_file}" / "${BACKUP_DIR}" | grep -v \.[fd]\/\/\/pog\.\.\.
 }
@@ -88,7 +88,7 @@ full_backup() {
 # changed files, then making a tar of that directory.
 file_backup() {
 	local backup_user=$1
-	local exclude_file="/home/${backup_user}/.backup_excludes"
+	local exclude_file="/home/${backup_user}/.backup_file_excludes"
 	echo "Performing a file backup to $BACKUP_DIR for user $backup_user"
 	local dt=$(date +%Y-%m-%d_%H-%M)
 
