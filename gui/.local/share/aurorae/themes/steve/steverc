@@ -1,0 +1,40 @@
+[General]
+ActiveTextColor=255,255,255,255
+Animation=200
+BrowserApplication=firefox
+InactiveTextColor=255,255,255,200
+RightButtons=HIAX
+TitleAlignment=Left
+TitleVerticalAlignment=Center
+XftAntialias=true
+XftHintStyle=hintfull
+XftSubPixel=rgb
+desktopFont=Sans Serif,9,-1,5,50,0,0,0,0,0
+fixed=Monospace,9,-1,5,50,0,0,0,0,0
+font=Sans Serif,9,-1,5,50,0,0,0,0,0
+menuFont=Sans Serif,9,-1,5,50,0,0,0,0,0
+smallestReadableFont=Sans Serif,8,-1,5,50,0,0,0,0,0
+taskbarFont=Sans Serif,9,-1,5,50,0,0,0,0,0
+toolBarFont=Sans Serif,8,-1,5,50,0,0,0,0,0
+
+[Layout]
+BorderBottom=4
+BorderLeft=4
+BorderRight=4
+ButtonHeight=18
+ButtonMarginTop=0
+ButtonSpacing=2
+ButtonWidth=24
+ExplicitButtonSpacer=10
+MaximizedBorderTop=5
+PaddingBottom=9
+PaddingLeft=9
+PaddingRight=9
+PaddingTop=8
+TitleBorderLeft=8
+TitleBorderRight=4
+TitleEdgeBottom=3
+TitleEdgeLeft=6
+TitleEdgeRight=8
+TitleEdgeTop=3
+TitleHeight=18
