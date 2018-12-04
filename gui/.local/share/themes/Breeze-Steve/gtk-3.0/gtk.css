@@ -54,6 +54,11 @@
 /* text/foreground color of selections on backdrop windows */
 /*@define-color theme_unfocused_selected_fg_color #eff0f1;*/
 
+/* Scroll bars for Firefox and Thunderbird - these colors are not visible in 
+   the widget tool... */
+@define-color scrollbar_bg_color #006060;
+@define-color scrollbar_slider_color #3d3c3b;
+
 /* widgets main borders color */
 @define-color borders #616569;
 
@@ -71,7 +76,7 @@
 @define-color button_bottom #303439;
 @define-color button_text_color #e8e6e3;
 
-    /* these are pretty self explicative */
+/* these are pretty self explicative */
 @define-color warning_color #f67400;
 @define-color error_color #da4453;
 @define-color success_color #27ae60;
@@ -4295,7 +4300,8 @@ scrollbar trough {
     min-height: 14px;
     border: 0px solid transparent;
     border-radius: 8px;
-    background-color: #6a6e72;
+    /* background-color: #6a6e72; */
+	background-color: @scrollbar_bg_color;
     box-shadow: inset 0px 0px 0px 2px @theme_bg_color;
 }
 
@@ -4305,7 +4311,7 @@ scrollbar slider {
     border: 2px solid transparent;
     border-radius: 8px;
     background-clip: padding-box;
-    background-color: #adafb2;
+    background-color: @scrollbar_slider_color;
 }
 
 scrollbar slider:hover {
