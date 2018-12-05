@@ -58,6 +58,8 @@
    the widget tool... */
 @define-color scrollbar_bg_color #006060;
 @define-color scrollbar_slider_color #3d3c3b;
+/* @define-color scrollbar_halo_color #4c79a2; */
+@define-color scrollbar_halo_color #557eac;
 
 /* widgets main borders color */
 @define-color borders #616569;
@@ -4203,9 +4205,9 @@ scale highlight:backdrop:disabled {
     background-color: rgba(37, 164, 230, 0.35);
 }
 
-/**************
- * Scrollbars *
- **************/
+/*******************************************************************
+ * Scrollbars - I don't think these show up in gtk3-widget-factory *
+ *******************************************************************/
 scrollbar {
     -GtkScrollbar-has-backward-stepper: false;
     -GtkScrollbar-has-forward-stepper: false;
@@ -4309,19 +4311,19 @@ scrollbar slider {
     min-width: 10px;
     min-height: 30px;
     border: 2px solid transparent;
-    border-radius: 8px;
+    border-radius: 2px;
     background-clip: padding-box;
     background-color: @scrollbar_slider_color;
 }
 
 scrollbar slider:hover {
-    background-color: @theme_selected_bg_color;
-    color: @theme_selected_fg_color;
+    background-color: @scrollbar_slider_color;
+    border: 2px solid @scrollbar_halo_color;
 }
 
 scrollbar slider:active {
-    background-color: @theme_selected_bg_color;
-    color: @theme_selected_fg_color;
+    background-color: @scrollbar_slider_color;
+    border: 2px solid @scrollbar_halo_color;
 }
 
 scrollbar slider:disabled {
