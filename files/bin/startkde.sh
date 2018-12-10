@@ -38,7 +38,7 @@ sleep 2
 thunderbird &
 
 sleep 2
-/opt/mucommander-0.9.2/mucommander.sh &
+/opt/mucommander-0.9.3/mucommander.sh &
 
 sleep 2
 if [ -f "/opt/wine/drive_c/multimedia/winamp/winamp.exe" ]; then
