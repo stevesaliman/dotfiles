@@ -108,6 +108,7 @@ if [[ $os_type == Linux ]]; then
     cat_opts="-XX:PermSize=64m -XX:MaxPermSize=256m"
     cat_opts="$cat_opts -Xms512m -Xmx512m -Djava.awt.headless=true"
     export CATALINA_OPTS="$cat_opts"
+	export BACKUP_HOME=/run/media/@local.user@/backup
 elif [[ $os_type == CYGWIN* ]]; then
     echo "Setting variables for Cygwin"
     export ORACLE_HOME=/c/opt/oracle/product/11.2.0
@@ -129,6 +130,7 @@ elif [[ $os_type == CYGWIN* ]]; then
     #cat_opts="$cat_opts -Dcom.sun.management.jmxremote.authenticate=false"
     export CATALINA_OPTS="$cat_opts"
 
+	export BACKUP_HOME=/cygdrive/f
     # Specify what git statuses we want to see. Showing the stash state causes
     # performance issues in cygwin.
     export GIT_PS1_SHOWSTASHSTATE=0
@@ -152,6 +154,7 @@ elif [[ $os_type == Darwin ]]; then
     cat_opts="-XX:PermSize=64m -XX:MaxPermSize=256m"
     cat_opts="$cat_opts -Xms512m -Xmx512m -Djava.awt.headless=true"
     export CATALINA_OPTS="$cat_opts"
+	export BACKUP_HOME=/Volumes/backup
     # Add Git to the path, since the OSX installer puts it in a subdir, and
     # macports
     path_prefix=/usr/local/git/bin:/opt/local/libexec/gnubin:/opt/local/bin:/opt/local/sbin

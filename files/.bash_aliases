@@ -3,7 +3,7 @@
 
 # standard aliases - make sure color ls is before /bin/ls in the path.
 # Also make sure OSX machines has the GNU coreutils installed.
-alias backup='sudo rsync -avi --delete --exclude-from=/home/${USER}/.backup_excludes / /var/run/media/${USER}/backup/${HOSTNAME%%.*} | grep -v \.[fd]\/\/\/pog\.\.\.'
+alias backup='sudo ~/bin/backup.sh -d ${BACKUP_HOME} -u ${USER}'
 alias backup_data='sudo rsync -avi --delete --exclude=/usr/local/oradata/ /usr/local/ /var/run/media/${USER}/Elements/${HOSTNAME%%.*}/usr/local | grep -v \.[fd]\/\/\/pog\.\.\.'
 alias catalina=catalina.sh
 alias cls=clear
