@@ -108,7 +108,7 @@ file_backup() {
 	echo "Performing a file backup to $BACKUP_DIR for user $backup_user"
 	local dt=$(date +%Y-%m-%d_%H-%M)
 
-	# This code gets a log easier if we are in the directory of interest.  It
+	# This code gets a lot easier if we are in the directory of interest.  It
 	# means the find command will always return files with just 2 characters 
 	# (./) before the filename.
 	pushd ${BACKUP_DIR}
@@ -118,9 +118,9 @@ file_backup() {
 	local oldfiles=$(find . -mindepth 1 -maxdepth 1 -mtime +${max_age} | grep tgz)
 	for f in ${oldfiles}; do
 		# Trim off the leading ./
-		log=${f:2}
-		echo "Removing ${log}"
-		rm "${log}"
+		to_nuke=${f:2}
+		echo "Removing ${to_nuke}"
+		rm "${to_nuke}"
 	done
 	popd
 

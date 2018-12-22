@@ -6,6 +6,8 @@
 # variables accordingly.  Start with defaults.
 left_xterm_offset=1
 right_xterm_offset=800
+# Wait a couple of seconds for the resolution to get stable...
+sleep 2
 screen_width=$(xdpyinfo | awk -F '[ x]+' '/dimensions:/{print $3}')
 screen_height=$(xdpyinfo | awk -F '[ x]+' '/dimensions:/{print $4}')
 
