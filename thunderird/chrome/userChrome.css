@@ -1,0 +1,20 @@
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+/* set default namespace to XUL */
+
+/*
+ * The next two properties define the text color of the selected text in "tree"
+ * panes, such as the account/folder list and the message list panes. 
+ * 
+ * When a message is selected, there will be two highlighted rows; the message
+ * itself, and the folder it is in.  These properties indicate which pane has
+ * focus.  We want the white text in the focused pane, and black text in 
+ * unfocused panes
+ */
+treechildren:-moz-tree-cell-text(selected) {
+	color: black !important;
+}
+
+treechildren:-moz-tree-cell-text(selected, focus) {
+	color: white !important;
+}
+
