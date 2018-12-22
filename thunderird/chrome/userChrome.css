@@ -18,3 +18,7 @@ treechildren:-moz-tree-cell-text(selected, focus) {
 	color: white !important;
 }
 
+/* For some reason, the hovered button text color is not inherited from GTK */
+button:hover {
+	color: black !important;
+}
