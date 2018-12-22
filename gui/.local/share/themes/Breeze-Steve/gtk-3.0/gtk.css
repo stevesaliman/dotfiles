@@ -78,6 +78,11 @@
 @define-color button_bottom #303439;
 @define-color button_text_color #e8e6e3;
 
+/* Clicked buttons.  Same deal as before, just define the two colors in the 
+   gradient */
+@define-color button_chk_top #394046;
+@define-color button_chk_bottom #363c43;
+
 /* these are pretty self explicative */
 @define-color warning_color #f67400;
 @define-color error_color #da4453;
@@ -453,7 +458,7 @@ button:active, notebook > header > tabs > arrow.osd:active, notebook > header > 
 button:checked, notebook > header > tabs > arrow.osd:checked {
     color: @theme_selected_fg_color;
     border-color: @theme_selected_bg_color;
-    background-image: linear-gradient(to bottom, #45b1ea, #25a4e6);
+    background-image: linear-gradient(to bottom, @button_chk_top, @button_chk_bottom);
     transition-duration: 50ms;
 }
 
@@ -462,7 +467,7 @@ button:active:hover, notebook > header > tabs > arrow:checked:hover, popover.bac
 button:checked:hover {
     color: @theme_selected_fg_color;
     border-color: @theme_selected_bg_color;
-    background-image: linear-gradient(to bottom, #45b1ea, #25a4e6);
+    background-image: linear-gradient(to bottom, @button_chk_top, @button_chk_bottom);
 }
 
 notebook > header > tabs > arrow:backdrop, popover.background.touch-selection button:backdrop, popover.background.magnifier button:backdrop,
@@ -478,7 +483,7 @@ button:backdrop:active, notebook > header > tabs > arrow:backdrop:checked, popov
 button:backdrop:checked {
     color: @theme_selected_fg_color;
     border-color: @theme_selected_bg_color;
-    background-image: linear-gradient(to bottom, #45b1ea, #25a4e6);
+    background-image: linear-gradient(to bottom, @button_chk_top, @button_chk_bottom);
 }
 
 notebook > header > tabs > arrow:backdrop:disabled, popover.background.touch-selection button:backdrop:disabled, popover.background.magnifier button:backdrop:disabled,
@@ -691,7 +696,7 @@ button.suggested-action.osd
 button:checked {
     color: @theme_text_color;
     border-color: @theme_selected_bg_color;
-    background-image: linear-gradient(to bottom, #45b1ea, #25a4e6);
+    background-image: linear-gradient(to bottom, @button_chk_top, @button_chk_bottom);
 }
 
 popover.background.touch-selection button.suggested-action:backdrop, popover.background.magnifier button.suggested-action:backdrop, popover.background.touch-selection button.suggested-action.flat:backdrop, popover.background.magnifier button.suggested-action.flat:backdrop, popover.background.touch-selection button.suggested-action.osd button:backdrop, popover.background.magnifier button.suggested-action.osd button:backdrop, popover.background.touch-selection button.suggested-action.osd button.flat:backdrop, popover.background.magnifier button.suggested-action.osd button.flat:backdrop,
@@ -757,7 +762,7 @@ button.suggested-action.osd
 button.flat:backdrop:checked {
     color: @theme_text_color;
     border-color: @theme_selected_bg_color;
-    background-image: linear-gradient(to bottom, #45b1ea, #25a4e6);
+    background-image: linear-gradient(to bottom, @button_chk_top, @button_chk_bottom);
 }
 
 popover.background.touch-selection button.suggested-action:backdrop:disabled, popover.background.magnifier button.suggested-action:backdrop:disabled, popover.background.touch-selection button.suggested-action.flat:backdrop:disabled, popover.background.magnifier button.suggested-action.flat:backdrop:disabled, popover.background.touch-selection button.suggested-action.osd button:backdrop:disabled, popover.background.magnifier button.suggested-action.osd button:backdrop:disabled, popover.background.touch-selection button.suggested-action.osd button.flat:backdrop:disabled, popover.background.magnifier button.suggested-action.osd button.flat:backdrop:disabled,
