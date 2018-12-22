@@ -28,7 +28,7 @@ fi
 . $df_source_dir/local_env
 . $df_source_dir/install_functions
 
-echo -e "Installing to $profile_dirf_home_dir - THIS IS DESCRUCTIVE!  Are you sure?"
+echo -e "Installing to $profile_dir - THIS IS DESCRUCTIVE!  Are you sure?"
 read answer
 if [ $answer != 'y' ]; then
   exit

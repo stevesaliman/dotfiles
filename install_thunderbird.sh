@@ -13,7 +13,7 @@ fi
 profile_dir=$1
 # Does the profile directory exist?
 if [ ! -d "$profile_dir" ]; then
-    echo "Firefox profile $profile_dir does not exist!"
+    echo "Thunderbird profile $profile_dir does not exist!"
     exit 1
 fi
 
@@ -28,7 +28,7 @@ fi
 . $df_source_dir/local_env
 . $df_source_dir/install_functions
 
-echo -e "Installing to $profile_dirf_home_dir - THIS IS DESCRUCTIVE!  Are you sure?"
+echo -e "Installing to $profile_dir - THIS IS DESCRUCTIVE!  Are you sure?"
 read answer
 if [ $answer != 'y' ]; then
   exit
@@ -41,4 +41,3 @@ mkdir -p "${profile_dir}/chrome"
 rm -r "${profile_dir}/chrome"
 echo "rsync -av ${df_source_dir}/thunderbird/ $profile_dir"
 rsync -av "${df_source_dir}/thunderbird/" "$profile_dir"
-
