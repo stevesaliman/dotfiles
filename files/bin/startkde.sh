@@ -51,7 +51,18 @@ sleep 2
 firefox &
 
 sleep 3
-virtualbox &
+# There is a bug in VirtualBox that causes bad flickering in Windows guests 
+# when there is an Nividia card installed, but they provided a workaround via
+# an environment variable.  Set that variable here, if we can detect an nvidia
+# card.
+using_nvidia=$(lspci | grep -i nvidia | wc -l)
+if [ "$using_nvidia" == "0" ]; then
+	# No Nvidia card, just start VirtualBox
+	virtualbox &
+else 
+	# We have an Nvidia card, work around that pesky flicker
+	CR_RENDER_FORCE_PRESENT_MAIN_THREAD=0 virtualbox &
+fi
 
 # Start conky last to give the screen time to adjust to large monitors.
 conky &
