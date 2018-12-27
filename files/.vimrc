@@ -37,6 +37,7 @@ Plug 'leafgarland/typescript-vim'
 Plug 'rodjek/vim-puppet'
 Plug 'tpope/vim-markdown'
 Plug 'ekalinin/Dockerfile.vim'
+Plug 'hashivim/vim-hashicorp-tools'
 call plug#end()
 
 " Define alias to update plugins and vim-plug
