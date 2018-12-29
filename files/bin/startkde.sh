@@ -55,7 +55,7 @@ sleep 3
 # when there is an Nividia card installed, but they provided a workaround via
 # an environment variable.  Set that variable here, if we can detect an nvidia
 # card.
-using_nvidia=$(lspci | grep -i nvidia | wc -l)
+using_nvidia=$(/sbin/lspci | /bin/grep -i nvidia | wc -l)
 if [ "$using_nvidia" == "0" ]; then
 	# No Nvidia card, just start VirtualBox
 	virtualbox &
