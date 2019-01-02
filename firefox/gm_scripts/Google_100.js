@@ -42,17 +42,19 @@ if ( as_qdr != null ) {
 (function(){
     document.body.setAttribute("style", "background-color: white;");
     // Clear any prior query
-    // var as_q = document.getElementsByName("as_q");
-    // if ( as_q.length > 0 ) {
-    //    for ( var i=0; i < as_q.length; i++ ) {
-    //        //alert ("as_q type: " + as_q[i].type);
-    //        if ( as_q[i].type == "text" || as_q[i].type == "hidden" ) {
-    //            //alert("cleared as_q");
-    //            as_q[i].type = "text"
-    //            as_q[i].value="";
-    //        }
-    //    }
-    //}
+	/*
+    var as_q = document.getElementsByName("as_q");
+    if ( as_q.length > 0 ) {
+        for ( var i=0; i < as_q.length; i++ ) {
+            //alert ("as_q type: " + as_q[i].type);
+            if ( as_q[i].type == "text" || as_q[i].type == "hidden" ) {
+                //alert("cleared as_q");
+                as_q[i].type = "text"
+                as_q[i].value="";
+            }
+        }
+    }
+	*/
 
     // enable results per page and set results per page field.
     var num = document.getElementsByName("num");
