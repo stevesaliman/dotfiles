@@ -67,7 +67,9 @@ export _Z_NO_RESOLVE_SYMLINKS=1
 
 # On a mac, we need to enable completion manually.
 if [[ $os_type == Darwin ]]; then
-	. /opt/local/etc/profile.d/bash_completion.sh
+	if [ -f $(brew --prefix)/etc/bash_completion ]; then
+		. $(brew --prefix)/etc/bash_completion
+	fi
 fi
 # Load local completion scripts.
 for bcfile in ${bash_script_dir}/.bash_completion.d/* ; do
