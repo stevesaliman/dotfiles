@@ -16,8 +16,9 @@ fi
 
 # First set up a basic path that works for all environments. This is needed
 # to execute the rest of this script which uses things like uname, grep, etc.
-export PATH=/usr/local/bin:/sbin:/usr/sbin:/bin:/usr/bin:/opt/bin:/etc
-export PATH=$PATH:/usr/local/etc:/usr/etc:/usr/ccs/bin:${HOME}/bin
+export PATH=/usr/local/bin:/usr/local/sbin:/sbin:/usr/sbin:/bin:/usr/bin
+export PATH=$PATH:/opt/bin:/etc:/usr/local/etc:/usr/etc:/usr/ccs/bin
+export PATH=$PATH:${HOME}/bin
 
 # Next, figure out where this .bashrc file lives so we can source the right
 # files later.
@@ -156,6 +157,10 @@ fi
 # Set up the library load path, manpath, etc.
 export LD_LIBRARY_PATH=$local_libs:/usr/local/lib:$X11_HOME/lib:/usr/ccs/lib:$HOME/lib
 export MANPATH=$HOME/man:/usr/man:/usr/share/man:/usr/local/man:$X11_HOME/man
+# On a mac, we need to add the coreutils to the MANPATH
+if [[ $os_type == Darwin ]]; then
+	export MANPATH=/usr/local/opt/coreutils/libexec/gnuman:$MANPATH
+fi
 
 if [ -n "$JAVA_HOME" ]; then
     export PATH=$JAVA_HOME/bin:$PATH

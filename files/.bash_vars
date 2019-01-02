@@ -157,7 +157,9 @@ elif [[ $os_type == Darwin ]]; then
 	export BACKUP_HOME=/Volumes/backup
     # Add Git to the path, since the OSX installer puts it in a subdir, and
     # macports
-    path_prefix=/usr/local/git/bin:/opt/local/libexec/gnubin:/opt/local/bin:/opt/local/sbin
+    #path_prefix=/usr/local/git/bin:/opt/local/libexec/gnubin:/opt/local/bin:/opt/local/sbin
+    # homebrew
+    path_prefix=/usr/local/git/bin:/usr/local/opt/coreutils/libexec/gnubin
     # Make Parallels the default Vagrant provider
     export VAGRANT_DEFAULT_PROVIDER=parallels
 else
