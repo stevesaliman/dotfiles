@@ -25,6 +25,7 @@ alias ms-env='eval $(minishift oc-env); eval $(minishift docker-env)'
 alias nyx='telnet nyx10.nyx.net'
 alias path='echo $PATH'
 alias prepare="gradle -PenvironmentName=${environment_name} clean; gradle -PenvironmentName=${environment_name} -x test stageRelease"
+alias scp='scp -p'
 alias unkube='unset ${!DOCKER_*}'
 alias vil=vi
 alias vt100='set term=vt100; stty rows 24'
