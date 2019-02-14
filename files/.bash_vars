@@ -160,6 +160,7 @@ elif [[ $os_type == Darwin ]]; then
     #path_prefix=/usr/local/git/bin:/opt/local/libexec/gnubin:/opt/local/bin:/opt/local/sbin
     # homebrew
     path_prefix=/usr/local/git/bin:/usr/local/opt/coreutils/libexec/gnubin
+    path_prefix=${path_prefix}:/usr/local/opt/python/libexec/bin
     # Make Parallels the default Vagrant provider
     export VAGRANT_DEFAULT_PROVIDER=parallels
 else
