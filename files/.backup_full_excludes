@@ -1,4 +1,4 @@
-# Files that should be excluded when doing a "file" backup.  It includes 
+# Files that should be excluded when doing a "full" backup.  It includes 
 # directories we don't need to backup like the /dev directory, but also files
 # in project directories we don't need to backup because they are created by a
 # build.
@@ -19,3 +19,4 @@ projects/**/node_modules/**
 projects/**/build/**
 projects/**/classes/**
 tomcat*/logs/**
+/Volumes/

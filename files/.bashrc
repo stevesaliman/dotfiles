@@ -193,10 +193,11 @@ fi
 # the real location of $HOME because nvm has issues with symlinks
 export NVM_DIR="$(readlink -f $HOME)/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
 
 # Trap the shell exit and kill ssh-agent when it exits
 trap stop_ssh_agent EXIT SIGTERM
-
 
 # Make sure we start in the correct home directory.  Basically, if our env.
 # doesn't have a certain var, cd.  Then set the var
