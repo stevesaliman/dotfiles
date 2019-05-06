@@ -8,7 +8,9 @@
 #    that need to be sync'ed up into that file, making sure the right env_label
 #    is used for each.  Hostnames will need to be resolvable.  Also make sure
 #    the default variable values are at the bottom of the file.
-# 3. Run ansible-playbook -i hosts ansible.yaml to sync up the hosts.
+# 3. Run ansible-playbook -i hosts ansible.yaml to sync up the hosts.  If you
+#    use groups to separate environments, tyou can limit a run to a single 
+#    group by adding "--limit 'env_name'" to the command.
 #
 # This playbook makes a couple of assumtions:
 # It assumes that the id_rsa file we need to talk to git exists in the user's
