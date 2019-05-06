@@ -26,10 +26,29 @@ verify_value "df_git_name" "$df_git_name"
 verify_value "df_git_email" "$df_git_email"
 verify_value "df_env_label" "$df_env_label"
 
-echo -e "Installing to $df_home_dir - THIS IS DESCRUCTIVE!  Are you sure?"
-read answer
-if [ $answer != 'y' ]; then
-  exit
+force_deploy="N"
+while getopts :f flag; do
+	case $flag in 
+	f)
+		force_deploy="Y"
+		;;
+	\?)
+		echo -e "Unknown option $flag"
+		echo -e ""
+		echo -e "Usage: install.sh [-f]"
+		echo -e "Options:"
+		echo -e "  -f: Force deployment. This options dupresses the 'are you sure' question"
+		exit 1
+		;;
+	esac
+done
+
+if [ "$force_deploy" == "N" ]; then
+	echo -e "Installing to $df_home_dir - THIS IS DESCRUCTIVE!  Are you sure?"
+	read answer
+	if [ $answer != 'y' ]; then
+	  exit
+	fi
 fi
 
 echo "rsync -av ${df_source_dir}/files/ $df_home_dir"
