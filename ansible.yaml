@@ -1,0 +1,45 @@
+---
+
+# This simple Ansible playbook can be used to quickly sync up the dot files on
+# many remote hosts at once.  To use Ansible, you'll need to do 3 things:
+#
+# 1. Install ansible on the local computer.
+# 2. Copy the hosts.sample file to create a local inventory.  Put all the hosts
+#    that need to be sync'ed up into that file, making sure the right env_label
+#    is used for each.  Hostnames will need to be resolvable.  Also make sure
+#    the default variable values are at the bottom of the file.
+# 3. Run ansible-playbook -i hosts ansible.yaml to sync up the hosts.
+#
+# This playbook makes a couple of assumtions:
+# It assumes that the id_rsa file we need to talk to git exists in the user's
+# home .ssh directory on the Ansible Control box.
+
+- name: Remotely install dotfiles
+  hosts: all
+
+  tasks:
+    - name: Copy id_rsa
+      copy:
+        src: ~/.ssh/id_rsa
+        dest: /home/{{ username }}/.ssh
+        mode: 0600
+
+    # Clone the dotfiles repo on the remote box - note that with an https URL,
+    # we won't be able to push changes from remote boxes.
+    - name: Clone github
+      git:
+        repo: 'https://github.com/stevesaliman/dotfiles.git'
+        dest: /home/{{ username }}/projects/dotfiles
+        accept_hostkey: yes
+
+    # Make the local_env file from the template and host vars.
+    - name: Make the local_env file
+      template:
+        src: ./local_env.j2
+        dest: /home/{{ username }}/projects/dotfiles/local_env
+
+    - name: Run install
+      shell: ./install.sh -f > install.log
+      args:
+        chdir: /home/{{ username }}/projects/dotfiles
+

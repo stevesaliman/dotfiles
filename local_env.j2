@@ -1,0 +1,34 @@
+# Template for the local_env file used by the various installation scripts.
+#
+# There are 2 ways this file can be used.  When doing a manual install, this
+# file will need to be coped to a file named local_env, and the template tokens
+# (between curly braces, and including the braces) need to be replaced with the
+# right values.
+#
+# When using Ansible to remotely sync up environments, a hosts file needs to 
+# be created, and the hosts and variables need to be set up there.  Ansible 
+# will then take care of the rest.
+
+# Where should the dotfiles be installed?  (Optional, defaults to $HOME)
+# df_home_dir=/home/john
+
+# What is the "normal" user for the box? (Optional, defaults to $USER)
+# df_user=john
+
+# What name and email should I use for git? (Required)
+df_git_name="{{ git_name }}"
+df_git_email="{{ git_email }}"
+
+# What usernames should I use when setting up the .ssh config? (Optional)
+df_home_user={{ home_user }}
+df_work_user={{ work_user }}
+df_app_user={{ app_user }}
+
+# What is the label for this environment? 
+df_env_label={{ env_label }}
+# What Xterm font do we want?  This only applies to a GUI installation.
+# Uncomment one of the following...
+# For Leap 42.2 and Plasma 5 on the hardware:
+# df_xterm_font=-misc-fixed-medium-r-normal-*-15-140-*-*-c-90-*-*
+# For all others:
+# df_xterm_font=-adobe-courier-medium-r-normal--14-140-75-75-m-90-iso8859-1

@@ -1,0 +1,18 @@
+# List hosts here, and override the env_label if needed.
+puppetdata env_label=puppet
+
+# Default variables We'll need to supply values for missing variables before we
+# can run ansible.
+[all:vars]
+# The username on the remote server.
+username=ssaliman
+# The git name and email address.
+git_name="Steven C. Saliman"
+git_email=
+# What is the home and work usernames?
+home_user=
+work_user=
+# What is the application user?
+app_user=
+# What is the environment label?
+env_label=local
