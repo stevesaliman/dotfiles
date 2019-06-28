@@ -13,6 +13,7 @@ alias df='df -h'
 alias du='du -hx'
 alias gradled='gradle $@ --no-daemon -Dorg.gradle.debug=true'
 alias grep='grep --color'
+alias gsu='git status -uno'
 alias kc=kubectl
 alias lame='lame -q 2 -b 256'
 alias less='less -R'
