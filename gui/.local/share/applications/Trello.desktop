@@ -3,7 +3,7 @@
 Name=Trello
 GenericNAme=Trello
 #Exec=firefox -P Trello -new-instance https://trello.com --class Trello
-Exec=firefox -P app --class trello -new-instance https://trello.com 
+Exec=firefox -P app --class trello-mark-blue -new-instance https://trello.com 
 #Icon=application-x-wine-extension-msp
 Icon=trello-mark-blue
 #Icon=/home/steve/.local/share/icons/hicolor/256x256/apps/trello-mark-blue.png
@@ -14,5 +14,5 @@ StartupNotify=true
 #Categories=Network;WebBrowser;
 Keywords=trello
 # StartupWMClass=FxTest
-StartupWMClass=trello
+StartupWMClass=trello-mark-blue
 X-MultipleArgs=false
