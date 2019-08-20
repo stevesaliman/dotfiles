@@ -95,7 +95,10 @@ if [[ $os_type == Linux ]]; then
     export WINEPREFIX="/opt/wine"
     export ORACLE_HOME=/opt/oracle/product/12.2.0
     export ORACLE_SID=devl
-    export JAVA_HOME=/opt/jdk1.8.0_151
+	# If Java is installed in an 'alternatives' aware way, we don't need JAVA_HOME
+	if [ ! -f /etc/alternatives/javac ]; then
+		export JAVA_HOME=/opt/jdk1.8.0_151
+	fi
     export JAVA_OPTS='-Xmx256m -Xms256m'
     # for X to start up right, we need gnome on the path.
     path_suffix=/opt/gnome/sbin:/opt/gnome/bin:/opt/kde3/bin
