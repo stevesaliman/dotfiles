@@ -1,17 +1,17 @@
 # This file is sourced by .bashrc to load all the functions we want to use.
 
 # The decode function can't be an alias because we're using $1 twice.
-function decode() {
+function decode {
   'tr A-MN-Za-mn-z N-ZA-Mn-za-m < $1 > $1.out'
 }
 
 # Remove all exited docker containers
-function drm() {
+function drm {
   docker rm $(docker ps -a -f status=exited -q)
 }
 
 # Remove all unused images
-function drmi() {
+function drmi {
   docker rmi $(docker images -f dangling=true -q)
 }
 
@@ -33,7 +33,7 @@ function get_screen_res_y {
 }
 
 # function to show history.
-function h() {
+function h {
     num=$1
     if [ -z $num ]; then
         num=40
@@ -43,7 +43,7 @@ function h() {
 }
 
 # function to start a gpg agent so we can generate pgp keys.
-function start-gpg () {
+function start-gpg {
     unset DISPLAY
 	export GPG_TTY=$(tty)
 	eval $(gpg-agent --daemon --pinentry-program /usr/bin/pinentry)
@@ -94,7 +94,7 @@ function stop_ssh_agent {
 # regardless of who I am. The double quotes around the $@ are very important.  
 # Without them, filenames with spaces will be interpereted as several different
 # filenames when they are passed to vi.
-function vi() {
+function vi {
 	if [[ $user == $me ]]; then
 		vim -X "$@"
 	else
@@ -104,12 +104,12 @@ function vi() {
 	fi
 }
 
-function xtitle() {
+function xtitle {
     printf "\033]0;$*\007\r"
 	export XTERM_NAME="$*"
 }
 
-function zmore() {
+function zmore {
     zcat $*| more
 }
 
