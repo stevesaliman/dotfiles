@@ -44,9 +44,10 @@ call plug#end()
 " Define alias to update plugins and vim-plug
 command! PU PlugUpdate | PlugUpgrade
 
-"Map .gradle files to the groovy syntax
+"Map .gradle and Jenkinsfile files to the groovy syntax
 "if has("terminfo") && filereadable("/usr/local/share/vim/syntax/syntax.vim")
   au BufNewFile,BufRead *.gradle set filetype=groovy
+  au BufNewFile,BufRead Jenkinsfile set filetype=groovy
 "endif
 
 " Tweaks to the markdown colors and languages
