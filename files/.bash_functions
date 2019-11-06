@@ -15,6 +15,11 @@ function drmi {
   docker rmi $(docker images -f dangling=true -q)
 }
 
+# Login to a running docker container
+function dsh {
+  docker exec -it $1 /bin/bash
+}
+
 # Functions to get the screen resolution
 function get_screen_res_x {
   if [[ $os_type == Darwin ]]; then
