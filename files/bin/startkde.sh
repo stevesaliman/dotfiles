@@ -40,7 +40,10 @@ sleep 2
 thunderbird &
 
 sleep 2
-/opt/mucommander-0.9.3/mucommander.sh &
+# Start MuCommander.  It needs java 9+, regardless of what SDKMan is doing...
+old_java_home=$JAVA_HOME
+/opt/mucommander/mucommander.sh &
+JAVA_HOME=$old_java_home
 
 sleep 2
 if [ -f "/opt/wine/drive_c/multimedia/winamp/winamp.exe" ]; then
