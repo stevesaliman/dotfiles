@@ -30,6 +30,9 @@ alias scp='scp -p'
 alias unkube='unset ${!DOCKER_*}'
 alias vil=vi
 alias vt100='set term=vt100; stty rows 24'
+# Aliases ending with a space causes the next word to be checked for aliases.
+# Without it, the watch command can't use aliases as commands.
+alias watch='watch '
 alias which=type
 
 # Aliases that differ by OS
