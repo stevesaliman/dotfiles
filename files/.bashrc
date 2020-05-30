@@ -49,7 +49,7 @@ fi
 # wasn't happening in some environments.
 if [[ $user == $me ]]; then
     #PS1="\h: \[\033[00;34m\]\w ${yellow}\$(parse_git_branch)\n\[\033[00m\]\!>"
-    PS1="\h: ${bold_blue}\w\$(__git_ps1)\n${normal}\!>"
+    PS1="\h:${bold_blue}\w\$(__git_ps1)\n${normal}\!>"
 	PROMPT_COMMAND='printf "\033]0;%s %s:%s\007" "${XTERM_NAME}" "${HOSTNAME%%.*}" "$(dirs)"'
 else
     #PS1="\[\033[01;31m\]\u\[\033[00m\]@\h: \[\033[00;34m\]\w \$(parse_git_branch)\n\r\[\033[00m\]\!>"
