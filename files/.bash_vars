@@ -93,7 +93,7 @@ if [[ $os_type == Linux ]]; then
     echo "Setting variables for Linux"
     export X11_HOME=/usr/X11R6
     export WINEPREFIX="/opt/wine"
-    export ORACLE_HOME=/opt/oracle/product/12.2.0
+    export ORACLE_HOME=/opt/oracle/product/19.3
     export ORACLE_SID=devl
 	# If Java is installed in an 'alternatives' aware way, we don't need JAVA_HOME
 	#if [ ! -f /etc/alternatives/javac ]; then
