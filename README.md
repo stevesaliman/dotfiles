@@ -20,4 +20,7 @@ same location under the home directory.
 This directory contains customizations for Firefox.  They are installed with 
 the `install_firefox.sh` script, which takes a Firefox profile directory as
 an argument. The script copies files to the same location under the Firefox
-profile directory.
+profile directory.  Note that most of the hacks here came from the 
+https://github.com/Aris-t2/CustomCSSforFx project.  If things don't work in the
+latest version of Firefox, this project is a great place to start the
+troubleshooting process.
