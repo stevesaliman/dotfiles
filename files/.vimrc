@@ -3,9 +3,12 @@ set term=xterm-vt220
 set autoindent
 set showmatch
 "set mouse=a
-" Set the default tabstop to 4, override it in language plugins.
+" Set the default tabstop to 4 and use spaces, override it in language plugins
+" when something else is desired.
 set ts=4
 set shiftwidth=4
+set expandtab
+set smarttab
 
 " Allow spaces in filenames
 set isfname+=32
