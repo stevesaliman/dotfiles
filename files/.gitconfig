@@ -1,31 +1,33 @@
 [user]
-	name = @git.name@
-	email = @git.email@
+    name = @git.name@
+    email = @git.email@
 [alias]
     comit = commit
-	graph = log --graph --oneline --decorate
-	homeprofile = config user.email "support@saliman.net"
-	k =  log --branches --simplify-by-decoration --decorate --oneline
-	lg = log --all --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ci) %C(bold blue)<%an>%Creset' --abbrev-commit
-	tagdate = log --tags --simplify-by-decoration --pretty='format:%ai %d'
-	workprofile = config user.email "ssaliman@tracom.com"
+    graph = log --graph --oneline --decorate
+    homeprofile = config user.email "support@saliman.net"
+    k =  log --branches --simplify-by-decoration --decorate --oneline
+    lg = log --all --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ci) %C(bold blue)<%an>%Creset' --abbrev-commit
+    tagdate = log --tags --simplify-by-decoration --pretty='format:%ai %d'
+    workprofile = config user.email "ssaliman@tracom.com"
 [branch]
-	autosetuprebase = always
+    autosetuprebase = always
 [core]
-	excludesfile = ~/.gitignore
-#	autocrlf = true
-	pager = cat
+    excludesfile = ~/.gitignore
+#    autocrlf = true
+    pager = cat
 [pager]
     diff = less
     log = less
+[pull]
+    rebase = true
 [push]
     default = tracking
 [color]
-	ui = true
+    ui = true
 [color "status"]
     changed = red
     added = green bold
     deleted = red bold
     untracked = yellow
 [status]
-	displayCommentPrefix = true
+    displayCommentPrefix = true
