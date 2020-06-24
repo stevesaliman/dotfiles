@@ -1,0 +1,62 @@
+/* Firefox Quantum userChrome.css tweaks ************************************************/
+/* Github: https://github.com/aris-t2/customcssforfx ************************************/
+/****************************************************************************************/
+
+
+@import "./tabs_below_navigation_toolbar_fx65.css";
+
+/* [!] NOT A STANDALONE FILE! */
+/* [!] This code does not achieve the requested result without above files content! */
+
+#TabsToolbar {
+  height: var(--tab-min-height) !important;
+  margin-bottom: 1px !important;
+  /* box-shadow: ThreeDShadow 0 -1px inset, -moz-dialog 0 1px !important; */
+  background-color: var(--toolbar-bgcolor) !important;
+}
+
+/* NOT CHECKED */
+#TabsToolbar,
+#main-window:not([style*='--lwt-header-image']):-moz-lwtheme-brighttext #TabsToolbar:-moz-lwtheme, 
+#main-window:not([style*='--lwt-header-image']):-moz-lwtheme:-moz-lwtheme-brighttext #TabsToolbar:-moz-lwtheme {
+  border-bottom: 0 !important;
+}
+
+/* move caption buttons to right of Tab bar */
+#main-window[tabsintitlebar]:not([inFullscreen="true"]) #toolbar-menubar[autohide="true"] ~ #TabsToolbar .titlebar-buttonbox-container {
+ position: fixed !important;
+ right: 0 !important;
+ top: calc(6px + var(--tab-min-height)) !important;
+ display: block !important;
+ visibility: visible !important;
+}
+#toolbar-menubar[autohide="true"] ~ #TabsToolbar {
+  padding-right: 100px !important;
+}
+
+/* drag space */
+.titlebar-spacer[type="pre-tabs"],
+.titlebar-spacer[type="post-tabs"] {
+  width: 40px;
+}
+
+/* NOT CHECKED */
+#main-window:not([chromehidden*="toolbar"]) #navigator-toolbox {
+  padding-bottom: calc(0px + var(--tab-min-height_tnot)) !important;
+}
+
+/* NOT CHECKED */
+.urlbarView:not(.megabar),
+#urlbar-results {
+  z-index: 100 !important;
+}
+
+/* NOT CHECKED */
+/* Fx71+ fix */
+:-moz-any(.tabs-newtab-button,#tabs-newtab-button,.scrollbutton-up,.scrollbutton-down):not(:-moz-lwtheme),
+:-moz-any(.tabs-newtab-button,#tabs-newtab-button,.scrollbutton-up,.scrollbutton-down):-moz-lwtheme-darktext,
+.tabbrowser-arrowscrollbox::part(scrollbutton-up),
+.tabbrowser-arrowscrollbox::part(scrollbutton-down) {
+  fill: var(--classic_squared_tabs_new_tab_icon_color) !important;
+  color: var(--classic_squared_tabs_new_tab_icon_color) !important;
+}
