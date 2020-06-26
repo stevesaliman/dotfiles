@@ -56,6 +56,9 @@ rsync -av "${df_source_dir}/files/" "$df_home_dir"
 
 # Cygwin requires .startxwinrc to be executable
 chmod 755 $df_home_dir/.startxwinrc
+# Cygwin doesn't seem to get the .ssh perms right
+chmod 700 $df_home_dir/.ssh
+chmod 600 $df_home_dir/.ssh/config
 
 # some files had tokens in them.  Replace the tokens.
 sed -i "s/@git.name@/$df_git_name/" $df_home_dir/.gitconfig
