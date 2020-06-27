@@ -42,3 +42,10 @@ rm -r "${profile_dir}/chrome"
 echo "rsync -av ${df_source_dir}/firefox/ $profile_dir"
 rsync -av "${df_source_dir}/firefox/" "$profile_dir"
 
+# Firefox 72+ loses the title bar buttons in Windows 10, so append an entry to
+# the userChrome.css file to import the file with the fix.
+ostype=$(uname)
+if [ $ostype == "CYGWIN_NT-10.0" ]; then
+    echo "Applying Windows 10 fix"
+    echo '@import "./windows10_fx72.css"; /**/' >> "$profile_dir/chrome/userChrome.css"
+fi
