@@ -197,7 +197,7 @@ export SOURCED=true
 
 # tabtab source for jhipster package
 # uninstall by removing these lines or running `tabtab uninstall jhipster`
-[ -f "${HOME}/.nvm/versions/node/v6.9.5/lib/node_modules/generator-jhipster/node_modules/tabtab/.completions/jhipster.bash" ] && . "${HOME}/.nvm/versions/node/v6.9.5/lib/node_modules/generator-jhipster/node_modules/tabtab/.completions/jhipster.bash"
+[ -f "${NVM_DIR}/versions/node/v6.9.5/lib/node_modules/generator-jhipster/node_modules/tabtab/.completions/jhipster.bash" ] && . "${NVM_DIR}/versions/node/v6.9.5/lib/node_modules/generator-jhipster/node_modules/tabtab/.completions/jhipster.bash"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 [[ -s "${SDKMAN_DIR}/bin/sdkman-init.sh" ]] && source "${SDKMAN_DIR}/bin/sdkman-init.sh"
