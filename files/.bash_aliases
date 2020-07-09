@@ -56,16 +56,3 @@ elif [[ $os_type == Darwin ]]; then
 else
 	echo "$os_type is unknown, chaos will probably ensue..."
 fi
-
-# Aliases that depend on variables, like "grails"
-if [ -d "$GRAILS_HOME" ]; then
-	alias grails="${GRAILS_HOME}/bin/grails"
-fi
-
-if [ -d "$ANT_HOME" ]; then
-	alias ant="${ANT_HOME}/bin/ant"
-fi
-
-if [ -d "$MVN_HOME" ]; then
-	alias mvn="${MVN_HOME}/bin/mvn"
-fi

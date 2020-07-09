@@ -134,11 +134,6 @@ if [ -n "$MYSQL_HOME" ]; then
 	local_libs=${local_libs:+${local_libs}:}:$MYSQL_HOME/lib
 fi
 
-if [ -n "$GROOVY_HOME" ]; then
-    export PATH=$PATH:$GROOVY_HOME/bin
-	local_libs=${local_libs:+${local_libs}:}$GROOVY_HOME/lib
-fi
-
 if [ -n "$CATALINA_HOME" ]; then
     export PATH=$PATH:$CATALINA_HOME/bin
 fi
@@ -164,12 +159,6 @@ if [[ $os_type == Darwin ]]; then
 	export MANPATH=/usr/local/opt/coreutils/libexec/gnuman:$MANPATH
 fi
 
-if [ -n "$JAVA_HOME" ]; then
-    export PATH=$JAVA_HOME/bin:$PATH
-    export JAVA_LIB_DIR=$JAVA_HOME/lib
-    export CLASSPATH=${HOME}/lib/junit-4.1.jar:${HOME}/lib/catalina-ant.jar
-fi
-
 if [[ $os_type == CYGWIN* ]]; then
     # For some reason, I can't execute sqlplus from Cygwin if ORACLE_HOME is 
     # set, so now that it is in the path, unset the var.  We also need to 
@@ -184,14 +173,14 @@ fi
 [[ -s "${HOME}/.rvm/scripts/rvm" ]] && source "${HOME}/.rvm/scripts/rvm"
 
 # Add rvm to the path, if we've got RVM
-if [ -d "$HOME/.rvm/bin" ]; then
+if [ -d "${HOME}/.rvm/bin" ]; then
     export PATH=$HOME/.rvm/bin:$PATH # Add RVM to the PATH for scripting
 fi
 
 ## NVM
 # Load NVM if we have an nvm directory.  The readlink command is used to get
-# the real location of $HOME because nvm has issues with symlinks
-export NVM_DIR="$(readlink -f $HOME)/.nvm"
+# the real location of $NVM_DIR because nvm has issues with symlinks
+export NVM_DIR="$(readlink -f ${NVM_DIR})"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
@@ -211,5 +200,4 @@ export SOURCED=true
 [ -f "${HOME}/.nvm/versions/node/v6.9.5/lib/node_modules/generator-jhipster/node_modules/tabtab/.completions/jhipster.bash" ] && . "${HOME}/.nvm/versions/node/v6.9.5/lib/node_modules/generator-jhipster/node_modules/tabtab/.completions/jhipster.bash"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="${HOME}/.sdkman"
 [[ -s "${SDKMAN_DIR}/bin/sdkman-init.sh" ]] && source "${SDKMAN_DIR}/bin/sdkman-init.sh"
