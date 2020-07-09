@@ -11,7 +11,7 @@
 # Gnome on Linux hosts, or Windows/system32 on Cygwin hosts.  
 # .bashrc will use this later to put things at the start or end of the path.
 #
-# Values in this file can be overridden by .bashrc_local, which is sourced after
+# Values in this file can be overridden by .bash_local, which is sourced after
 # this one.
 #
 
