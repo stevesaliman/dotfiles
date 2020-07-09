@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- See http://trac.mucommander.com/wiki/CommandBar for information on how to customize this file -->
+<command_bar modifier="SHIFT" version="0.9.4">
+    <button action_id="Rename"/>
+    <button action_id="View"/>
+    <button action_id="Edit"/>
+    <button action_id="Refresh"/>
+    <button action_id="Mkdir"/>
+    <button action_id="Copy"/>
+    <button action_id="LocalCopy"/>
+    <button action_id="Move"/>
+    <button action_id="Mkdir"/>
+    <button action_id="Delete" alt_action_id="PermanentDelete"/>
+</command_bar>

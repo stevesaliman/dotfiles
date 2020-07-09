@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- See http://trac.mucommander.com/wiki/ActionKeyMap for information on how to customize this file -->
+<keymap version="0.9.4">
+    <action id="Pack" keystroke="shift ctrl Z"/>
+    <action id="SetSameFolder"/>
+    <action id="Unpack" keystroke="ctrl E"/>
+    <action id="Refresh" keystroke="F5"/>
+    <action id="GoToParent" keystroke="BACK_SPACE"/>
+    <action id="Copy" keystroke="F8"/>
+    <action id="Rename" keystroke="F2"/>
+    <action id="MarkSelectedFile" keystroke="SPACE"/>
+    <action id="Mkdir" keystroke="INSERT"/>
+    <action id="InvertSelection" keystroke="ctrl I"/>
+    <action id="Open" keystroke="ENTER"/>
+    <action id="Delete" keystroke="DELETE"/>
+</keymap>

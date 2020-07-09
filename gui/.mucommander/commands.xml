@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<commands>
+	<command alias="Notepadqq" value="/usr/bin/notepadqq $f"/>
+</commands>
