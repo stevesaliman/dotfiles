@@ -1,0 +1,20 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Name=Planner
+GenericName=Planner
+# The profile name needs to be the name of an existing Firefox profile.  The
+# class name just needs to be unique.
+#Exec=firefox -P planner --class ms-planner -new-instance https://tasks.office.com
+Exec=firefox -P planner --class ms-planner -new-instance https://tasks.office.com
+Icon=ms-planner
+Terminal=false
+Type=Application
+#MimeType=text/html;text/xml;application/xhtml+xml;application/vnd.mozilla.xul+xml;text/mml;x-scheme-handler/http;x-scheme-handler/https;
+StartupNotify=true
+#Categories=Network;WebBrowser;
+Keywords=ms-planner
+# StartupWMClass=FxTest
+StartupWMClass=ms-planner
+#StartupWMClass=ms-planner
+X-MultipleArgs=false
+
