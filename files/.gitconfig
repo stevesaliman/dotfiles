@@ -8,7 +8,7 @@
     k =  log --branches --simplify-by-decoration --decorate --oneline
     lg = log --all --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ci) %C(bold blue)<%an>%Creset' --abbrev-commit
     tagdate = log --tags --simplify-by-decoration --pretty='format:%ai %d'
-    workprofile = config user.email "ssaliman@tracom.com"
+    workprofile = config user.email "ssaliman@vantage-dc.com"
 [branch]
     autosetuprebase = always
 [core]
