@@ -25,6 +25,9 @@ else
   set t_Sb=[4%dm
 endif
 
+" Suppress the line length marker.
+let g:EditorConfig_disable_rules = ['max_line_length']
+
 " Load vim-plug plugin manager
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -100,6 +103,11 @@ set bs=2
 
 "Terminal for 80 char ? so vim can play till 79 char.
 "set textwidth=79
+"Suppress line wrapping with a really big number for textwidth.  
+"
+"Setting it to 0 is supposet to disable it, but something in vim itself is forcing it to 78 when 
+"it is set to 0.  Using a large number seems to suppress that problem.
+set textwidth=2000
 
 "Some option desactivate by default (remove the no).
 set nobackup
