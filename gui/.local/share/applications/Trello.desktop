@@ -2,8 +2,10 @@
 [Desktop Entry]
 Name=Trello
 GenericNAme=Trello
+# The profile name needs to be the name of an existing Firefox profile.  The
+# class name just needs to be unique.
 #Exec=firefox -P Trello -new-instance https://trello.com --class Trello
-Exec=firefox -P app --class trello-mark-blue -new-instance https://trello.com 
+Exec=firefox -P trello --class trello-mark-blue -new-instance https://trello.com 
 #Icon=application-x-wine-extension-msp
 Icon=trello-mark-blue
 #Icon=/home/steve/.local/share/icons/hicolor/256x256/apps/trello-mark-blue.png
