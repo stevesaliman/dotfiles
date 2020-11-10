@@ -1,0 +1,20 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Name=Jira
+GenericName=Jira
+# The profile name needs to be the name of an existing Firefox profile.  The
+# class name just needs to be unique.
+#Exec=firefox -P Trello -new-instance https://trello.com --class Trello
+Exec=firefox -P jira --class jira-mark-blue -new-instance https://vantage-dc.atlassian.net
+#Icon=application-x-wine-extension-msp
+Icon=jira-mark-blue
+#Icon=/home/steve/.local/share/icons/hicolor/256x256/apps/trello-mark-blue.png
+Terminal=false
+Type=Application
+#MimeType=text/html;text/xml;application/xhtml+xml;application/vnd.mozilla.xul+xml;text/mml;x-scheme-handler/http;x-scheme-handler/https;
+StartupNotify=true
+#Categories=Network;WebBrowser;
+Keywords=trello
+# StartupWMClass=FxTest
+StartupWMClass=jira-mark-blue
+X-MultipleArgs=false
