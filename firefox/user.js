@@ -8,3 +8,6 @@ user_pref("toolkit.telemetry.unified", false);
 user_pref("browser.display.use_system_colors", false);
 // Enable the custom css in the chrome directory
 user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
+
+// Turn off geo location
+user_pref("geo.enabled", false);
