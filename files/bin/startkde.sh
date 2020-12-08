@@ -6,6 +6,7 @@
 # variables accordingly.  Start with defaults.
 left_xterm_offset=1
 right_xterm_offset=800
+char_width=100
 # Wait a couple of seconds for the resolution to get stable...
 sleep 2
 screen_width=$(xdpyinfo | awk -F '[ x]+' '/dimensions:/{print $3}')
@@ -13,28 +14,30 @@ screen_height=$(xdpyinfo | awk -F '[ x]+' '/dimensions:/{print $4}')
 
 #On ultrawides, we want our xterms more centered.
 if [ "$screen_width" -gt "3000" ]; then
-	left_xterm_offset=800
+    # We need 20 per character...
+	#left_xterm_offset=800
+	left_xterm_offset=620
 	right_xterm_offset=1600
 fi
 
 #cairo-dock --opengl --keep-above &
-cairo-dock --cairo --keep-above &
+cairo-dock --cairo --keep-above -f &
 
 #top left
 sleep 2
-xt green "xterm-1" "80x24+${left_xterm_offset}+2"
+xt green "xterm-1" "${char_width}x24+${left_xterm_offset}+2"
 
 # Bottom Right.
 sleep 2
-xt green "xterm-2" "80x24+${right_xterm_offset}-1"
+xt green "xterm-2" "${char_width}x24+${right_xterm_offset}-1"
 
 # Top Right.
 sleep 2
-xt gold "xterm-3" "80x24+${right_xterm_offset}+1"
+xt gold "xterm-3" "${char_width}x24+${right_xterm_offset}+1"
 
 # Bottom Left
 sleep 2
-xt purple "xterm-4" "80x24+${left_xterm_offset}-1"
+xt purple "xterm-4" "${char_width}x24+${left_xterm_offset}-1"
 
 sleep 2
 thunderbird &
@@ -54,6 +57,14 @@ sleep 2
 firefox &
 
 sleep 3
+# There are two ways to install VirtualBox, and unfortunately, they don't use
+# the same executable.  Try to detect which one is used.
+virtualbox_exec=virtualbox
+type $virtualbox_exec > /dev/null 2>&1
+if [ $? -ne 0 ]; then
+    virtualbox_exec=VirtualBox
+fi
+
 # There is a bug in VirtualBox that causes bad flickering in Windows guests 
 # when there is an Nividia card installed, but they provided a workaround via
 # an environment variable.  Set that variable here, if we can detect an nvidia
@@ -61,10 +72,10 @@ sleep 3
 using_nvidia=$(/sbin/lspci | /bin/grep -i nvidia | wc -l)
 if [ "$using_nvidia" == "0" ]; then
 	# No Nvidia card, just start VirtualBox
-	virtualbox &
+	$virtualbox_exec &
 else 
 	# We have an Nvidia card, work around that pesky flicker
-	CR_RENDER_FORCE_PRESENT_MAIN_THREAD=0 virtualbox &
+	CR_RENDER_FORCE_PRESENT_MAIN_THREAD=0 $virtualbox_exec &
 fi
 
 # Start conky last to give the screen time to adjust to large monitors.

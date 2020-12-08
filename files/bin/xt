@@ -15,7 +15,7 @@ if [ -z $2 ]; then
 fi
 
 if [ -z $3 ]; then
-    geom="80x24+10+10"
+    geom="100x24+10+10"
 fi
 
 export XTERM_NAME="$name"
