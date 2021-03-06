@@ -65,7 +65,8 @@ hi markdowncode ctermfg=Red guifg=Red
 " Fix a couple of color issues.
 set bg=light
 syntax on
-hi Comment term=bold ctermfg=blue guifg=blue
+" Set the comment color to a slightly less dark blue so it is more easily seen.
+hi Comment term=bold ctermfg=63 guifg=#5454ff
 hi Statement  ctermfg=Yellow guifg=Yellow
 
 "Set a statusbar
