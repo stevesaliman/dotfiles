@@ -25,19 +25,19 @@ cairo-dock --cairo --keep-above -f &
 
 #top left
 sleep 2
-xt green "xterm-1" "${char_width}x24+${left_xterm_offset}+2"
+${HOME}/bin/xt green "xterm-1" "${char_width}x24+${left_xterm_offset}+2"
 
 # Bottom Right.
 sleep 2
-xt green "xterm-2" "${char_width}x24+${right_xterm_offset}-1"
+${HOME}/bin/xt green "xterm-2" "${char_width}x24+${right_xterm_offset}-1"
 
 # Top Right.
 sleep 2
-xt gold "xterm-3" "${char_width}x24+${right_xterm_offset}+1"
+${HOME}/bin/xt gold "xterm-3" "${char_width}x24+${right_xterm_offset}+1"
 
 # Bottom Left
 sleep 2
-xt purple "xterm-4" "${char_width}x24+${left_xterm_offset}-1"
+${HOME}/bin/xt purple "xterm-4" "${char_width}x24+${left_xterm_offset}-1"
 
 sleep 2
 thunderbird &
