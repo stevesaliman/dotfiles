@@ -2,6 +2,10 @@
 set mark-symlinked-directories on
 # Turn off the bell
 set bell-style none
+# Turn off bracketed paste so that pasting commands is the same as typing them.  The default
+# Seems to have changed in either bash 5 or fedora
+set enable-bracketed-paste off
+
 # Bind Ctrl-Up and Ctrl-Down to top and bottom of history
 "\e[1;5A": beginning-of-history
 "\e[1;5B": end-of-history
