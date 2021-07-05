@@ -1,7 +1,10 @@
+/* Include for fx < 89 */
 @import "./tabs_rounded.css"; /**/
+
 /* @import "./tabs_not_on_top.css"; /**/
 /* @import "./tabs_not_on_top_v65.css"; /**/
 /* @import "./tabs_not_on_top_v72.css"; /**/
-@import "./tabs_below_navigation_toolbar_fx72.css"; /**/
+/* @import "./tabs_below_navigation_toolbar_fx72.css"; /**/
 /* @import "./tabs_below_navigation_toolbar_fx74.css"; /**/
+@import "./tabs_below_navigation_toolbar_fx89.css"; /**/
 
