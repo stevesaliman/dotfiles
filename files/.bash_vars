@@ -81,6 +81,13 @@ export USER_HOME=${HOME}
 # By default, we're not using Oracle's instant client.
 instant_client=0
 
+# Variables for the tldr command (https://github.com/raylee/tldr-sh-client)
+export TLDR_HEADER='magenta bold underline'
+export TLDR_QUOTE='bold'
+export TLDR_DESCRIPTION='green'
+export TLDR_CODE='red'
+export TLDR_PARAM='blue'
+
 # Specify what git statuses we want to see. By default, we want 'em all.
 export GIT_PS1_SHOWDIRTYSTATE=1
 export GIT_PS1_SHOWSTASHSTATE=1
