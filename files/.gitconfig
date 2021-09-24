@@ -7,6 +7,7 @@
     homeprofile = config user.email "support@saliman.net"
     k =  log --branches --simplify-by-decoration --decorate --oneline
     lg = log --all --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ci) %C(bold blue)<%an>%Creset' --abbrev-commit
+    purge = fetch --prune
     tagdate = log --tags --simplify-by-decoration --pretty='format:%ai %d'
     workprofile = config user.email "ssaliman@vantage-dc.com"
 [branch]
