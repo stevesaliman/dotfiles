@@ -1,0 +1,9 @@
+# This file will run the script to start the standard apps in Gnome.
+[Desktop Entry]
+Name=Autostart
+GenericName=Autostart
+Comment=Start standard apps
+Exec=/home/steve/bin/startkde.sh
+Terminal=false
+Type=Application
+
