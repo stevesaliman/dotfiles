@@ -1,3 +1,4 @@
+
 /***************
  * Header bars *
  ***************/
@@ -11,11 +12,11 @@ headerbar {
   border-style: solid;
   border-color: s_color(normal);
   color: t_color(text);
-  background-image: linear-gradient(to bottom,change-color(t_color(background),$lightness: min(lightness(t_color(background))*1.2,100%)),t_color(background));
+  background-image: linear-gradient(to bottom, t_color(background), black 75%, t_color(background));
   &:backdrop {
     border-color: transparent;
-    background-image: none;
-    background-color: t_color(backdrop-background);
+    background-image: linear-gradient(to bottom, t_color(backdrop-background), black 75%, t_color(backdrop-background));
+    /* background-color: t_color(backdrop-background); */
     color: t_color(backdrop-text);
     box-shadow: none;
   }
@@ -40,7 +41,10 @@ headerbar {
       &:backdrop { border-color: t_color(backdrop-background); }
     }
     &:active, &:checked {
-      @include button(active);
+      color: t_color(text);
+      border-color: b_color(active);
+      background-image: none;
+      background-color: t_color(background);
       &:hover {
   	  @include button(active-hover);
       }
@@ -59,13 +63,13 @@ headerbar {
     &:backdrop {
       border-color: transparent;
       background-image: none;
-      background-color: t_color(backdrop-background);
+      background-color: transparent;
       color: t_color(backdrop-text);
       }
 
     &.flat:backdrop, &.flat:backdrop:disabled, &:disabled:backdrop {
       background-image: none;
-      background-color: t_color(backdrop-background);
+      background-color: transparent;
       color: t_color(backdrop-text);
       border-color: transparent;
       }

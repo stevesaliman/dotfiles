@@ -1,0 +1,125 @@
+// This file is a copy of the Gnome-Steve.colors file, but with an scss extension so we can preview
+// the colors in IntelliJ.  Any changes to this file should be made to Gnome-Steve.colors as well.
+//[ColorEffects:Disabled]
+$Color:rgb(56,56,56);
+$ColorAmount:-0.8;
+$ColorEffect:0;
+$ContrastAmount:0.65;
+$ContrastEffect:1;
+$IntensityAmount:0.25;
+$IntensityEffect:2;
+
+//[ColorEffects:Inactive]
+$ChangeSelectionColor:true;
+$Color:rgb(0,0,0);
+$ColorAmount:0.025;
+$ColorEffect:2;
+$ContrastAmount:0.4;
+$ContrastEffect:2;
+$Enable:false;
+$IntensityAmount:0;
+$IntensityEffect:0;
+
+//[Colors:Button]
+$BackgroundAlternate:rgb(66,65,64);
+$BackgroundNormal:rgb(64,63,62);  // #f03f3e
+$DecorationFocus:rgb(39,94,160); // #5781b0
+$DecorationHover:rgb(87,129,176); // #5781b0
+$ForegroundActive:rgb(150,191,240);
+$ForegroundInactive:rgb(120,119,117);
+$ForegroundLink:rgb(80,142,216);
+$ForegroundNegative:rgb(232,88,72);
+$ForegroundNeutral:rgb(192,162,95);
+$ForegroundNormal:rgb(232,230,227); // #e8e6e3
+$ForegroundPositive:rgb(39,174,96);
+$ForegroundVisited:rgb(142,121,165);
+
+// [Colors:Complementary]
+$BackgroundAlternate:rgb(196,224,255);
+$BackgroundNormal:rgb(24,21,19);
+$DecorationFocus:rgb(58,167,221);
+$DecorationHover:rgb(110,214,255);
+$ForegroundActive:rgb(255,128,224);
+$ForegroundInactive:rgb(137,136,135);
+$ForegroundLink:rgb(88,172,255);
+$ForegroundNegative:rgb(191,3,3);
+$ForegroundNeutral:rgb(176,128,0);
+$ForegroundNormal:rgb(231,253,255);
+$ForegroundPositive:rgb(0,110,40);
+$ForegroundVisited:rgb(150,111,232);
+
+//[Colors:Selection]
+$BackgroundAlternate:rgb(22,68,120);
+$BackgroundNormal:rgb(24,72,128); // #184880
+$DecorationFocus:rgb(39,94,160); // Same as Button $DecorationFocus
+$DecorationHover:rgb(87,129,176); // #5781b0 same as button DecorationHover
+$ForegroundActive:rgb(150,191,240);
+$ForegroundInactive:rgb(81,119,166);
+$ForegroundLink:rgb(80,142,216);
+$ForegroundNegative:rgb(232,88,72);
+$ForegroundNeutral:rgb(192,162,95);
+$ForegroundNormal:rgb(0,0,0); // black
+$ForegroundPositive:rgb(39,174,96);
+$ForegroundVisited:rgb(142,121,165);
+
+//[Colors:Tooltip]
+$BackgroundAlternate:rgb(17,51,86);
+$BackgroundNormal:rgb(16,48,80); // #103050
+$DecorationFocus:rgb(39,94,160);
+$DecorationHover:rgb(87,129,176);
+$ForegroundActive:rgb(150,191,240);
+$ForegroundInactive:rgb(120,119,117);
+$ForegroundLink:rgb(80,142,216);
+$ForegroundNegative:rgb(232,88,72);
+$ForegroundNeutral:rgb(192,162,95);
+$ForegroundNormal:rgb(196,209,224); // #c4d1e0
+$ForegroundPositive:rgb(39,174,96);
+$ForegroundVisited:rgb(142,121,165);
+
+//[Colors:View]
+$BackgroundAlternate:rgb(240,240,240);
+$BackgroundNormal:rgb(255,255,255);  // White
+$DecorationFocus:rgb(39,94,160);  // Same as Button $DecorationFocus
+$DecorationHover:rgb(87,129,176); // Same as ButtonDecorationHover
+$ForegroundActive:rgb(150,191,240);
+$ForegroundInactive:rgb(120,119,117);
+$ForegroundLink:rgb(80,142,216);
+$ForegroundNegative:rgb(232,88,72);
+$ForegroundNeutral:rgb(192,162,95);
+$ForegroundNormal:rgb(0,0,0);  // black
+$ForegroundPositive:rgb(39,174,96);
+$ForegroundVisited:rgb(142,121,165);
+
+//[Colors:Window]
+$BackgroundAlternate:rgb(0,128,128);
+$BackgroundNormal:rgb(0,96,96);  // #006060
+$DecorationFocus:rgb(39,94,160);
+$DecorationHover:rgb(87,129,176);
+$ForegroundActive:rgb(150,191,240);
+$ForegroundInactive:rgb(120,119,117);
+$ForegroundLink:rgb(80,142,216);
+$ForegroundNegative:rgb(232,88,72);
+$ForegroundNeutral:rgb(192,162,95);
+$ForegroundNormal:rgb(0,0,0); // black
+$ForegroundPositive:rgb(39,174,96);
+$ForegroundVisited:rgb(142,121,165);
+
+//[General]
+//ColorScheme:Breeze
+//Name:Breeze
+//shadeSortColumn:true
+//
+//[KDE]
+//contrast:4
+
+//[WM]
+// Used by titlebars.
+//$activeBackground:rgb(19,47,80); // #132f50
+$activeBackground:rgb(113,0,168); // #71008
+$activeBlend:rgb(252,252,252);
+$activeForeground:rgb(255,255,255); // White
+//$inactiveBackground:rgb(64,63,62); // #807f7d light gray, really unsure about this one.
+$inactiveBackground:rgb(0,0,141); // #807f7d light gray, really unsure about this one.
+$inactiveBlend:rgb(75,71,67);
+$inactiveForeground:rgb(128,127,125); // #403f3e - Gray, unsure about this one.
+

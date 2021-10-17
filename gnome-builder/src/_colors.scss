@@ -5,82 +5,74 @@
 
 // Sass thinks we're using the colors in the variables as strings and may shoot
 // warning, it's innocuous and can be defeated by using "" + $var
-/*
-widget text/foreground color */
-@define-color theme_fg_color #{"" + w_color(text)};
 
-/*
-text color for entries, views and content in general */
-@define-color theme_text_color #{"" +v_color(text)};
+/* widget text/foreground color */
+@define-color theme_fg_color black;
 
-/*
-widget base background color */
-@define-color theme_bg_color #{"" +w_color(normal)};
+/* text color for entries, views and content in general (black) */
+@define-color theme_text_color black;
 
-/*
-text widgets and the like base background color */
-@define-color theme_base_color #{"" +v_color(normal)};
+/* widget base background color (#006060) */
+@define-color theme_bg_color #006060;
 
-/*
-base background color of selections */
-@define-color theme_selected_bg_color #{"" +s_color(normal)};
+/* text color for selected text. (white) */
+@define-color selected_text_color white;
 
-/*
-text/foreground color of selections */
-@define-color theme_selected_fg_color #{"" +s_color(text)};
+/* text widgets and the like base background color.  This is the background
+   color for text boxes and input fields.  (white) */
+@define-color theme_base_color white;
 
-/*
-base background color of insensitive widgets */
-@define-color insensitive_bg_color #{"" +insensitive(w_color(normal))};
+/* base background color of selected items (184880) */
+@define-color theme_selected_bg_color #184880;
 
-/*
-text foreground color of insensitive widgets */
-@define-color insensitive_fg_color #{"" +insensitive(w_color(text))};
+/* text/foreground color of selected buttons (black) */
+@define-color theme_selected_fg_color black;
 
-/*
-insensitive text widgets and the like base background color */
-@define-color insensitive_base_color #{"" +insensitive(v_color(text))};
+/* base background color of insensitive widgets (#004c4c) */
+@define-color insensitive_bg_color #004c4c;
 
-/*
-widget text/foreground color on backdrop windows */
-@define-color theme_unfocused_fg_color #{"" +backdrop(w_color(text))};
+/* text foreground color of insensitive widgets (rgba(216, 218, 221, 0.35) */
+@define-color insensitive_fg_color rgba(216, 218, 221, 0.35);
 
-/*
-text color for entries, views and content in general on backdrop windows */
-@define-color theme_unfocused_text_color #{"" +backdrop(v_color(text))};
+/* Background color for disabled widgets (Non-standard definition) */
+@define-color disabled_bg_color #b1b1b1;
 
-/*
-widget base background color on backdrop windows */
-@define-color theme_unfocused_bg_color #{"" +backdrop(w_color(normal))};
+/* base background color of selections on backdrop windows */
+@define-color theme_unfocused_selected_bg_color rgba(61, 174, 233, 0.5);
 
-/*
-text widgets and the like base background color on backdrop windows */
-@define-color theme_unfocused_base_color #{"" +backdrop(v_color(normal))};
+/* widgets main borders color */
+@define-color borders #616569;
 
-/*
-base background color of selections on backdrop windows */
-@define-color theme_unfocused_selected_bg_color #{"" +backdrop(s_color(backdrop))};
+/* widgets main borders color insensitive. This is the color for disabled items. */
+/** CHANGE THIS TO DISABLED BORDERS **/
+@define-color insensitive_borders rgba(255, 0, 0, 0.35);
 
-/*
-text/foreground color of selections on backdrop windows */
-@define-color theme_unfocused_selected_fg_color #{"" + backdrop(s_color(text))};
+/* these are pretty self explicative */
+@define-color warning_color #f67400;
+@define-color error_color #da4453;
+@define-color success_color #27ae60;
 
-/*
-widgets main borders color */
-@define-color borders #{"" +$border_color};
 
-/*
-widgets main borders color on backdrop windows */
-@define-color unfocused_borders #{"" +backdrop($border_color)};
+/* These colors are not part of what the original source generated, but are extras to drive my
+   theme. */
 
-/*
-widgets main borders color insensitive */
-@define-color insensitive_borders #{"" +insensitive($border_color)};
-/*
-these are pretty self explicative */
-@define-color warning_color #{"" +$warning_color};
-@define-color error_color #{"" +$error_color};
-@define-color success_color #{"" +$success_color};
+/* Enabled buttons.  We can't define a linear-gradient here, so we'll define the
+   two colors used in the gradient */
+@define-color button_top #31373c;
+@define-color button_bottom #303439;
+@define-color button_text_color #e8e6e3;
+
+/* Clicked buttons.  Same deal as before, just define the two colors in the
+   gradient */
+@define-color button_chk_top #394046;
+@define-color button_chk_bottom #363c43;
+
+/* Scroll bars for Firefox and Thunderbird - these colors are not visible in
+   the widget tool... */
+@define-color scrollbar_bg_color #006060;
+@define-color scrollbar_slider_color #3d3c3b;
+/* @define-color scrollbar_halo_color #4c79a2; */
+@define-color scrollbar_halo_color #557eac;
 
 //@define-color destructive_color #{$destructive_color}
 
@@ -113,3 +105,34 @@ these are pretty self explicative */
 //FIXME this is really an API
 
 @define-color content_view_bg #{"" + v_color(normal)};
+
+
+// apps rely on some named colors to be exported  These are the colors that weren't previously defined.
+
+
+/* insensitive text widgets and the like base background color */
+@define-color insensitive_base_color #{"" +insensitive(v_color(text))};
+
+/* widget text/foreground color on backdrop windows */
+@define-color theme_unfocused_fg_color #{"" +backdrop(w_color(text))};
+
+/* text color for entries, views and content in general on backdrop windows */
+@define-color theme_unfocused_text_color #{"" +backdrop(v_color(text))};
+
+/* widget base background color on backdrop windows */
+@define-color theme_unfocused_bg_color #{"" +backdrop(w_color(normal))};
+
+/* text widgets and the like base background color on backdrop windows */
+@define-color theme_unfocused_base_color #{"" +backdrop(v_color(normal))};
+
+
+/* text/foreground color of selections on backdrop windows */
+@define-color theme_unfocused_selected_fg_color #{"" + backdrop(s_color(text))};
+
+/* widgets main borders color */
+@define-color borders #{"" +$border_color};
+
+/* widgets main borders color on backdrop windows */
+@define-color unfocused_borders #{"" +backdrop($border_color)};
+
+

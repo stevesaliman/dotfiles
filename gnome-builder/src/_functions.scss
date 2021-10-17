@@ -9,15 +9,18 @@
     @return $ButtonBackgroundNormal;
   }
   @if $c == hover {
+    // outline of hovered buttons, and FG of pressed toggle buttons.
     @return $ButtonDecorationHover;
   }
   @if $c == active {
+    // Background of pressed buttons.  TODO: Make this a better color
     @return $ButtonDecorationFocus;
   }
   @if $c == text {
     @return $ButtonForegroundNormal;
   }
   @if $c == active-text {
+    // Text for pressed toggle buttons
     @return $SelectionForegroundNormal;
   }
 }
@@ -80,6 +83,7 @@
   }
 }
 
+// Tooltip color
 @function tooltip($c: text) {
   @if $c == text {
     @return $TooltipForegroundNormal;

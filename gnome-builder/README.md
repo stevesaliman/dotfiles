@@ -1,5 +1,9 @@
 ATTENTION: This repository is no longer maintained. You can find the up to date Breeze GTK on KDE's official repositories here: https://phabricator.kde.org/source/breeze-gtk/
 
+To create a theme, change to the src directory, and run `sh build_theme.sh Gnome-Steve`.  This
+will create a Gnome-Steve directory in the ~/.themes directory, which can be used to test the theme.
+When you are happy with the theme, copy the directory into the dotfiles project.
+
 # Gnome-breeze
 
 A GTK Theme Built to Match KDE's Breeze. GTK2 theme made by [scionicspectre](https://github.com/scionicspectre/BreezyGTK)
