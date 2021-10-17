@@ -1,10 +1,20 @@
+/* The bulk of the code comes from https://github.com/aris-t2/customcssforfx, which is copied into
+ * a subdirectory of this one.  When new versions of Firefox are released, make a copy of that
+ * project and see if it still works in all the versions of Firefox we support.  If it does,
+ * replace the files in the subdirectory here.  If not, make a new subdirectory here so we keep
+ * the working code for earlier versions of Firefox.
+ */
+/** Uncomment the file that corresponds to the version of Firefox we're configuring. */
+@import "userChrome_fx78.css";
+
+/** Old way of doing things */
 /* Include for fx < 89 */
-@import "./tabs_rounded.css"; /**/
+/* @import "./tabs_rounded.css"; /**/
 
 /* @import "./tabs_not_on_top.css"; /**/
 /* @import "./tabs_not_on_top_v65.css"; /**/
 /* @import "./tabs_not_on_top_v72.css"; /**/
 /* @import "./tabs_below_navigation_toolbar_fx72.css"; /**/
 /* @import "./tabs_below_navigation_toolbar_fx74.css"; /**/
-@import "./tabs_below_navigation_toolbar_fx89.css"; /**/
+/* @import "./tabs_below_navigation_toolbar_fx89.css"; /**/
 
