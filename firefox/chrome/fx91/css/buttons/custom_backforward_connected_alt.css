@@ -1,0 +1,8 @@
+/* Firefox userChrome.css tweaks ********************************************************/
+/* Github: https://github.com/aris-t2/customcssforfx ************************************/
+/****************************************************************************************/
+
+
+#main-window:not([uidensity=compact]) #nav-bar #back-button + #forward-button {
+  margin-inline-start: -4px !important;
+}
