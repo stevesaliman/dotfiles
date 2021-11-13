@@ -110,7 +110,7 @@
 /* [!] set own colors for tabs & toolbars inside 'color_variables.css' or use available presets */
 /* [!] 'about:config > ui.systemUsesDarkTheme > 0' might be required in some cases **************/
 /* [!] enabled 'menubar_color.css' and 'statusbar_color.css' might be required in some cases ****/
-@import "fx60-90/config/color_variables_steve_linux.css"; /**/  /* <- default 'grey' colors */
+@import "fx60-90/config/color_variables_steve_linux.css"; /**/  /* <- Steve's colors */
 /* @import "./fx60-90/config/color_variables.css"; /**/  /* <- default 'grey' colors */
 /* @import "./fx60-90/config/color_variables_aero.css"; /**/  /* <- 'AeroBlue' colors (Win 7 Aero) */
 /* @import "./fx60-90/config/color_variables_classic-grey.css"; /**/  /* <- 'classic grey' colors (Win Classic) */

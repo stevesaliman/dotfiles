@@ -58,7 +58,7 @@
 #developer-button,
 #preferences-button,
 #characterencoding-button {
-  fill: #FFFFFF !important;
+  fill: #000000 !important;
   fill-opacity: 1.0 !important;
   opacity: 1.0 !important;
 }
