@@ -51,6 +51,8 @@ if [ "$force_deploy" == "N" ]; then
 	fi
 fi
 
+# We used to use .Xdefaults, now we use .Xresoruces.  Remove the old file before we sync.
+rm $df_home_dir/.Xdefaults
 echo "rsync -av ${df_source_dir}/files/ $df_home_dir"
 rsync -av "${df_source_dir}/files/" "$df_home_dir"
 
