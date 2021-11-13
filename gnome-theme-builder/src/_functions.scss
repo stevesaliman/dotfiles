@@ -65,6 +65,9 @@
   @if $c == text {
     @return $WindowForegroundNormal;
   }
+  @if $c == border {
+    @return $WMborder;
+  }
 }
 
 // Titlebar color
