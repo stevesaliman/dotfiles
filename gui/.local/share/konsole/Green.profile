@@ -1,6 +1,6 @@
 [Appearance]
 ColorScheme=GreenOnBlack
-Font=Adobe Courier,11,-1,5,50,0,0,0,0,0,Regular
+Font=Adobe Courier,@font.size@,-1,5,50,0,0,0,0,0,Regular
 
 [General]
 Command=

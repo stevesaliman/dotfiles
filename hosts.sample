@@ -16,3 +16,5 @@ work_user=
 app_user=
 # What is the environment label?
 env_label=local
+# What font size
+font_size=11
