@@ -21,6 +21,7 @@ if [ "$screen_width" -gt "3000" ]; then
         # scaled
         left_xterm_offset=300
         right_xterm_offset=2000
+    fi
 fi
 
 # Top Left
