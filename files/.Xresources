@@ -22,7 +22,7 @@ XTerm*pointerColor: #f3b
 XTerm*font: @xterm.font@
 ! Scaled displays, like Cygwin on high DPI laptops, need to use font faces instead.  
 ! XTerm*faceName: Adobe Courier
-! Xterm*faceSize: 20
+! XTerm*faceSize: 20
 ! 
 ! medium seems ok
 ! r seems ok
