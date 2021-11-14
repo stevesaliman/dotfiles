@@ -28,5 +28,15 @@ if [ $answer != 'y' ]; then
   exit
 fi
 
+# We used to use .Xdefaults, now we use .Xresoruces.  Remove the old file before we sync.
+rm $df_home_dir/.Xdefaults
+
 echo "rsync -av ${df_source_dir}/gui/ $df_home_dir"
 rsync -av "${df_source_dir}/gui/" "$df_home_dir"
+
+# Cygwin requires .startxwinrc to be executable
+chmod 755 $df_home_dir/.startxwinrc
+
+# some files had tokens in them.  Replace the tokens.
+sed -i "s/@xterm.font@/$df_xterm_font/" $df_home_dir/.Xresources
+

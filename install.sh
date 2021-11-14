@@ -51,13 +51,9 @@ if [ "$force_deploy" == "N" ]; then
 	fi
 fi
 
-# We used to use .Xdefaults, now we use .Xresoruces.  Remove the old file before we sync.
-rm $df_home_dir/.Xdefaults
 echo "rsync -av ${df_source_dir}/files/ $df_home_dir"
 rsync -av "${df_source_dir}/files/" "$df_home_dir"
 
-# Cygwin requires .startxwinrc to be executable
-chmod 755 $df_home_dir/.startxwinrc
 # Cygwin doesn't seem to get the .ssh perms right
 chmod 700 $df_home_dir/.ssh
 chmod 600 $df_home_dir/.ssh/config
@@ -73,7 +69,5 @@ sed -i "s/@local.user@/$df_user/" $df_home_dir/.ssh/config
 
 sed -i "s/@local.user@/$df_user/" $df_home_dir/.bash_vars
 sed -i "s/@env.label@/$df_env_label/" $df_home_dir/.bash_vars
-
-sed -i "s/@xterm.font@/$df_xterm_font/" $df_home_dir/.Xresources
 
 sed -i "s/@local.user@/$df_user/" $df_home_dir/bin/backup.sh
