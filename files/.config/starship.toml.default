@@ -1,0 +1,67 @@
+format = "$hostname:$directory$all"
+  
+[hostname]
+style = ""
+ssh_only = false
+format = "[$hostname]($style)"
+
+[directory]
+truncation_length = 99
+truncate_to_repo = false
+style = "blue"
+
+
+#[env_var.HISTCMD]
+#default = "-1"
+# variable = "HISTCMD"
+#style = "green"
+##format = "[$env_value]"
+#[custom.history]
+#description = "Show the history number"
+#command = "echo $HISTCMD"
+#when = "true"
+#format = "$output"
+
+
+# Xterms won't display the nerd-font version of the >, so just use > directly
+[character]
+success_symbol = "[>](bold green)"
+error_symbol = "[>](bold red)"
+
+[git_status]
+# Make it match git_branch by default.  Some symbols will get their own color
+style = "bold purple"
+untracked = "?"
+modified = "[!](red)"
+deleted = "[x](red)"
+staged = "[+](green)"
+renamed = "[»](green)"
+# stashed   "$"     The format of stashed
+conflicted = "[M](bold red)"
+ahead = ">"
+behind = "<"
+diverged = "<>"
+up_to_date = "="
+format = '([\($conflicted$stashed$deleted$renamed$modified$staged$untracked $ahead_behind\)]($style) )'
+##format = '([\[$conflicted$stashed$deleted$renamed$modified$staged$untracked$ahead_behind\]]($style) )'
+
+[ruby]
+format = "$symbol[rb $version ]($style)"
+detect_variables = []
+detect_files = [ "Gemfile", ".ruby-version", ".rbenv" ]
+
+[kubernetes]
+disabled = false
+format = '[$symbol$context( \($namespace\))]($style) '
+
+[kubernetes.context_aliases]
+aks-canadacentral-prod-na-gsd = "ca-prod-gsd"
+
+[aws]
+disabled = true
+
+[terraform]
+detect_extensions = ["tf", "tfplan", "tfstate", "tfvars"]
+# TODO: helm needs a different symbol, if we keep it.
+# TODO: java needs a different symbol
+

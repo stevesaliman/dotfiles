@@ -47,6 +47,26 @@ function h {
     history $num
 }
 
+# function to display swap usage
+function ls-swap {
+    for file in /proc/*/status ; do awk '/VmSwap|Name/{printf $2 " " $3}END{ print ""}' $file; done | sort -k 2 -n -r | less
+}
+
+# function to enable/disable a starship module.  This function takes advantage of the fact that
+# starship reads the config every time it runs.  It takes 2 arguments; a module name, and either
+# "on" or "off".  This function makes a couple of assumptions:
+# 1. you have a default configuration, named starship.toml.default in the normal location.
+# 2. The module being used is already in that file.
+# 3. The disabled option is the first thing after the module name itself.
+function st-mod {
+    local config=$HOME/.config/starship.toml
+    if [ $2 = "on" ]; then
+        sed "/\[$1\]/{n;s/.*/disabled = false/;}" ${config}.default > $config
+    else
+        sed "/\[$1\]/{n;s/.*/disabled = true/;}" ${config}.default > $config
+    fi
+}
+
 # function to start a gpg agent so we can generate pgp keys.
 function start-gpg {
     unset DISPLAY

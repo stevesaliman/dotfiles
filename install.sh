@@ -58,6 +58,9 @@ rsync -av "${df_source_dir}/files/" "$df_home_dir"
 chmod 700 $df_home_dir/.ssh
 chmod 600 $df_home_dir/.ssh/config
 
+# Use the default starship config as is for now
+cp $df_home_dir/.config/starship.toml.default $df_home_dir/.config/starship.toml
+
 # some files had tokens in them.  Replace the tokens.
 sed -i "s/@git.name@/$df_git_name/" $df_home_dir/.gitconfig
 sed -i "s/@git.email@/$df_git_email/" $df_home_dir/.gitconfig
