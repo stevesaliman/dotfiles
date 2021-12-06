@@ -59,6 +59,11 @@ function ls-swap {
 # 2. The module being used is already in that file.
 # 3. The disabled option is the first thing after the module name itself.
 function st-mod {
+    if [ "$#" -lt 2 ]; then
+      echo "usage: st-mod <module name> on|off"
+      return 1
+    fi
+
     local config=$HOME/.config/starship.toml
     if [ $2 = "on" ]; then
         sed "/\[$1\]/{n;s/.*/disabled = false/;}" ${config}.default > $config
