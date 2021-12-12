@@ -2,8 +2,11 @@
 # This script is used on Lunux systems to start X windows.
 #export DISPLAY=valen:0
 
-# First things first.  Figure out what our display resolution is and set some
-# variables accordingly.  Start with defaults.
+# First things first.  Not all distros load .Xresources automatically, so load them here
+xrdb -merge ~/.Xresources
+
+# Next, figure out what our display resolution is and set some variables accordingly.  Start with
+# defaults.
 left_xterm_offset=1
 right_xterm_offset=800
 char_width=100
