@@ -3,7 +3,7 @@
  *********************/
 /* Add a border to gnome-terminal windows */
 terminal-window notebook {
-  border-width: 0px 2px 2px 2px !important;
+  border-width: 0px 1px 1px 1px !important;
   border-style: solid !important;
   border-color: w_color(border) !important;
 }
@@ -12,12 +12,11 @@ decoration {
 
   //border: 2px solid w_color(border);
   //background: w_color(border);
-  //border-width: 0px 2px 2px 2px;
-  //border-style: solid;
-  //border-color: w_color(border);
-  //background: w_color(border);
+  border-width: 0px 1px 1px 1px;
+  border-style: solid;
+  border-color: w_color(border);
   border-radius: $r $r 0 0;
-  border-width: 0px;
+  background: black; /* Shows up between the header bar and the app.  Black makes it go away */
   box-shadow: 0 2px 6px 1px rgba(0, 0, 0, 0.5);
 
   /* this is used for the resize cursor area */
