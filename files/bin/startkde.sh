@@ -23,8 +23,11 @@ if [ "$screen_width" -gt "3000" ]; then
 	right_xterm_offset=1600
 fi
 
-#cairo-dock --opengl --keep-above &
-cairo-dock --cairo --keep-above -f &
+# KDE needs Cairo Dock.   Gnome doesn't
+if [ "$XDG_CURRENT_DESKTOP" == "KDE" ]; then
+    #cairo-dock --opengl --keep-above &
+    cairo-dock --cairo --keep-above -f &
+fi
 
 #top left
 sleep 2

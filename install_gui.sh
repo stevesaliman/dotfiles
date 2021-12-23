@@ -22,6 +22,8 @@ fi
 . $df_source_dir/local_env
 . $df_source_dir/install_functions
 
+verify_value "df_xterm_font" "$df_xterm_font"
+
 echo -e "Installing to $df_home_dir - THIS IS DESCRUCTIVE!  Are you sure?"
 read answer
 if [ $answer != 'y' ]; then
