@@ -65,7 +65,8 @@ cyan="\[\033[00;36m\]"
 white="\[\033[00;37m\]"
 bold_red="\[\033[01;31m\]"
 bold_green="\[\033[01;32m\]"
-bold_blue="\[\033[01;34m\]"
+#bold_blue="\[\033[01;34m\]"
+bold_blue="\[\033[01;38;5;63m\]"
 bold_gray="\[\033[00;37m\]"
 
 # For some reason, cygwin is not setting the HOME variable properly when the
