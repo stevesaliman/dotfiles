@@ -260,7 +260,7 @@ navigation toolbar buttons appearance - [only use one at a time] ***************
 /* [!] disable all 'button in Firefox titlebar' options for
        'button on navigation toolbar' options to work properly **********************************/
 
-/* @import "./fx91/css/appbutton/appbutton_on_navbar_start_position.css"; /**/
+@import "./fx91/css/appbutton/appbutton_on_navbar_start_position.css"; /**/
 
 /* button color - [only use one at a time] ******************************************************/
 /* @import "./fx91/css/appbutton/appbutton_on_navbar_color_autocolor.css"; /**/
@@ -290,7 +290,7 @@ navigation toolbar buttons appearance - [only use one at a time] ***************
        'button in Firefox titlebar' options to work properly ************************************/
 
 /* button in titlebar - [only use one at a time] ************************************************/
-@import "./fx91/css/appbutton/appbutton_in_titlebar.css"; /**/ /* <-- label only */
+/* @import "./fx91/css/appbutton/appbutton_in_titlebar.css"; /**/ /* <-- label only */
 /* @import "./fx91/css/appbutton/appbutton_in_titlebar_icon_only.css"; /**/
 
 /* for 'appbutton in titlebar icon only' - [only use one at a time] *****************************/
@@ -305,7 +305,7 @@ navigation toolbar buttons appearance - [only use one at a time] ***************
 /* @import "./fx91/css/appbutton/appbutton_in_titlebar_macOS_fix.css"; /**/
 
 /* button color - [only use one at a time] ******************************************************/
-@import "./fx91/css/appbutton/appbutton_in_titlebar_autocolor.css"; /**/
+/* @import "./fx91/css/appbutton/appbutton_in_titlebar_autocolor.css"; /**/
 /* @import "./fx91/css/appbutton/appbutton_in_titlebar_autocolor57p.css"; /**/
 /* @import "./fx91/css/appbutton/appbutton_in_titlebar_transparent.css"; /**/
 /* @import "./fx91/css/appbutton/appbutton_in_titlebar_semi_transparent.css"; /**/
