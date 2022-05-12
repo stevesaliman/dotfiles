@@ -8,6 +8,7 @@ alias backup_data='sudo rsync -avi --delete --exclude=/usr/local/oradata/ /usr/l
 alias catalina=catalina.sh
 alias cls=clear
 alias deploy='sudo /usr/local/bin/deploy.sh'
+alias diffr='diff -r -X ~/.diff_excludes'
 alias dir='ls --color --human-readable -lFa'
 alias df='df -h'
 alias du='du -hx'
