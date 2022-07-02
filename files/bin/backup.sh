@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # First things first: are we root?
 if [ "${USER}" != "root" ]; then

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # This script works its way up the tree looking for a gradle wrapper.  If it
 # finds one, it runs it.  If not, it runs the system gradle, if GRADLE_HOME
 # is defined.
