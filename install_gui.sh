@@ -41,4 +41,4 @@ chmod 755 $df_home_dir/.startxwinrc
 
 # some files had tokens in them.  Replace the tokens.
 sed -i "s/@xterm.font@/$df_xterm_font/" $df_home_dir/.Xresources
-set -i "s/@font.size@/$df_font_size/" $df_home_dir/.local/share/konsole/Green.profile
+sed -i "s/@font.size@/$df_font_size/" $df_home_dir/.local/share/konsole/Green.profile
