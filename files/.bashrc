@@ -19,11 +19,6 @@ fi
 export PATH=/usr/local/bin:/usr/local/sbin:/sbin:/usr/sbin:/bin:/usr/bin
 export PATH=$PATH:/opt/bin:/etc:/usr/local/etc:/usr/etc:/usr/ccs/bin
 export PATH=$PATH:${HOME}/bin
-#  Add the path prefix from our variable setup if we have one. We will need it
-# for other commands in this script.
-if [ -n "$path_prefix" ]; then
-    export PATH=$path_prefix:$PATH
-fi
 
 # Next, figure out where this .bashrc file lives so we can source the right
 # files later.
@@ -43,6 +38,12 @@ fi
 . ${bash_script_dir}/.bash_vars
 if [ -f ${bash_script_dir}/.bash_local ]; then
     . ${bash_script_dir}/.bash_local
+fi
+
+#  Add the path prefix from our variable setup if we have one. We will need it
+# for other commands in this script.
+if [ -n "$path_prefix" ]; then
+    export PATH=$path_prefix:$PATH
 fi
 
 # Load in the git functions and define what we want to see
@@ -72,8 +73,8 @@ export _Z_NO_RESOLVE_SYMLINKS=1
 
 # On a mac, we need to enable completion manually.
 if [[ $os_type == Darwin ]]; then
-	if [ -f $(brew --prefix)/etc/bash_completion ]; then
-		. $(brew --prefix)/etc/bash_completion
+	if [ -f $(brew --prefix)/etc/profile.d/bash_completion.sh ]; then
+		. $(brew --prefix)/etc/profile.d/bash_completion.sh
 	fi
 fi
 # Load local completion scripts.
