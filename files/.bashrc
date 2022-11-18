@@ -19,6 +19,11 @@ fi
 export PATH=/usr/local/bin:/usr/local/sbin:/sbin:/usr/sbin:/bin:/usr/bin
 export PATH=$PATH:/opt/bin:/etc:/usr/local/etc:/usr/etc:/usr/ccs/bin
 export PATH=$PATH:${HOME}/bin
+#  Add the path prefix from our variable setup if we have one. We will need it
+# for other commands in this script.
+if [ -n "$path_prefix" ]; then
+    export PATH=$path_prefix:$PATH
+fi
 
 # Next, figure out where this .bashrc file lives so we can source the right
 # files later.
@@ -143,10 +148,7 @@ fi
 export PATH=${bash_script_dir}/bin:$PATH
 export PATH=$PATH:/usr/ucb:.
 
-# finally add the prefix and suffix from our variable setup if we have one.
-if [ -n "$path_prefix" ]; then
-    export PATH=$path_prefix:$PATH
-fi
+# finally add the path suffix from our variable setup if we have one.
 if [ -n "$path_suffix" ]; then
     export PATH=$PATH:$path_suffix
 fi
@@ -156,7 +158,7 @@ export LD_LIBRARY_PATH=$local_libs:/usr/local/lib:$X11_HOME/lib:/usr/ccs/lib:$HO
 export MANPATH=$HOME/man:/usr/man:/usr/share/man:/usr/local/man:$X11_HOME/man
 # On a mac, we need to add the coreutils to the MANPATH
 if [[ $os_type == Darwin ]]; then
-	export MANPATH=/usr/local/opt/coreutils/libexec/gnuman:$MANPATH
+	export MANPATH=/opt/homebrew/opt/coreutils/libexec/gnuman:$MANPATH
 fi
 
 if [[ $os_type == CYGWIN* ]]; then
