@@ -31,7 +31,7 @@ if [ -z "$HOSTNAME" ]; then
 fi
 
 #############################################################################
-# Load helper scripts like .git-prompt and .bash_vars
+# Load variables and local overides from .bash_vars and .bash_local
 #############################################################################
 
 # Load environment variables.
@@ -44,23 +44,6 @@ fi
 # for other commands in this script.
 if [ -n "$path_prefix" ]; then
     export PATH=$path_prefix:$PATH
-fi
-
-# Load in the git functions and define what we want to see
-. ${bash_script_dir}/.git-prompt
-
-# If I'm not myself, add the username to the prompt and xterm title. This needs
-# to be done before adding "z". I'm using the dirs command instead of the more
-# usual ${PWD/#$HOME/~} substitution because, for some reason, the substitution
-# wasn't happening in some environments.
-if [[ $user == $me ]]; then
-    #PS1="\h: \[\033[00;34m\]\w ${yellow}\$(parse_git_branch)\n\[\033[00m\]\!>"
-    PS1="\h:${bold_blue}\w\$(__git_ps1)\n${normal}\!>"
-	PROMPT_COMMAND='printf "\033]0;%s %s:%s\007" "${XTERM_NAME}" "${HOSTNAME%%.*}" "$(dirs)"'
-else
-    #PS1="\[\033[01;31m\]\u\[\033[00m\]@\h: \[\033[00;34m\]\w \$(parse_git_branch)\n\r\[\033[00m\]\!>"
-    PS1="${bold_red}\u${normal}@\h: ${bold_blue}\w\$(__git_ps1)\n\r${normal}\!>"
-	PROMPT_COMMAND='printf "\033]0;%s %s@%s:%s\007" "${XTERM_NAME}" "${USER}" "${HOSTNAME%%.*}" "$(dirs)"'
 fi
 
 # Load "z" for remembering directories, but don't expand symlinks.
@@ -84,6 +67,25 @@ done
 # The AWS cli has its own way of doing autocomplete
 if hash aws_completer 2>/dev/null; then
 	complete -C aws_completer aws
+fi
+
+# Load in the git functions and define what we want to see.  This comes after
+# bash completion in case any of the completion scripts have their own git
+# prompt, like Homebrew's.
+. ${bash_script_dir}/.git-prompt
+
+# If I'm not myself, add the username to the prompt and xterm title. This needs
+# to be done before adding "z". I'm using the dirs command instead of the more
+# usual ${PWD/#$HOME/~} substitution because, for some reason, the substitution
+# wasn't happening in some environments.
+if [[ $user == $me ]]; then
+    #PS1="\h: \[\033[00;34m\]\w ${yellow}\$(parse_git_branch)\n\[\033[00m\]\!>"
+    PS1="\h:${bold_blue}\w\$(__git_ps1)\n${normal}\!>"
+	PROMPT_COMMAND='printf "\033]0;%s %s:%s\007" "${XTERM_NAME}" "${HOSTNAME%%.*}" "$(dirs)"'
+else
+    #PS1="\[\033[01;31m\]\u\[\033[00m\]@\h: \[\033[00;34m\]\w \$(parse_git_branch)\n\r\[\033[00m\]\!>"
+    PS1="${bold_red}\u${normal}@\h: ${bold_blue}\w\$(__git_ps1)\n\r${normal}\!>"
+	PROMPT_COMMAND='printf "\033]0;%s %s@%s:%s\007" "${XTERM_NAME}" "${USER}" "${HOSTNAME%%.*}" "$(dirs)"'
 fi
 
 
