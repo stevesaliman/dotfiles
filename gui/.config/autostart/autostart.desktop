@@ -3,7 +3,7 @@
 Name=Autostart
 GenericName=Autostart
 Comment=Start standard apps
-Exec=/home/steve/bin/startkde.sh
+Exec=/home/@local.user@/bin/startkde.sh
 Terminal=false
 Type=Application
 
