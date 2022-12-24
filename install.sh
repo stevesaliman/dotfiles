@@ -53,13 +53,16 @@ fi
 
 echo "rsync -av ${df_source_dir}/files/ $df_home_dir"
 rsync -av "${df_source_dir}/files/" "$df_home_dir"
+# If we're on an ARM processor, replace signal-reset with a version compiled for the ARM
+os_arch=$(uname -m)
+if [ "$os_arch" = "aarch64" ]; then
+    echo "Replaing signal-reset with an ARM version"
+    cp $df_home_dir/bin/signal-reset.aarch64 $df_home_dir/bin/signal-reset
+fi
 
 # Cygwin doesn't seem to get the .ssh perms right
 chmod 700 $df_home_dir/.ssh
 chmod 600 $df_home_dir/.ssh/config
-
-# Use the default starship config as is for now
-cp $df_home_dir/.config/starship.toml.default $df_home_dir/.config/starship.toml
 
 # some files had tokens in them.  Replace the tokens.
 sed -i "s/@git.name@/$df_git_name/" $df_home_dir/.gitconfig
