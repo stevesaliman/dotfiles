@@ -22,3 +22,8 @@ treechildren:-moz-tree-cell-text(selected, focus) {
 button:hover {
 	color: black !important;
 }
+
+/**
+ * vbox id=folderPaneBox
+ *   tree id="folderTree"
+ */
