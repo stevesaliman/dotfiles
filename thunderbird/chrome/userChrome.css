@@ -2,6 +2,29 @@
 /* set default namespace to XUL */
 
 /*
+ * Setting the colors for the folder tree and mesasge list panes is surprisingly tricky.  There 
+ * are several styles we need to set, and the order we set matters so that the right ones take
+ * precedence.  
+ *
+ * From lest to most important:
+ * Unread Messages - We've selected the folder, but didn't read the message.
+ * New Messages - We got new messages, but haven't clicked on the folder yet.
+ * Selected, but not focused items.
+ * Selected focused items.
+ */
+
+/* Items with unread messages - black */
+treechildren::-moz-tree-cell-text(folderNameCol, hasUnreadMessages-true) {
+    color: black !important;
+} 
+
+/* Declare "newMesasges" after "unreadMessages" so it takes precedence */
+treechildren::-moz-tree-cell-text(newMessages-true) {
+    /* color: #2980b9 !important; /* Darker blue */
+    color: #45a4fe !important; /* lighgter blue */
+}
+
+/*
  * The next two properties define the text color of the selected text in "tree"
  * panes, such as the account/folder list and the message list panes. 
  * 
@@ -24,23 +47,6 @@ treechildren::-moz-tree-row(selected, focus) {
 
 treechildren::-moz-tree-cell-text(selected, focus) {
 	color: white !important;
-}
-
-/*
- * Newer versions of Thunderbird, when using themes, don't set the color correctly when there are
- * new or unread messages.  We want folders with new messages (we haven't clicked on the folder 
- * since we got the message) to be blue, and we want folders with unread messages (we've clicked on
- * the folder, but we haven't read the messages) to be black.
- */
-
-treechildren::-moz-tree-cell-text(folderNameCol, hasUnreadMessages-true) {
-    color: black !important;
-} 
-
-/* Declare "newMesasges" after "unreadMessages" so it takes precedence */
-treechildren::-moz-tree-cell-text(newMessages-true) {
-    /* color: #2980b9 !important; /* Darker blue */
-    color: #45a4fe !important; /* lighgter blue */
 }
 
 /* For some reason, the hovered button text color is not inherited from GTK */
