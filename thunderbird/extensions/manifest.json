@@ -1,0 +1,40 @@
+{
+  "manifest_version": 2,
+  "name": "Steve's Theme", 
+  "version": "1.0", 
+  "applications": {
+    "gecko": {
+      "strict_min_version": "60.0",
+      "id": "{300f47a8-d4bb-0666-8d94-192e8dcdda23}"
+    }
+  }, 
+  "theme": {
+    "colors": {
+      "frame": "#006060",
+      "tab_selected": "#267777",
+      "tab_loading": "#ff0000",
+      "tab_line": "#184880",
+      "toolbar": "#006060",
+      "toolbar_text": "black",
+      "toolbar_field": "#f2f2f2",
+      "toolbar_field_highlight": "#184880",
+      "toolbar_field_highlight_text": "white",
+      "toolbar_field_border": "black",
+      "toolbar_field_focus": "white",
+      "toolbar_field_border_focus": "#1f9afd",
+      "toolbar_top_separator": "#004242",
+      "toolbar_bottom_separator": "#004242",
+      "toolbar_vertical_separator": "#004242",
+      "sidebar": "white",
+      "sidebar_text": "black",
+      "sidebar_highlight": "#184880",
+      "sidebar_highlight_text": "white",
+      "sidebar_border": "#616569",
+      "popup": "#006060",
+      "popup_text": "black",
+      "popup_border": "#666",
+      "popup_highlight": "#184880",
+      "popup_highlight_text": "white"
+    }
+  }
+}

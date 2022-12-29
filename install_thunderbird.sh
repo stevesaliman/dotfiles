@@ -39,5 +39,7 @@ fi
 # the chrome directory, so start by clearing out the chrome directory.
 mkdir -p "${profile_dir}/chrome"
 rm -r "${profile_dir}/chrome"
-echo "rsync -av ${df_source_dir}/thunderbird/ $profile_dir"
-rsync -av "${df_source_dir}/thunderbird/" "$profile_dir"
+echo "rsync -av --exclude='extensions' ${df_source_dir}/thunderbird/ $profile_dir"
+rsync -av --exclude='extensions' "${df_source_dir}/thunderbird/" "$profile_dir"
+echo "Don't forget to manually install the theme extension from the xpi file."
+
