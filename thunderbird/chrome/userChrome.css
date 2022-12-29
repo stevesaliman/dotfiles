@@ -10,13 +10,21 @@
  * focus.  We want the white text in the focused pane, and black text in 
  * unfocused panes
  */
-treechildren:-moz-tree-cell-text(selected) {
+treechildren::-moz-tree-cell-text(selected) {
 	color: black !important;
 }
 
-treechildren:-moz-tree-cell-text(selected, focus) {
+treechildren::-moz-tree-cell-text(selected, focus) {
 	color: white !important;
 }
+
+/**
+ if we need to set background:
+ treechildren::-moz-tree-row(selected) {
+   -moz-appearance: none !important;
+   background-color: orange !important;
+ }
+*/
 
 /* For some reason, the hovered button text color is not inherited from GTK */
 button:hover {
