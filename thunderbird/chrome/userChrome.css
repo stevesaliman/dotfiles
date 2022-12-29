@@ -10,28 +10,40 @@
  * focus.  We want the white text in the focused pane, and black text in 
  * unfocused panes
  */
+treechildren::-moz-tree-row(selected) {
+  background-color: #006060 !important;
+}
+
 treechildren::-moz-tree-cell-text(selected) {
 	color: black !important;
+}
+
+treechildren::-moz-tree-row(selected, focus) {
+  background-color: #184880 !important;
 }
 
 treechildren::-moz-tree-cell-text(selected, focus) {
 	color: white !important;
 }
 
-/**
- if we need to set background:
- treechildren::-moz-tree-row(selected) {
-   -moz-appearance: none !important;
-   background-color: orange !important;
- }
-*/
+/*
+ * Newer versions of Thunderbird, when using themes, don't set the color correctly when there are
+ * new or unread messages.  We want folders with new messages (we haven't clicked on the folder 
+ * since we got the message) to be blue, and we want folders with unread messages (we've clicked on
+ * the folder, but we haven't read the messages) to be black.
+ */
+
+treechildren::-moz-tree-cell-text(folderNameCol, hasUnreadMessages-true) {
+    color: black !important;
+} 
+
+/* Declare "newMesasges" after "unreadMessages" so it takes precedence */
+treechildren::-moz-tree-cell-text(newMessages-true) {
+    /* color: #2980b9 !important; /* Darker blue */
+    color: #45a4fe !important; /* lighgter blue */
+}
 
 /* For some reason, the hovered button text color is not inherited from GTK */
 button:hover {
 	color: black !important;
 }
-
-/**
- * vbox id=folderPaneBox
- *   tree id="folderTree"
- */
