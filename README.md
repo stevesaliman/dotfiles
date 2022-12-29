@@ -24,3 +24,8 @@ profile directory.  Note that most of the hacks here came from the
 https://github.com/Aris-t2/CustomCSSforFx project.  If things don't work in the
 latest version of Firefox, this project is a great place to start the
 troubleshooting process.
+
+Notes:
+- The signal-reset program came from https://github.com/thomaslee/signal-reset, and is used to work
+  around https://youtrack.jetbrains.com/issue/IDEA-157989.
+
