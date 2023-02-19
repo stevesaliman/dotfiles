@@ -29,3 +29,5 @@ Notes:
 - The signal-reset program came from https://github.com/thomaslee/signal-reset, and is used to work
   around https://youtrack.jetbrains.com/issue/IDEA-157989.
 
+- If Jetbrains icons don't work right, we may need to rename idea.png and datagrip.png to
+  jetbrains-idea.png and jetbrains-datagrip.png, and the might need to go in the icons dir.
