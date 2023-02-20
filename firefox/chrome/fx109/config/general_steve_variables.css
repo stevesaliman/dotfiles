@@ -1,0 +1,13 @@
+/* Firefox userChrome.css tweaks ********************************************************/
+/* Github: https://github.com/aris-t2/customcssforfx ************************************/
+/****************************************************************************************/
+
+
+/* general settings */
+:root {
+  /* custom height for 'classic squared tabs' only */
+  --classic_squared_tabs_tab_height: 32px !important;
+
+  /* set to '0px' for fully classic squared tabs */
+  --classic_squared_tabs-border-radius: 5px !important;
+}
