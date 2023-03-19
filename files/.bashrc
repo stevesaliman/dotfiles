@@ -161,7 +161,7 @@ export LD_LIBRARY_PATH=$local_libs:/usr/local/lib:$X11_HOME/lib:/usr/ccs/lib:$HO
 export MANPATH=$HOME/man:/usr/man:/usr/share/man:/usr/local/man:$X11_HOME/man
 # On a mac, we need to add the coreutils to the MANPATH
 if [[ $os_type == Darwin ]]; then
-	export MANPATH=/opt/homebrew/opt/coreutils/libexec/gnuman:$MANPATH
+	export MANPATH=$(brew --prefix)/opt/coreutils/libexec/gnuman:$MANPATH
 fi
 
 if [[ $os_type == CYGWIN* ]]; then

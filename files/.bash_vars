@@ -152,12 +152,12 @@ elif [[ $os_type == Darwin ]]; then
     # macports
     #path_prefix=/usr/local/git/bin:/opt/local/libexec/gnubin:/opt/local/bin:/opt/local/sbin
     # homebrew
-    path_prefix=/opt/homebrew/bin:/opt/homebrew/sbin
-    path_prefix=${path_prefix}:/opt/homebrew/opt/gnu-sed/libexec/gnubin
-    path_prefix=${path_prefix}:/opt/homebrew/opt/coreutils/libexec/gnubin
+    path_prefix=$(brew --prefix)/bin:$(brew --prefix)/sbin
+    path_prefix=${path_prefix}:$(brew --prefix)/opt/gnu-sed/libexec/gnubin
+    path_prefix=${path_prefix}:$(brew --prefix)/opt/coreutils/libexec/gnubin
     path_prefix=${path_prefix}:/usr/local/git/bin
-    path_prefix=${path_prefix}:/opt/homebrew/opt/python/libexec/bin
-    path_prefix=${path_prefix}:/opt/homebrew/opt/postgresql@12/bin
+    path_prefix=${path_prefix}:$(brew --prefix)/opt/python/libexec/bin
+    path_prefix=${path_prefix}:$(brew --prefix)/opt/postgresql@12/bin
     # Rancher Desktop
     path_prefix=${path_prefix}:${bash_script_dir}/.rd/bin
     export HOMEBREW_NO_ANALYTICS=1
