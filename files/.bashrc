@@ -175,11 +175,11 @@ fi
 
 ## RVM
 # Load RVM into a shell session *as a function*
-[[ -s "${HOME}/.rvm/scripts/rvm" ]] && source "${HOME}/.rvm/scripts/rvm"
+[[ -s "${RVM_DIR}/scripts/rvm" ]] && source "${RVM_DIR}/scripts/rvm"
 
 # Add rvm to the path, if we've got RVM
-if [ -d "${HOME}/.rvm/bin" ]; then
-    export PATH=$HOME/.rvm/bin:$PATH # Add RVM to the PATH for scripting
+if [ -d "${RVM_DIR}/bin" ]; then
+    export PATH=${RVM_DIR}/bin:$PATH # Add RVM to the PATH for scripting
 fi
 
 ## NVM

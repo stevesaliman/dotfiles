@@ -101,6 +101,7 @@ if [[ $os_type == Linux ]]; then
     echo "Setting variables for Linux"
     export SDKMAN_DIR=/opt/sdkman
     export NVM_DIR=/opt/nvm
+    export RVM_DIR=/opt/rvm
     export JAVA_OPTS='-Xmx256m -Xms256m'
     export CATALINA_HOME=/opt/tomcat-8.0.39
     cat_opts="-XX:PermSize=64m -XX:MaxPermSize=256m"
@@ -116,6 +117,7 @@ if [[ $os_type == Linux ]]; then
 elif [[ $os_type == CYGWIN* ]]; then
     echo "Setting variables for Cygwin"
     export SDKMAN_DIR=/cygdrive/c/opt/sdkman
+    export RVM_DIR=/cygdrive/c/opt/rvm
     export CATALINA_HOME=/cygdrive/c/opt/tomcat-8.0.39
     #export CATALINA_PID $CATALINA_HOME/work/catalina.pid
     cat_opts="-XX:PermSize=64m -XX:MaxPermSize=256m"
@@ -142,6 +144,7 @@ elif [[ $os_type == Darwin ]]; then
     echo "Setting variables for OSX"
     export SDKMAN_DIR=/opt/sdkman
     export NVM_DIR=/opt/nvm
+    export RVM_DIR=/opt/rvm
     export CATALINA_HOME=/opt/tomcat-8.0.39
     cat_opts="-XX:PermSize=64m -XX:MaxPermSize=256m"
     cat_opts="$cat_opts -Xms512m -Xmx512m -Djava.awt.headless=true"
