@@ -1,0 +1,6 @@
+ForegroundColour=0,255,0
+CursorColour=255,0,255
+CursorType=block
+Columns=100
+CursorBlinks=no
+ClearSelectionOnInput=no
