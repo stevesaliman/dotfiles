@@ -1,21 +1,27 @@
 # This script is used by Cygwin to start X sessions.
 
+# Uncomment the DISPLAY variable to debug this script.
+# export DISPLAY=:0.0
+
 # Start by making sure the .Xresources file is taken into account
 xrdb -merge ~/.Xresources
 
-# First things first.  Figure out what our display resolution is and set some
-# variables accordingly.  Start with defaults.
+# Next, figure out what our display resolution is and set some variables accordingly.  Start with
+# defaults.
 left_xterm_offset=1
 right_xterm_offset=800
+char_width=100
+# Wait a couple of seconds for the resolution to get stable...
+sleep 2
 screen_width=$(xdpyinfo | awk -F '[ x]+' '/dimensions:/{print $3}')
 screen_height=$(xdpyinfo | awk -F '[ x]+' '/dimensions:/{print $4}')
-
+echo "w=${screen_width} h=${screen_height}" > /tmp/dims.txt
 # On ultrawides, we want our xterms more centered. On scaled displays, we're going to use a larger
 # face, so we'll need to space them wider.
 if [ "$screen_width" -gt "3000" ]; then
-    if [ "screen_height" -lt "2000" ]; then
-        # ultrawide
-        left_xterm_offset=800
+    if [ "$screen_height" -lt "2000" ]; then
+        # ultrawide we need 20 per character
+        left_xterm_offset=620
         right_xterm_offset=1600
     else
         # scaled
@@ -27,10 +33,6 @@ fi
 # Top Left
 sleep 3
 ~/bin/xt green "xterm-1" 100x24+${left_xterm_offset}+2
-# We only want one window on Delenn...
-if [ "$HOSTNAME" == "delenn"]; then
-  return
-fi
 #Bottom Right.
 sleep 3
 ~/bin/xt green "xterm-2" 100x24+${right_xterm_offset}-10
