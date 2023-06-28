@@ -173,6 +173,9 @@ if [[ $os_type == CYGWIN* ]]; then
     unset ORACLE_HOME
 fi
 
+# Trap the shell exit and kill ssh-agent when it exits
+trap stop_ssh_agent EXIT SIGTERM
+
 ## RVM
 # Load RVM into a shell session *as a function*
 [[ -s "${RVM_DIR}/scripts/rvm" ]] && source "${RVM_DIR}/scripts/rvm"
@@ -189,9 +192,17 @@ export NVM_DIR="$(readlink -f ${NVM_DIR})"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+# tabtab source for jhipster package
+# uninstall by removing these lines or running `tabtab uninstall jhipster`
+[ -f "${NVM_DIR}/versions/node/v6.9.5/lib/node_modules/generator-jhipster/node_modules/tabtab/.completions/jhipster.bash" ] && . "${NVM_DIR}/versions/node/v6.9.5/lib/node_modules/generator-jhipster/node_modules/tabtab/.completions/jhipster.bash"
 
-# Trap the shell exit and kill ssh-agent when it exits
-trap stop_ssh_agent EXIT SIGTERM
+# Angular CLI autocomletion, if we have Angular installed.
+if  type "ng" > /dev/null 2>&1; then
+    source <(ng completion script)
+fi
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+[[ -s "${SDKMAN_DIR}/bin/sdkman-init.sh" ]] && source "${SDKMAN_DIR}/bin/sdkman-init.sh"
 
 # Make sure we start in the correct home directory.  Basically, if our env.
 # doesn't have a certain var, cd.  Then set the var
@@ -200,9 +211,3 @@ if [ -z "$SOURCED" ]; then
 fi
 export SOURCED=true
 
-# tabtab source for jhipster package
-# uninstall by removing these lines or running `tabtab uninstall jhipster`
-[ -f "${NVM_DIR}/versions/node/v6.9.5/lib/node_modules/generator-jhipster/node_modules/tabtab/.completions/jhipster.bash" ] && . "${NVM_DIR}/versions/node/v6.9.5/lib/node_modules/generator-jhipster/node_modules/tabtab/.completions/jhipster.bash"
-
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-[[ -s "${SDKMAN_DIR}/bin/sdkman-init.sh" ]] && source "${SDKMAN_DIR}/bin/sdkman-init.sh"
