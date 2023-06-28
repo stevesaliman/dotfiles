@@ -52,6 +52,24 @@ function ls-swap {
     for file in /proc/*/status ; do awk '/VmSwap|Name/{printf $2 " " $3}END{ print ""}' $file; done | sort -k 2 -n -r | less
 }
 
+# Function to run "nvm use" when we change to a directory that has a .nvmrc file in it.  It starts
+# with an underscore because we don't intend for anyone to call it directly.  We also need to make
+# sure this doesn't get applied to PROMPT_COMMAND if we don't actually have nvm installed.
+_nvmrc_hook() {
+    if [[ $PWD == $PREV_PWD ]]; then
+        return
+    fi
+
+    PREV_PWD=$PWD
+    if [[ -f ".nvmrc" ]]; then
+        nvm use
+        # Angular CLI autocomletion, if we have Angular installed.
+        if type "ng" > /dev/null 2>&1; then
+            source <(ng completion script)
+        fi
+    fi
+}
+
 # function to enable/disable a starship module.  This function takes advantage of the fact that
 # starship reads the config every time it runs.  It takes 2 arguments; a module name, and either
 # "on" or "off".  This function makes a couple of assumptions:
@@ -62,7 +80,7 @@ function st-mod {
       echo "usage: st-mod <module name> on|off"
       return 1
     fi
-    # Starship uses a disable flag, but our arg acts as an enable flag, so we reversite it here...
+    # Starship uses a disable flag, but our arg acts as an enable flag, so we reverse it here...
     if [ $2 = "on" ]; then
         local newval="false"
     else
@@ -80,7 +98,6 @@ function st-mod {
     fi
 
     sed -i "/\[$1\]/{n;s/.*/disabled = $newval/;}" $local_config
-
 }
 
 # function to start a gpg agent so we can generate pgp keys.

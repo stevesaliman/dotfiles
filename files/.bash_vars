@@ -103,10 +103,10 @@ if [[ $os_type == Linux ]]; then
     export NVM_DIR=/opt/nvm
     export RVM_DIR=/opt/rvm
     export JAVA_OPTS='-Xmx256m -Xms256m'
-    export CATALINA_HOME=/opt/tomcat-8.0.39
-    cat_opts="-XX:PermSize=64m -XX:MaxPermSize=256m"
-    cat_opts="$cat_opts -Xms512m -Xmx512m -Djava.awt.headless=true"
-    export CATALINA_OPTS="$cat_opts"
+    # export CATALINA_HOME=/opt/tomcat-8.0.39
+    # cat_opts="-XX:PermSize=64m -XX:MaxPermSize=256m"
+    # cat_opts="$cat_opts -Xms512m -Xmx512m -Djava.awt.headless=true"
+    # export CATALINA_OPTS="$cat_opts"
     export ORACLE_HOME=/opt/oracle/product/19.3
     export ORACLE_SID=devl
 	export BACKUP_HOME=/run/media/@local.user@/backup
@@ -151,7 +151,7 @@ elif [[ $os_type == Darwin ]]; then
     export CATALINA_OPTS="$cat_opts"
     export MYSQL_HOME=/usr/local/mysql
 	export BACKUP_HOME=/Volumes/backup
-    # Add Git to the path, since the OSX installer puts it in a subdir, and
+    # Add Git to the path, since the OSX installer puts it in a subdir.
     # macports
     #path_prefix=/usr/local/git/bin:/opt/local/libexec/gnubin:/opt/local/bin:/opt/local/sbin
     # homebrew
