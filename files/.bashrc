@@ -203,12 +203,12 @@ fi
 # Make sure we start in the correct home directory.  If our environment has a START_DIR, go to it.
 # Otherwise, see if we have a certain variable, and if not do a cd to go to the home directory.
 # Then set the var
-if [ -n "$START_DIR" ]; then
-    cd $START_DIR
-elif [ -z "$SOURCED" ]; then
-    cd
-fi
-export SOURCED=true
+#if [ -n "$START_DIR" ]; then
+    #cd $START_DIR
+#elif [ -z "$SOURCED" ]; then
+    #cd
+#fi
+#export SOURCED=true
 
 # We always want our own bin at the front of the path, so we find our gradle shell instead of the
 # one that comes with sdkman
