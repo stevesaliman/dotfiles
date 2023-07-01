@@ -19,6 +19,7 @@
 /* selected tab ****************************/
 #TabsToolbar #tabbrowser-tabs .tabbrowser-tab[selected] .tab-content {
     background: var(--default_tabs_bg_selected) !important;
+    color: black !important;
 }
 /* background color on toolbars */
 /*#main-window #navigator-toolbox toolbar:not(#TabsToolbar):not(#toolbar-menubar) {

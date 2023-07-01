@@ -1235,4 +1235,4 @@
    [!] Create a "my_userChrome.css" file and add own/custom code to it.
 */
 
-@import "./my_userChrome.css"; /**/
+@import "./fx109/myUserChrome.css"; /**/

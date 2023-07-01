@@ -14,6 +14,8 @@
 
 /* default colors */
 :root {
+  /* Bookmark toolbar.  and yes, this one's a hyphen */
+  --toolbar-color: black !important;
   --general_toolbar_color_toolbars: linear-gradient(#006060,#006060) !important; /* (to bottom,#FFCC99,#FFCC99) */
   --general_toolbar_color_navbar: linear-gradient(#006060,#006060) !important; /* (to bottom,#FFCC99,#FFCC99) */
   --general_toolbar_text_color: inherit !important;
