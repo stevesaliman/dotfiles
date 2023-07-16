@@ -1,8 +1,8 @@
 [Desktop Entry]
-DefaultProfile=
+DefaultProfile=Green.profile
 
 [Favorite Profiles]
-Favorites=
+Favorites=Green.profile
 
 [KonsoleWindow]
 SaveGeometryOnExit=false

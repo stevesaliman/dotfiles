@@ -2,6 +2,11 @@
 ColorScheme=GreenOnBlack
 Font=Adobe Courier,@font.size@,-1,5,50,0,0,0,0,0,Regular
 
+[Cursor Options]
+CursorShape=0
+CustomCursorColor=255,51,187
+UseCustomCursorColor=true
+
 [General]
 Command=
 Icon=package_internet_terminal
