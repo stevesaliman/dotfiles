@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # This script is used on Lunux systems to start X windows.
 #export DISPLAY=valen:0
 

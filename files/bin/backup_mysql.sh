@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 set -x
 db=max_dev
 # Figure out where files should go and what they should be called.  This changes

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # First things first: are we root?
 if [ "${USER}" != "root" ]; then
