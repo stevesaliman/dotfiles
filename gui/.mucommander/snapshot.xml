@@ -33,7 +33,7 @@
                         <selection>0</selection>
                         <count>1</count>
                         <tab-0>
-                            <location>file://localhost/usr/local/home/steve/Documents/work/Vantage</location>
+                            <location>file://localhost/home/steve/Documents/work/Vantage</location>
                             <locked>false</locked>
                         </tab-0>
                     </tabs>
@@ -86,7 +86,7 @@
                         <selection>0</selection>
                         <count>1</count>
                         <tab-0>
-                            <location>file://localhost/usr/local/home/steve/projects/learning/jhipster-mini-book/build/asciidoc/pdf-prepress</location>
+                            <location>file://localhost/home/steve/projects/learning/jhipster-mini-book/build/asciidoc/pdf-prepress</location>
                             <locked>false</locked>
                         </tab-0>
                     </tabs>
@@ -134,106 +134,106 @@
         </window-0>
     </windows>
     <recent_locations>
-        <location-79>file://localhost/usr/local/home/steve/projects/max/build/reports/jacoco</location-79>
-        <location-77>file://localhost/usr/local/home/steve/projects/max/build/reports/tests/test</location-77>
-        <location-78>file://localhost/usr/local/home/steve/projects/max/build/reports</location-78>
-        <location-71>file://localhost/usr/local/home/steve/projects/tmp/gradle6-cobertura-plugin/build/reports</location-71>
-        <location-72>file://localhost/usr/local/home/steve/projects/tmp/gradle6-cobertura-plugin/build/reports/tests</location-72>
-        <location-70>file://localhost/usr/local/home/steve/projects/tmp/gradle6-cobertura-plugin</location-70>
-        <location-75>file://localhost/usr/local/home/steve/projects/max/build/reports/cobertura</location-75>
-        <location-76>file://localhost/usr/local/home/steve/projects/max/build/reports/tests</location-76>
-        <location-73>file://localhost/usr/local/home/steve/Documents/audio</location-73>
+        <location-79>file://localhost/home/steve/projects/max/build/reports/jacoco</location-79>
+        <location-77>file://localhost/home/steve/projects/max/build/reports/tests/test</location-77>
+        <location-78>file://localhost/home/steve/projects/max/build/reports</location-78>
+        <location-71>file://localhost/home/steve/projects/tmp/gradle6-cobertura-plugin/build/reports</location-71>
+        <location-72>file://localhost/home/steve/projects/tmp/gradle6-cobertura-plugin/build/reports/tests</location-72>
+        <location-70>file://localhost/home/steve/projects/tmp/gradle6-cobertura-plugin</location-70>
+        <location-75>file://localhost/home/steve/projects/max/build/reports/cobertura</location-75>
+        <location-76>file://localhost/home/steve/projects/max/build/reports/tests</location-76>
+        <location-73>file://localhost/home/steve/Documents/audio</location-73>
         <location-74>file://localhost/usr/local/photos/tmp</location-74>
-        <location-68>file://localhost/usr/local/home/steve/projects/liquibase-steve/liquibase-integration-tests/target/failsafe-reports</location-68>
-        <location-69>file://localhost/usr/local/home/steve/Documents/South Dakota</location-69>
+        <location-68>file://localhost/home/steve/projects/liquibase-steve/liquibase-integration-tests/target/failsafe-reports</location-68>
+        <location-69>file://localhost/home/steve/Documents/South Dakota</location-69>
         <location-66>file://localhost/usr/local/photos</location-66>
-        <location-67>file://localhost/usr/local/home/steve</location-67>
-        <location-60>file://localhost/usr/local/home/steve/projects/liquibase-steve/liquibase-core/target</location-60>
-        <location-61>file://localhost/usr/local/home/steve/projects/liquibase-steve/liquibase-core/target/site</location-61>
-        <location-64>file://localhost/usr/local/home/steve/projects/liquibase-steve/liquibase-integration-tests</location-64>
-        <location-65>file://localhost/usr/local/home/steve/projects/liquibase-steve/liquibase-integration-tests/target/test-classes</location-65>
-        <location-62>file://localhost/usr/local/home/steve/projects/liquibase-steve/liquibase-core/target/surefire-reports</location-62>
-        <location-63>file://localhost/usr/local/home/steve/projects/liquibase-steve</location-63>
-        <location-57>file://localhost/usr/local/home/steve/projects/testing/demo-spring-cobertura/build/reports/cobertura</location-57>
-        <location-58>file://localhost/usr/local/home/steve/projects</location-58>
-        <location-55>file://localhost/usr/local/home/steve/projects/socialstylenavigator</location-55>
-        <location-56>file://localhost/usr/local/home/steve/projects/testing/demo-spring-cobertura/build/reports</location-56>
-        <location-59>file://localhost/usr/local/home/steve/projects/liquibase-steve/liquibase-core</location-59>
-        <location-50>file://localhost/usr/local/home/steve/projects/max/build</location-50>
-        <location-53>file://localhost/usr/local/home/steve/projects/socialstylenavigator/build/reports/buildDashboard</location-53>
-        <location-54>file://localhost/usr/local/home/steve/projects/socialstylenavigator/.settings</location-54>
-        <location-51>file://localhost/usr/local/home/steve/projects/socialstylenavigator/build</location-51>
-        <location-52>file://localhost/usr/local/home/steve/projects/socialstylenavigator/build/reports</location-52>
+        <location-67>file://localhost/home/steve</location-67>
+        <location-60>file://localhost/home/steve/projects/liquibase-steve/liquibase-core/target</location-60>
+        <location-61>file://localhost/home/steve/projects/liquibase-steve/liquibase-core/target/site</location-61>
+        <location-64>file://localhost/home/steve/projects/liquibase-steve/liquibase-integration-tests</location-64>
+        <location-65>file://localhost/home/steve/projects/liquibase-steve/liquibase-integration-tests/target/test-classes</location-65>
+        <location-62>file://localhost/home/steve/projects/liquibase-steve/liquibase-core/target/surefire-reports</location-62>
+        <location-63>file://localhost/home/steve/projects/liquibase-steve</location-63>
+        <location-57>file://localhost/home/steve/projects/testing/demo-spring-cobertura/build/reports/cobertura</location-57>
+        <location-58>file://localhost/home/steve/projects</location-58>
+        <location-55>file://localhost/home/steve/projects/socialstylenavigator</location-55>
+        <location-56>file://localhost/home/steve/projects/testing/demo-spring-cobertura/build/reports</location-56>
+        <location-59>file://localhost/home/steve/projects/liquibase-steve/liquibase-core</location-59>
+        <location-50>file://localhost/home/steve/projects/max/build</location-50>
+        <location-53>file://localhost/home/steve/projects/socialstylenavigator/build/reports/buildDashboard</location-53>
+        <location-54>file://localhost/home/steve/projects/socialstylenavigator/.settings</location-54>
+        <location-51>file://localhost/home/steve/projects/socialstylenavigator/build</location-51>
+        <location-52>file://localhost/home/steve/projects/socialstylenavigator/build/reports</location-52>
         <location-46>file://localhost/usr/local/tv/Game Of Thrones/Season 2</location-46>
-        <location-47>file://localhost/usr/local/home/steve/Documents/concours</location-47>
+        <location-47>file://localhost/home/steve/Documents/concours</location-47>
         <location-44>file://localhost/usr/local/tv</location-44>
         <location-45>file://localhost/usr/local/tv/Game Of Thrones</location-45>
         <location-48>file://localhost/tmp</location-48>
         <location-49>file://localhost/tmp/max-cobertura</location-49>
-        <location-42>file://localhost/usr/local/home/steve/Desktop</location-42>
-        <location-43>file://localhost/usr/local/home/steve/Documents/Trip Planning.odt</location-43>
-        <location-40>file://localhost/usr/local/home/steve/Documents/Computers</location-40>
-        <location-41>file://localhost/usr/local/home/steve/Documents/oracle</location-41>
-        <location-35>file://localhost/usr/local/home/steve/Documents/October_trip</location-35>
-        <location-36>file://localhost/usr/local/home/steve/projects/cobertura-plugin/testclient/calculator/build/reports/cobertura</location-36>
-        <location-33>file://localhost/usr/local/home/steve/projects/cobertura-plugin/testclient/calculator/build</location-33>
-        <location-34>file://localhost/usr/local/home/steve/Documents/Murano Service Manuals</location-34>
+        <location-42>file://localhost/home/steve/Desktop</location-42>
+        <location-43>file://localhost/home/steve/Documents/Trip Planning.odt</location-43>
+        <location-40>file://localhost/home/steve/Documents/Computers</location-40>
+        <location-41>file://localhost/home/steve/Documents/oracle</location-41>
+        <location-35>file://localhost/home/steve/Documents/October_trip</location-35>
+        <location-36>file://localhost/home/steve/projects/cobertura-plugin/testclient/calculator/build/reports/cobertura</location-36>
+        <location-33>file://localhost/home/steve/projects/cobertura-plugin/testclient/calculator/build</location-33>
+        <location-34>file://localhost/home/steve/Documents/Murano Service Manuals</location-34>
         <location-39>file://localhost/tmp/My Pictures/ControlCenter2/Scan</location-39>
         <location-37>file://localhost/tmp/My Pictures</location-37>
         <location-38>file://localhost/tmp/My Pictures/ControlCenter2</location-38>
-        <location-31>file://localhost/usr/local/home/steve/projects/cobertura-plugin/testclient/reports</location-31>
-        <location-32>file://localhost/usr/local/home/steve/projects/cobertura-plugin/testclient/calculator/build/reports</location-32>
-        <location-30>file://localhost/usr/local/home/steve/projects/cobertura-plugin/testclient/reports/cobertura</location-30>
+        <location-31>file://localhost/home/steve/projects/cobertura-plugin/testclient/reports</location-31>
+        <location-32>file://localhost/home/steve/projects/cobertura-plugin/testclient/calculator/build/reports</location-32>
+        <location-30>file://localhost/home/steve/projects/cobertura-plugin/testclient/reports/cobertura</location-30>
         <count>100</count>
-        <location-19>file://localhost/usr/local/home/steve/projects/framework/build</location-19>
+        <location-19>file://localhost/home/steve/projects/framework/build</location-19>
         <location-24>file://localhost/usr/local/tmp/download/josh</location-24>
         <location-25>file://localhost/usr/local/tmp</location-25>
-        <location-22>file://localhost/usr/local/home/steve/projects/flex-framework</location-22>
-        <location-23>file://localhost/usr/local/home/steve/projects/framework</location-23>
-        <location-28>file://localhost/usr/local/home/steve/projects/cobertura-plugin</location-28>
-        <location-29>file://localhost/usr/local/home/steve/projects/cobertura-plugin/testclient</location-29>
-        <location-26>file://localhost/usr/local/home/steve/Documents/concours/Concours Staging Plan.odt</location-26>
-        <location-27>file://localhost/usr/local/home/steve/projects/cobertura-plugin/testclient/logger</location-27>
-        <location-20>file://localhost/usr/local/home/steve/projects/framework/build/reports</location-20>
-        <location-21>file://localhost/usr/local/home/steve/projects/framework/build/reports/test</location-21>
-        <location-90>file://localhost/usr/local/home/steve/Documents/work/Resumes &amp; Applications</location-90>
+        <location-22>file://localhost/home/steve/projects/flex-framework</location-22>
+        <location-23>file://localhost/home/steve/projects/framework</location-23>
+        <location-28>file://localhost/home/steve/projects/cobertura-plugin</location-28>
+        <location-29>file://localhost/home/steve/projects/cobertura-plugin/testclient</location-29>
+        <location-26>file://localhost/home/steve/Documents/concours/Concours Staging Plan.odt</location-26>
+        <location-27>file://localhost/home/steve/projects/cobertura-plugin/testclient/logger</location-27>
+        <location-20>file://localhost/home/steve/projects/framework/build/reports</location-20>
+        <location-21>file://localhost/home/steve/projects/framework/build/reports/test</location-21>
+        <location-90>file://localhost/home/steve/Documents/work/Resumes &amp; Applications</location-90>
         <location-8>file://localhost/usr/local/tmp/video</location-8>
         <location-9>file://localhost/usr/local/tmp/download</location-9>
         <location-13>file://localhost/usr/local/tv/Big Bang Theory/Season 11</location-13>
         <location-14>file://localhost/run/media/steve</location-14>
         <location-11>file://localhost/usr/local/archive/linux/system</location-11>
-        <location-99>file://localhost/usr/local/home/steve/Documents/work/Vantage</location-99>
+        <location-99>file://localhost/home/steve/Documents/work/Vantage</location-99>
         <location-12>file://localhost/usr/local/archive/linux/utilities</location-12>
         <location-17>file://localhost/run/media/steve/Phone-01/Music/Kishi Bashi</location-17>
         <location-18>file://localhost/run/media/steve/Phone-01/Music</location-18>
         <location-15>file://localhost/run/media/steve/Phone-01</location-15>
         <location-16>file://localhost/run/media/steve/Phone-01/Music/OMD</location-16>
-        <location-93>file://localhost/usr/local/home/steve/projects/learning</location-93>
-        <location-94>file://localhost/usr/local/home/steve/projects/learning/jhipster-mini-book/build</location-94>
-        <location-91>file://localhost/usr/local/home/steve/Documents/work</location-91>
+        <location-93>file://localhost/home/steve/projects/learning</location-93>
+        <location-94>file://localhost/home/steve/projects/learning/jhipster-mini-book/build</location-94>
+        <location-91>file://localhost/home/steve/Documents/work</location-91>
         <location-92>file://localhost/usr/local/photos/tmp/iCloud Photos</location-92>
-        <location-97>file://localhost/usr/local/home/steve/projects/learning/jhipster-mini-book/build/asciidoc/html5</location-97>
+        <location-97>file://localhost/home/steve/projects/learning/jhipster-mini-book/build/asciidoc/html5</location-97>
         <location-10>file://localhost/usr/local/archive</location-10>
-        <location-98>file://localhost/usr/local/home/steve/projects/learning/jhipster-mini-book/build/asciidoc/pdf-prepress</location-98>
-        <location-95>file://localhost/usr/local/home/steve/projects/learning/jhipster-mini-book</location-95>
-        <location-96>file://localhost/usr/local/home/steve/projects/learning/jhipster-mini-book/build/asciidoc</location-96>
-        <location-88>file://localhost/usr/local/home/steve/Documents</location-88>
-        <location-89>file://localhost/usr/local/home/steve/Documents/work/Resumes &amp; Applications/Old</location-89>
-        <location-6>file://localhost/usr/local/home/steve/projects/vampire</location-6>
-        <location-82>file://localhost/usr/local/home/steve/projects/max/</location-82>
-        <location-7>file://localhost/usr/local/home/steve/projects/tracomlearning</location-7>
-        <location-83>file://localhost/usr/local/home/steve/projects/tmp/empty-report/build/reports</location-83>
-        <location-4>file://localhost/usr/local/home/steve/projects/sane-tomcat</location-4>
-        <location-80>file://localhost/usr/local/home/steve/projects/max/build/reports/jacoco/test</location-80>
-        <location-5>file://localhost/usr/local/home/steve/projects/vantive</location-5>
-        <location-81>file://localhost/usr/local/home/steve/projects/max/build/reports/jacoco/test/html</location-81>
-        <location-2>file://localhost/usr/local/home/steve/projects/sane-flex</location-2>
-        <location-86>file://localhost/usr/local/home/steve/projects/tmp/empty-report/build/reports/cobertura</location-86>
-        <location-3>file://localhost/usr/local/home/steve/projects/sane-ruby</location-3>
-        <location-87>file://localhost/usr/local/home/steve/projects/tmp</location-87>
-        <location-0>file://localhost/usr/local/home/steve/projects/sane</location-0>
-        <location-84>file://localhost/usr/local/home/steve/projects/tmp/empty-report/build/reports/tests</location-84>
-        <location-1>file://localhost/usr/local/home/steve/projects/sane-client-test</location-1>
-        <location-85>file://localhost/usr/local/home/steve/projects/tmp/empty-report/build/reports/tests/test</location-85>
+        <location-98>file://localhost/home/steve/projects/learning/jhipster-mini-book/build/asciidoc/pdf-prepress</location-98>
+        <location-95>file://localhost/home/steve/projects/learning/jhipster-mini-book</location-95>
+        <location-96>file://localhost/home/steve/projects/learning/jhipster-mini-book/build/asciidoc</location-96>
+        <location-88>file://localhost/home/steve/Documents</location-88>
+        <location-89>file://localhost/home/steve/Documents/work/Resumes &amp; Applications/Old</location-89>
+        <location-6>file://localhost/home/steve/projects/vampire</location-6>
+        <location-82>file://localhost/home/steve/projects/max/</location-82>
+        <location-7>file://localhost/home/steve/projects/tracomlearning</location-7>
+        <location-83>file://localhost/home/steve/projects/tmp/empty-report/build/reports</location-83>
+        <location-4>file://localhost/home/steve/projects/sane-tomcat</location-4>
+        <location-80>file://localhost/home/steve/projects/max/build/reports/jacoco/test</location-80>
+        <location-5>file://localhost/home/steve/projects/vantive</location-5>
+        <location-81>file://localhost/home/steve/projects/max/build/reports/jacoco/test/html</location-81>
+        <location-2>file://localhost/home/steve/projects/sane-flex</location-2>
+        <location-86>file://localhost/home/steve/projects/tmp/empty-report/build/reports/cobertura</location-86>
+        <location-3>file://localhost/home/steve/projects/sane-ruby</location-3>
+        <location-87>file://localhost/home/steve/projects/tmp</location-87>
+        <location-0>file://localhost/home/steve/projects/sane</location-0>
+        <location-84>file://localhost/home/steve/projects/tmp/empty-report/build/reports/tests</location-84>
+        <location-1>file://localhost/home/steve/projects/sane-client-test</location-1>
+        <location-85>file://localhost/home/steve/projects/tmp/empty-report/build/reports/tests/test</location-85>
     </recent_locations>
 </snapshot>

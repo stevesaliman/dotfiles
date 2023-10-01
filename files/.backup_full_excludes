@@ -1,27 +1,29 @@
-# Exclude the bind mounted /home
+# Exclude the bind mounted /home.  If /home is not a bind mount, remove this exclude.
 /home/
 
-# Files that should be excluded when doing a "full" backup.  It includes 
-# directories we don't need to backup like the /dev directory, but also files
-# in project directories we don't need to backup because they are created by a
-# build.
-/dev/
+# Exclude files that aren't really local like OneDrive and SharePoint mounts, or mounted USB media.
+# This also includes the Volumes directory on a Mac.
+OneDrive/
+SharePoint/
 /media/
-/netdrive/
-/proc/
 /run/
 /run/media/
 /var/run/media/
 /var/run/user/
+/Volumes/
+
+# Files that should be excluded when doing a "full" backup.  It includes directories we don't need
+# to backup like the /dev directory or caches like the local Maven repo, but also files in project
+# directories we don't need to backup because they are created by a build.
+/dev/
+/netdrive/
+/proc/
 /var/lib/docker/devicemapper/devicemapper/*
 /var/lib/ntp/proc/
 /sys/
 .m2/repository/**
 .gradle/caches/**
-OneDrive/
-SharePoint/
 projects/**/node_modules/**
 projects/**/build/**
 projects/**/classes/**
 tomcat*/logs/**
-/Volumes/
