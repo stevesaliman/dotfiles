@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 [ -z "$DISPLAY" ] && export DISPLAY=:0.0
 
 bg=black
@@ -44,14 +44,14 @@ if [ "$color" == "purple" ]; then
     fg="#f3f"
 fi
 
-if [ "$color" == "gold" ]; then 
+if [ "$color" == "gold" ]; then
     fg=gold
-fi    
+fi
 
 if [ "$color" == "aqua" ]; then
-    fg=cyan 
+    fg=cyan
     bg=navy
-fi    
+fi
 
 #$xterm -pc -ti vt220 -ls -sb -fg $fg -bg $bg -ms "#f3b" -cr "#f3b" -sl 80 -fn $font -name xterm -e tcsh &
 # For Leap and Plasma 5

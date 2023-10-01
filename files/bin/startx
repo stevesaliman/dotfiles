@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # This script is used to start xterms in an OSX environment
 #export DISPLAY=valen:0
 
