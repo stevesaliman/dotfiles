@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# This script saves the state of any running vms
+VBoxManage list runningvms | while read line; do 
+  host="$(expr match "$line" '"\(.*\)"')"
+  echo "Saving the state of \"$host\""
+  VBoxManage controlvm "$host" savestate; 
+done
+
