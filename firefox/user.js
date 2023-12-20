@@ -11,3 +11,7 @@ user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
 
 // Turn off geo location
 user_pref("geo.enabled", false);
+
+// turn off WASM
+user_pref("javascript.options.wasm", false);
+
