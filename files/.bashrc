@@ -198,7 +198,13 @@ fi
 [ -f "${NVM_DIR}/versions/node/v6.9.5/lib/node_modules/generator-jhipster/node_modules/tabtab/.completions/jhipster.bash" ] && . "${NVM_DIR}/versions/node/v6.9.5/lib/node_modules/generator-jhipster/node_modules/tabtab/.completions/jhipster.bash"
 
 # Add SDKMan if it is installed.
-[[ -s "${SDKMAN_DIR}/bin/sdkman-init.sh" ]] && source "${SDKMAN_DIR}/bin/sdkman-init.sh"
+if [ -s "${SDKMAN_DIR}/bin/sdkman-init.sh" ]; then
+    source "${SDKMAN_DIR}/bin/sdkman-init.sh"
+        # Add the sdkmanrc hook to the prompt command if we don't have it already.
+    if ! [[ "${PROMPT_COMMAND:-}" =~ _sdkmanrc_hook ]]; then
+        PROMPT_COMMAND="_sdkmanrc_hook ${PROMPT_COMMAND}"
+    fi
+fi
 
 # Make sure we start in the correct home directory.  If our environment has a START_DIR, go to it.
 # Otherwise, see if we have a certain variable, and if not do a cd to go to the home directory.

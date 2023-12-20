@@ -70,6 +70,21 @@ _nvmrc_hook() {
     fi
 }
 
+# Function to run "sdk env" when we change to a directory that has a .sdkmanrc file in it.  It
+# starts with an underscore because we don't intend for anyone to call it directly.  We also need
+# to make sure this doesn't get applied to PROMPT_COMMAND if we don't actually have sdkman
+# installed.
+_sdkmanrc_hook() {
+    if [[ $PWD == $PREV_PWD ]]; then
+        return
+    fi
+
+    PREV_PWD=$PWD
+    if [[ -f ".sdkmanrc" ]]; then
+        sdk env
+    fi
+}
+
 # function to enable/disable a starship module.  This function takes advantage of the fact that
 # starship reads the config every time it runs.  It takes 2 arguments; a module name, and either
 # "on" or "off".  This function makes a couple of assumptions:
@@ -115,7 +130,7 @@ function start-gpg {
 function start_ssh_agent {
 	if [ -f "${SSHRC}" ]; then
 		. "${SSHRC}" > /dev/null
-		# Just because we have an RC file, doesn't mean the process is 
+		# Just because we have an RC file, doesn't mean the process is
 		# actually running.
 		ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
 			_start_ssh_agent;
@@ -137,9 +152,9 @@ function _start_ssh_agent {
         . "${SSHRC}" > /dev/null
         /usr/bin/ssh-add;
     fi
-} 
+}
 
-# Stop the ssh agent when the shell exits.  It is not really intended to 
+# Stop the ssh agent when the shell exits.  It is not really intended to
 # called by users, as it exits the shell.
 function stop_ssh_agent {
     if [ "$SSH_AGENT_PID" != "" ]; then
@@ -149,7 +164,7 @@ function stop_ssh_agent {
 }
 
 # The vi function plays with the home directory so that I can use my vim config
-# regardless of who I am. The double quotes around the $@ are very important.  
+# regardless of who I am. The double quotes around the $@ are very important.
 # Without them, filenames with spaces will be interpereted as several different
 # filenames when they are passed to vi.
 function vi {
