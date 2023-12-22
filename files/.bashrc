@@ -179,13 +179,7 @@ fi
 # Load NVM if we have an nvm directory.  The readlink command is used to get the real location of
 # $NVM_DIR because nvm has issues with symlinks
 export NVM_DIR="$(readlink -f ${NVM_DIR})"
-if [ -s "$NVM_DIR/nvm.sh" ]; then
-    . "$NVM_DIR/nvm.sh"  # This loads nvm
-    # Add the nvmrc hook to the prompt command if we don't have it already.
-    if ! [[ "${PROMPT_COMMAND:-}" =~ _nvmrc_hook ]]; then
-        PROMPT_COMMAND="_nvmrc_hook ${PROMPT_COMMAND}"
-    fi
-fi
+[ -s "$NVM_DIR/nvm.sh" ] &&. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Angular CLI autocomletion, if we have Angular installed.
@@ -198,11 +192,13 @@ fi
 [ -f "${NVM_DIR}/versions/node/v6.9.5/lib/node_modules/generator-jhipster/node_modules/tabtab/.completions/jhipster.bash" ] && . "${NVM_DIR}/versions/node/v6.9.5/lib/node_modules/generator-jhipster/node_modules/tabtab/.completions/jhipster.bash"
 
 # Add SDKMan if it is installed.
-if [ -s "${SDKMAN_DIR}/bin/sdkman-init.sh" ]; then
-    source "${SDKMAN_DIR}/bin/sdkman-init.sh"
-        # Add the sdkmanrc hook to the prompt command if we don't have it already.
-    if ! [[ "${PROMPT_COMMAND:-}" =~ _sdkmanrc_hook ]]; then
-        PROMPT_COMMAND="_sdkmanrc_hook ${PROMPT_COMMAND}"
+[ -s "${SDKMAN_DIR}/bin/sdkman-init.sh" ] && source "${SDKMAN_DIR}/bin/sdkman-init.sh"
+
+# Add the rc file hook if either nvm or sdkman are installed.  No need to call it everytime we
+# change directories if we don't have any of the commands installed.
+if [[ -s "$NVM_DIR/nvm.sh" || -s "${SDKMAN_DIR}/bin/sdkman-init.sh" ]]; then
+    if ! [[ "${PROMPT_COMMAND:-}" =~ _rc_file_hook ]]; then
+        PROMPT_COMMAND="_rc_file_hook ${PROMPT_COMMAND}"
     fi
 fi
 

@@ -1,5 +1,28 @@
 # This file is sourced by .bashrc to load all the functions we want to use.
 
+# Helper function to run "nvm use" and "sdk env" when we change to a directory that has .nvmrc or
+# .sdkmanrc files in it.  It starts with an underscore because we don't intend for anyone to call
+# it directly, but is used in the PROMPT_COMMAND
+_rc_file_hook() {
+    if [[ $PWD == $PREV_PWD ]]; then
+        return
+    fi
+
+    PREV_PWD=$PWD
+
+    if [[ -f ".nvmrc" && -s "$NVM_DIR/nvm.sh" ]]; then
+        nvm use
+        # Angular CLI autocomletion, if we have Angular installed.
+        if type "ng" > /dev/null 2>&1; then
+            source <(ng completion script)
+        fi
+    fi
+
+    if [[ -f ".sdkmanrc" && -s "${SDKMAN_DIR}/bin/sdkman-init.sh" ]]; then
+        sdk env
+    fi
+}
+
 # The decode function can't be an alias because we're using $1 twice.
 function decode {
   'tr A-MN-Za-mn-z N-ZA-Mn-za-m < $1 > $1.out'
@@ -50,39 +73,6 @@ function h {
 # function to display swap usage
 function ls-swap {
     for file in /proc/*/status ; do awk '/VmSwap|Name/{printf $2 " " $3}END{ print ""}' $file; done | sort -k 2 -n -r | less
-}
-
-# Function to run "nvm use" when we change to a directory that has a .nvmrc file in it.  It starts
-# with an underscore because we don't intend for anyone to call it directly.  We also need to make
-# sure this doesn't get applied to PROMPT_COMMAND if we don't actually have nvm installed.
-_nvmrc_hook() {
-    if [[ $PWD == $PREV_PWD ]]; then
-        return
-    fi
-
-    PREV_PWD=$PWD
-    if [[ -f ".nvmrc" ]]; then
-        nvm use
-        # Angular CLI autocomletion, if we have Angular installed.
-        if type "ng" > /dev/null 2>&1; then
-            source <(ng completion script)
-        fi
-    fi
-}
-
-# Function to run "sdk env" when we change to a directory that has a .sdkmanrc file in it.  It
-# starts with an underscore because we don't intend for anyone to call it directly.  We also need
-# to make sure this doesn't get applied to PROMPT_COMMAND if we don't actually have sdkman
-# installed.
-_sdkmanrc_hook() {
-    if [[ $PWD == $PREV_PWD ]]; then
-        return
-    fi
-
-    PREV_PWD=$PWD
-    if [[ -f ".sdkmanrc" ]]; then
-        sdk env
-    fi
 }
 
 # function to enable/disable a starship module.  This function takes advantage of the fact that
