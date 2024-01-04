@@ -1,8 +1,8 @@
 # This file is sourced by .bashrc to load all the functions we want to use.
 
-# Helper function to run "nvm use" and "sdk env" when we change to a directory that has .nvmrc or
-# .sdkmanrc files in it.  It starts with an underscore because we don't intend for anyone to call
-# it directly, but is used in the PROMPT_COMMAND
+# Helper function to run "nvm use" when we change to a directory that has an .nvmrc file in it. The
+# method name starts with an underscore because we don't intend for anyone to call it directly, but
+# is used in the PROMPT_COMMAND
 _rc_file_hook() {
     if [[ $PWD == $PREV_PWD ]]; then
         return
@@ -16,10 +16,6 @@ _rc_file_hook() {
         if type "ng" > /dev/null 2>&1; then
             source <(ng completion script)
         fi
-    fi
-
-    if [[ -f ".sdkmanrc" && -s "${SDKMAN_DIR}/bin/sdkman-init.sh" ]]; then
-        sdk env
     fi
 }
 

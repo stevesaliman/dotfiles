@@ -196,7 +196,7 @@ fi
 
 # Add the rc file hook if either nvm or sdkman are installed.  No need to call it everytime we
 # change directories if we don't have any of the commands installed.
-if [[ -s "$NVM_DIR/nvm.sh" || -s "${SDKMAN_DIR}/bin/sdkman-init.sh" ]]; then
+if [[ -s "$NVM_DIR/nvm.sh" ]]; then
     if ! [[ "${PROMPT_COMMAND:-}" =~ _rc_file_hook ]]; then
         PROMPT_COMMAND="_rc_file_hook ${PROMPT_COMMAND}"
     fi
