@@ -19,6 +19,12 @@ fi
 export PATH=/usr/local/bin:/usr/local/sbin:/sbin:/usr/sbin:/bin:/usr/bin
 export PATH=$PATH:/opt/bin:/etc:/usr/local/etc:/usr/etc:/usr/ccs/bin
 
+# Next, we need to make sure later code can find the brew command.  On intel Macs, there is a link
+# in /usr/local, but on ARM platforms, it is in /opt/homebrew.
+if [[ $os_type == Darwin && -f /opt/homebrew ]]; then
+    export PATH=/opt/homebrew/bin:$PATH
+fi
+
 # Next, figure out where this .bashrc file lives so we can source the right files later.
 bash_script_dir=$(dirname "${BASH_SOURCE[0]}")
 
@@ -47,6 +53,11 @@ fi
 # Load aliases and functions.
 . ${bash_script_dir}/.bash_aliases
 . ${bash_script_dir}/.bash_functions
+
+#set the colors for color ls. This can't be in .bash_vars because Macs need homebrew in the path,
+# And that doesn't happen until here.
+#export LS_COLORS='no=00:fi=00:di=01;34:ln=01;36:pi=40;33:so=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.gz=01;31:*.deb=01;31:*.jpg=01;35:*.gif=01;35:*.bmp=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.mpg=01;37:*.mkv=01;37:*.avi=01;37:*.gl=01;37:*.dl=01;37:'
+eval $(dircolors ${bash_script_dir}/.dir_colors)
 
 # On a mac, we need to enable completion manually.
 if [[ $os_type == Darwin ]]; then

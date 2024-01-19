@@ -2,13 +2,13 @@
 # to define environment variables used by my environment.  It attempts to define
 # defaults for common things like SDKMAN_DIR based on the assumption that
 # software tends to get installed to the same place from machine to machine.
-# 
-# os_type will be set by .bashrc before this script is called. This variable 
+#
+# os_type will be set by .bashrc before this script is called. This variable
 # can be used to set sensible defaults based on the type of operating system.
 #
-# Two variables of note that are set here are $path_prefix and $path_suffix. 
-# These are used to store non-standard things we want on the path, such as 
-# Gnome on Linux hosts, or Windows/system32 on Cygwin hosts.  
+# Two variables of note that are set here are $path_prefix and $path_suffix.
+# These are used to store non-standard things we want on the path, such as
+# Gnome on Linux hosts, or Windows/system32 on Cygwin hosts.
 # .bashrc will use this later to put things at the start or end of the path.
 #
 # Values in this file can be overridden by .bash_local, which is sourced after
@@ -38,13 +38,9 @@ export HISTFILESIZE=2000
 # append to the history file, don't overwrite it
 shopt -s histappend
 
-#set the colors for color ls.
-#export LS_COLORS='no=00:fi=00:di=01;34:ln=01;36:pi=40;33:so=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.gz=01;31:*.deb=01;31:*.jpg=01;35:*.gif=01;35:*.bmp=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.mpg=01;37:*.mkv=01;37:*.avi=01;37:*.gl=01;37:*.dl=01;37:'
-eval $(dircolors ${bash_script_dir}/.dir_colors)
-
 # What user is the "normal" user on the box, and what user am I currently? These
 # will be used later to set the prompt based on whether or not I'm currently
-# logged in as the normal user. $me will probably need to be overridden in 
+# logged in as the normal user. $me will probably need to be overridden in
 # .bash_local.
 me="@local.user@"
 # what user am I currently using?
@@ -154,11 +150,10 @@ elif [[ $os_type == Darwin ]]; then
     # Add Git to the path, since the OSX installer puts it in a subdir.
     # macports
     #path_prefix=/usr/local/git/bin:/opt/local/libexec/gnubin:/opt/local/bin:/opt/local/sbin
-    # homebrew
-    path_prefix=$(brew --prefix)/bin:$(brew --prefix)/sbin
+    # homebrew - remember that the bin directory is already in our path
+    path_prefix=$(brew --prefix)/sbin
     path_prefix=${path_prefix}:$(brew --prefix)/opt/gnu-sed/libexec/gnubin
     path_prefix=${path_prefix}:$(brew --prefix)/opt/coreutils/libexec/gnubin
-    path_prefix=${path_prefix}:/usr/local/git/bin
     path_prefix=${path_prefix}:$(brew --prefix)/opt/python/libexec/bin
     path_prefix=${path_prefix}:$(brew --prefix)/opt/postgresql@12/bin
     # Rancher Desktop
