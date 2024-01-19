@@ -21,7 +21,7 @@ export PATH=$PATH:/opt/bin:/etc:/usr/local/etc:/usr/etc:/usr/ccs/bin
 
 # Next, we need to make sure later code can find the brew command.  On intel Macs, there is a link
 # in /usr/local, but on ARM platforms, it is in /opt/homebrew.
-if [[ $os_type == Darwin && -f /opt/homebrew ]]; then
+if [[ $os_type == Darwin -a -d /opt/homebrew ]]; then
     export PATH=/opt/homebrew/bin:$PATH
 fi
 
