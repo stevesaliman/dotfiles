@@ -14,7 +14,13 @@ fi
 # if we aren't in an interactive shell, just bail here.
 [ -z "$PS1" ] && return
 
-# First set up a basic path that works for all environments. This is needed to execute the rest of
+# First things first: Figure out what OS and machine I'm on
+os_type=$(uname)
+if [ -z "$HOSTNAME" ]; then
+    export HOSTNAME=`/bin/hostname`
+fi
+
+# Next, set up a basic path that works for all environments. This is needed to execute the rest of
 # this script which uses things like uname, grep, etc.
 export PATH=/usr/local/bin:/usr/local/sbin:/sbin:/usr/sbin:/bin:/usr/bin
 export PATH=$PATH:/opt/bin:/etc:/usr/local/etc:/usr/etc:/usr/ccs/bin
@@ -27,12 +33,6 @@ fi
 
 # Next, figure out where this .bashrc file lives so we can source the right files later.
 bash_script_dir=$(dirname "${BASH_SOURCE[0]}")
-
-# Figure out what OS and machine I'm on
-os_type=$(uname)
-if [ -z "$HOSTNAME" ]; then
-    export HOSTNAME=`/bin/hostname`
-fi
 
 #############################################################################
 # Load variables and local overides from .bash_vars and .bash_local
