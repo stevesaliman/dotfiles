@@ -30,26 +30,28 @@ TERM vt100
 # Below are the color init strings for the basic file types. A color init
 # string consists of one or more of the following numeric codes:
 # Attribute codes:
-# 00=none 01=bold 04=underscore 05=blink 07=reverse 08=concealed
+# 0=none 1=bold 4=underscore 5=blink 7=reverse 8=concealed
 # Text color codes:
 # 30=black 31=red 32=green 33=yellow 34=blue 35=magenta 36=cyan 37=white
 # Background color codes:
 # 40=black 41=red 42=green 43=yellow 44=blue 45=magenta 46=cyan 47=white
 NORMAL 00   # global default, although everything should be something.
 FILE 00     # normal file
-# DIR 01;34   # directory - bold blue
-DIR 01;38;5;63  # directory - bold blue, but not too dark.
-LINK 01;36  # symbolic link.  bold cyan. (If you set this to 'target' instead 
+DIR 1;34   # directory - bold blue
+LINK 1;36  # symbolic link.  bold cyan. (If you set this to 'target' instead 
             # of a  numerical value, the color is as for the file pointed to.)
 FIFO 40;33  # pipe: yellow on black.
-SOCK 01;35  # socket: bold purple
-DOOR 01;35  # door: bold purple
-BLK 40;33;01    # block device driver: bold yellow on black
-CHR 40;33;01    # character device driver: bold yellow on black
-ORPHAN 40;31;01 # symlink to nonexistent file: bold red on black
+SOCK 1;35  # socket: bold purple
+DOOR 1;35  # door: bold purple
+BLK 40;33;1    # block device driver: bold yellow on black
+CHR 40;33;1    # character device driver: bold yellow on black
+ORPHAN 40;31;1 # symlink to nonexistent file: bold red on black
+SETUID 37;41 # file that is setuid (u+s)
+SETGID 30;43 # file that is setgid (g+s)
+
 
 # This is for files with execute permission:
-EXEC 01;32 # bold green.
+EXEC 1;32 # bold green.
 
 # List any file extensions like '.gz' or '.tar' that you would like ls
 # to colorize below. Put the extension, a space, and the color init string.
@@ -57,47 +59,143 @@ EXEC 01;32 # bold green.
 
 # If you use DOS-style suffixes, you may want to uncomment the following for
 # bright green:
-.cmd 01;32 
-.exe 01;32
-.com 01;32
-.btm 01;32
-.bat 01;32
+.cmd 1;32 
+.exe 1;32
+.com 1;32
+.btm 1;32
+.bat 1;32
 
 # archives or compressed (bright red)
-.tar 01;31 
-.tgz 01;31
-.arj 01;31
-.taz 01;31
-.lzh 01;31
-.zip 01;31
-.z   01;31
-.Z   01;31
-.gz  01;31
-.bz2 01;31
-.deb 01;31
-.rpm 01;31
-.jar 01;31
-.dmg 01;31
+.7z 1;31
+.a 1;31
+.ar 1;31
+.arj 1;31
+.bz2 1;31
+.deb 1;31
+.dmg 1;31
+.gz 1;31
+.iso 1;31
+.jar 1;31
+.lzh 1;31
+.lzma 1;31
+.par 1;31
+.rar 1;31
+.rpm 1;31
+.tar 1;31
+.taz 1;31
+.tc 1;31
+.tgz 1;31
+.txz 1;31
+.xz 1;31
+.z 1;31
+.Z 1;31
+.zip 1;31
 
-# image formats bold purple
-.jpg 01;35
-.png 01;35
-.gif 01;35
-.bmp 01;35
-.ppm 01;35
-.tga 01;35
-.xbm 01;35
-.xpm 01;35
-.tif 01;35
-.png 01;35
+# image formats light purple
+.arw 38;5;133
+.bmp 38;5;133
+.cbr 38;5;133
+.cbz 38;5;133
+.cr2 38;5;133
+.dvi 38;5;133
+.eps 38;5;133
+.gif 38;5;133
+.heif 38;5;133
+.ico 38;5;133
+.jpeg 38;5;133
+.jpg 38;5;133
+.nef 38;5;133
+.orf 38;5;133
+.pbm 38;5;133
+.pgm 38;5;133
+.png 38;5;133
+.pnm 38;5;133
+.ppm 38;5;133
+.ps 38;5;133
+.raw 38;5;133
+.stl 38;5;133
+.svg 38;5;133
+.tga 38;5;133
+.tif 38;5;133
+.tiff 38;5;133
+.webp 38;5;133
+.xbm 38;5;133
+.xpm 38;5;133
 
-# movie formats bold white
-.mpg 01;37
-.mp4 01;37
-.m4v 01;37
-.mkv 01;37
-.avi 01;37
-.fli 01;37
-.gl 01;37
-.dl 01;37
+# movie formats purple
+.avi 38;5;135
+.flv 38;5;135
+.heic 38;5;135
+.fli 38;5;135
+.gl 38;5;135
+.m2ts 38;5;135
+.m2v 38;5;135
+.m4v 38;5;135
+.mkv 38;5;135
+.mp4 38;5;135
+.mov 38;5;135
+.mpeg 38;5;135
+.mpg 38;5;135
+.ogm 38;5;135
+.ogv 38;5;135
+.ts 38;5;135
+.vob 38;5;135
+.webm 38;5;135
+.wmvm 38;5;135
 
+# Music formats darker purple
+*.aac 38;5;92
+*.alac 38;5;92
+*.ape 38;5;92
+*.flac 38;5;92
+*.m4a 38;5;92
+*.mka 38;5;92
+*.mp3 38;5;92
+*.ogg 38;5;92
+*.opus 38;5;92
+*.wav 38;5;92
+*.wma 38;5;92
+
+# Playlists stand out.
+*.m3u 1;35
+
+
+# security related things are gery/white
+*.asc 38;5;109
+*.enc 38;5;109
+*.gpg 38;5;109
+*.p12 38;5;109
+*.pfx 38;5;109
+*.pgp 38;5;109
+*.sig 38;5;109
+*.signature 38;5;109
+
+# Temporary files are grey
+.bak 38;5;244
+.bk 38;5;244
+.swn 38;5;244
+.swo 38;5;244
+.swp 38;5;244
+.tmp 38;5;244
+*.~ 38;5;244
+
+# Exa sets 38;5;105 for Microsoft files. Unset them here.
+.djvu 0
+.doc 0
+.docx 0
+.dvi 0
+.eml 0
+.eps 0
+.fotd 0
+.key 0
+.odp 0
+.odt 0
+.pdf 0
+.ppt 0
+.pptx 0
+.rtf 0
+.xls 0
+.xlsx 0
+
+# unset a few other things:
+.ts 0
