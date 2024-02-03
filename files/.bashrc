@@ -21,8 +21,10 @@ if [ -z "$HOSTNAME" ]; then
 fi
 
 # Next, set up a basic path that works for all environments. This is needed to execute the rest of
-# this script which uses things like uname, grep, etc.
-export PATH=/usr/local/bin:/usr/local/sbin:/sbin:/usr/sbin:/bin:/usr/bin
+# this script which uses things like uname, grep, etc.  We always want our own bin at the front of
+# the path.
+export PATH=${HOME}/bin:${HOME}/.cargo/bin
+export PATH=$PATH:/usr/local/bin:/usr/local/sbin:/sbin:/usr/sbin:/bin:/usr/bin
 export PATH=$PATH:/opt/bin:/etc:/usr/local/etc:/usr/etc:/usr/ccs/bin
 
 # Next, we need to make sure later code can find the brew command.  On intel Macs, there is a link
@@ -56,8 +58,24 @@ fi
 
 #set the colors for color ls. This can't be in .bash_vars because Macs need homebrew in the path,
 # And that doesn't happen until here.
-#export LS_COLORS='no=00:fi=00:di=01;34:ln=01;36:pi=40;33:so=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.gz=01;31:*.deb=01;31:*.jpg=01;35:*.gif=01;35:*.bmp=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.mpg=01;37:*.mkv=01;37:*.avi=01;37:*.gl=01;37:*.dl=01;37:'
+#set the colors for color ls. Start by using dircolors to set the basic colors.
 eval $(dircolors ${bash_script_dir}/.dir_colors)
+# Set the extended colors for exa per at https://the.exa.website/docs/colour-themes
+export EXA_COLORS=$LS_COLORS
+# Set the "user" permission bits to the terminal color
+export EXA_COLORS="${EXA_COLORS}ur=0:uw=0:ux=0:ue=0:"
+# Set the "group" permission bits to yellow
+export EXA_COLORS="${EXA_COLORS}gr=33:gw=33:gx=33:"
+# Set the "other" permission bits to bold versions of the terminal color
+export EXA_COLORS="${EXA_COLORS}tr=1;0:tw=1;0:tx=1;0:"
+# Set the setuid and setgid colors
+export EXA_COLORS="${EXA_COLORS}sf=30;43:"
+# Set the user and group colors.  Yellow for me and my groups, bold yellow otherwise.
+export EXA_COLORS="${EXA_COLORS}uu=33:un=1;33:gu=33:gn=1;33:"
+# Set the file size colors to normal terminal color
+export EXA_COLORS="${EXA_COLORS}sn=0:sb=0:"
+# Dates are bold blue.
+export EXA_COLORS="${EXA_COLORS}da=1;34:"
 
 # On a mac, we need to enable completion manually.
 if [[ $os_type == Darwin ]]; then

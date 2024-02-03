@@ -40,14 +40,14 @@ FILE 00     # normal file
 DIR 1;34   # directory - bold blue
 LINK 1;36  # symbolic link.  bold cyan. (If you set this to 'target' instead 
             # of a  numerical value, the color is as for the file pointed to.)
-FIFO 40;33  # pipe: yellow on black.
+FIFO 33;40  # pipe: yellow on black.
 SOCK 1;35  # socket: bold purple
 DOOR 1;35  # door: bold purple
-BLK 40;33;1    # block device driver: bold yellow on black
-CHR 40;33;1    # character device driver: bold yellow on black
+BLK 1;33;40    # block device driver: bold yellow on black
+CHR 1;33;40    # character device driver: bold yellow on black
 ORPHAN 40;31;1 # symlink to nonexistent file: bold red on black
-SETUID 37;41 # file that is setuid (u+s)
-SETGID 30;43 # file that is setgid (g+s)
+SETUID 7 # file that is setuid (u+s): Reverse of terminal color
+SETGID 30;43 # file that is setgid (g+s): Reversed yellow
 
 
 # This is for files with execute permission:
