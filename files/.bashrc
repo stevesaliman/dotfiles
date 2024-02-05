@@ -169,12 +169,7 @@ if [ -n "$CATALINA_HOME" ]; then
     export PATH=$PATH:$CATALINA_HOME/bin
 fi
 
-
-# finish the paths, we want the bin dir under the bash script at the front, so my bin is there even
-# when running as another user, and we want "." at the end.
-export PATH=${bash_script_dir}/bin:$PATH:.
-
-# finally add the path suffix from our variable setup if we have one.
+# Add the path suffix from our variable setup if we have one.
 if [ -n "$path_suffix" ]; then
     export PATH=$PATH:$path_suffix
 fi
@@ -241,9 +236,10 @@ fi
 #fi
 #export SOURCED=true
 
-# We always want our own bin at the front of the path, so we find our gradle shell instead of the
-# one that comes with sdkman
-export PATH=${HOME}/bin:$PATH
+# Finish the path.  We always want the bin dir under the bash script at the very front, so scripts
+# from this project are used ahead of whatever comes from things like sdkman.
+# We also want to make sure that "." is dead last.
+export PATH=${bash_script_dir}/bin:$PATH:.
 
 # Load "z" for remembering directories, but don't expand symlinks.  This is last because we want
 # everything that will modify the PROMPT_COMMAND to be stable first.
