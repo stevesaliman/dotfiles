@@ -25,7 +25,7 @@ fi
 # the path.
 export PATH=${HOME}/bin:${HOME}/.cargo/bin
 export PATH=$PATH:/usr/local/bin:/usr/local/sbin:/sbin:/usr/sbin:/bin:/usr/bin
-export PATH=$PATH:/opt/bin:/etc:/usr/local/etc:/usr/etc:/usr/ccs/bin
+export PATH=$PATH:/opt/bin:/etc:/usr/local/etc:/usr/etc
 
 # Next, we need to make sure later code can find the brew command.  On intel Macs, there is a link
 # in /usr/local, but on ARM platforms, it is in /opt/homebrew.
@@ -170,9 +170,9 @@ if [ -n "$CATALINA_HOME" ]; then
 fi
 
 
-# finish the paths, we want /usr/ucb and . at the end
-export PATH=${bash_script_dir}/bin:$PATH
-export PATH=$PATH:/usr/ucb:.
+# finish the paths, we want the bin dir under the bash script at the front, so my bin is there even
+# when running as another user, and we want "." at the end.
+export PATH=${bash_script_dir}/bin:$PATH:.
 
 # finally add the path suffix from our variable setup if we have one.
 if [ -n "$path_suffix" ]; then
@@ -180,7 +180,7 @@ if [ -n "$path_suffix" ]; then
 fi
 
 # Set up the library load path, manpath, etc.
-export LD_LIBRARY_PATH=$local_libs:/usr/local/lib:$X11_HOME/lib:/usr/ccs/lib:$HOME/lib
+export LD_LIBRARY_PATH=$local_libs:/usr/local/lib:$X11_HOME/lib:$HOME/lib
 export MANPATH=$HOME/man:/usr/man:/usr/share/man:/usr/local/man:$X11_HOME/man
 # On a mac, we need to add the coreutils to the MANPATH
 if [[ $os_type == Darwin ]]; then

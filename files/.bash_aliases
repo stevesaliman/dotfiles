@@ -34,10 +34,13 @@ alias vt100='set term=vt100; stty rows 24'
 alias watch='watch '
 alias which=type
 
-# Aliases that differ by OS
+# Aliases that differ by OS.  We set up "ls" aliases to use eza for long listings on Linux and Mac
+# platforms, but we use regular ls for short listings.  This is because we don't use anything
+# special from eza, and the normal ls displays setuid and setgid files properly.
 if [[ $os_type == Linux ]]; then
     alias dir='eza -laF --group'
-    alias ls='eza -aF'
+    #alias ls='eza -aF'
+    alias ls='ls --color --human-readable -FA'
     alias lstr='eza -larF --group --sort=mod'
 	alias psg="ps -eawo 'user pid ppid vsz stime etime time tty args' | grep"
 	alias startx=/home/${me}/bin/startx
@@ -55,7 +58,8 @@ elif [[ $os_type == CYGWIN* ]]; then
 	fi
 elif [[ $os_type == Darwin ]]; then
     alias dir='eza -laF --group'
-    alias ls='eza -aF'
+    #alias ls='eza -aF'
+    alias ls='ls --color --human-readable -FA'
     alias lstr='eza -larF --group --sort=mod'
 	# Set an alias for TextMate
 	alias mate=/Applications/TextMate.app/Contents/Resources/mate
