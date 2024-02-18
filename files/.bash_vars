@@ -1,22 +1,19 @@
-# This file is part of my custom bash configuration.  It is called by .bashrc
-# to define environment variables used by my environment.  It attempts to define
-# defaults for common things like SDKMAN_DIR based on the assumption that
-# software tends to get installed to the same place from machine to machine.
+# This file is part of my custom bash configuration.  It is called by .bashrc to define environment
+# variables used by my environment.  It attempts to define defaults for common things like
+# SDKMAN_DIR based on the assumption that software tends to get installed to the same place from
+# machine to machine.
 #
-# os_type will be set by .bashrc before this script is called. This variable
-# can be used to set sensible defaults based on the type of operating system.
+# os_type will be set by .bashrc before this script is called. This variable can be used to set
+# sensible defaults based on the type of operating system.
 #
-# Two variables of note that are set here are $path_prefix and $path_suffix.
-# These are used to store non-standard things we want on the path, such as
-# Gnome on Linux hosts, or Windows/system32 on Cygwin hosts.
-# .bashrc will use this later to put things at the start or end of the path.
+# Two variables of note that are set here are $path_prefix and $path_suffix.  These are used to
+# store non-standard things we want on the path, such as Gnome on Linux hosts, or Windows/system32
+# on Cygwin hosts.  .bashrc will use this later to put things at the start or end of the path.
 #
-# Values in this file can be overridden by .bash_local, which is sourced after
-# this one.
+# Values in this file can be overridden by .bash_local, which is sourced after this one.
 #
 
-# Some applications read the EDITOR variable to determine your favourite text
-# editor. So uncomment the line below and enter the editor of your choice :-)
+# Some applications read the EDITOR variable to determine your favorite text editor.
 export EDITOR=vi
 
 # Set the sorting to the order we'd expect
@@ -38,15 +35,13 @@ export HISTFILESIZE=2000
 # append to the history file, don't overwrite it
 shopt -s histappend
 
-# What user is the "normal" user on the box, and what user am I currently? These
-# will be used later to set the prompt based on whether or not I'm currently
-# logged in as the normal user. $me will probably need to be overridden in
-# .bash_local.
+# What user is the "normal" user on the box, and what user am I currently?  These will be used later
+# to set the prompt based on whether or not I'm currently logged in as the normal user. $me will
+# probably need to be overridden in .bash_local.
 me="@local.user@"
 # what user am I currently using?
 user=`/usr/bin/whoami`
-# in what environment am I currently running.  This is set to a bogus value to
-# prevent bad builds.
+# in what environment am I currently running.  This is set to a bogus value to prevent bad builds.
 environment_name="@env.label@"
 
 # variables are easier to read later than escape sequences.
@@ -65,9 +60,8 @@ bold_green="\[\033[01;32m\]"
 bold_blue="\[\033[01;38;5;63m\]"
 bold_gray="\[\033[00;37m\]"
 
-# For some reason, cygwin is not setting the HOME variable properly when the
-# home directory is on a mounted drive.  I can't set this one in .bash_local
-# because the home directory is shared.
+# For some reason, cygwin is not setting the HOME variable properly when the home directory is on a
+# mounted drive.  I can't set this one in .bash_local because the home directory is shared.
 if [ "$HOSTNAME" == "delenn" ]; then
   export HOME="/cygdrive/c/home/steve"
 fi
@@ -91,8 +85,8 @@ export GIT_PS1_SHOWSTASHSTATE=1
 export GIT_PS1_SHOWUNTRACKEDFILES=1
 export GIT_PS1_SHOWUPSTREAM=1
 
-# Set up some sensible default variables and paths based on the OS I'm on, and
-# the fact that I tend to be pretty consistent from machine to machine
+# Set up some sensible default variables and paths based on the OS I'm on, and the fact that I tend
+# to be pretty consistent from machine to machine
 if [[ $os_type == Linux ]]; then
     echo "Setting variables for Linux"
     export SDKMAN_DIR=/opt/sdkman
@@ -105,7 +99,7 @@ if [[ $os_type == Linux ]]; then
     # export CATALINA_OPTS="$cat_opts"
     export ORACLE_HOME=/opt/oracle/product/19.3
     export ORACLE_SID=devl
-	export BACKUP_HOME=/run/media/@local.user@/backup
+	export BACKUP_HOME=/media/@local.user@/backup
     export WINEPREFIX="/opt/wine"
     export X11_HOME=/usr/X11R6
     # for X to start up right, we need gnome on the path.
@@ -148,9 +142,7 @@ elif [[ $os_type == Darwin ]]; then
     export MYSQL_HOME=/usr/local/mysql
 	export BACKUP_HOME=/Volumes/backup
     # Add Git to the path, since the OSX installer puts it in a subdir.
-    # macports
-    #path_prefix=/usr/local/git/bin:/opt/local/libexec/gnubin:/opt/local/bin:/opt/local/sbin
-    # homebrew - remember that the bin directory is already in our path
+    # homebrew - remember that the bin directory is already in our path.
     path_prefix=$(brew --prefix)/sbin
     path_prefix=${path_prefix}:$(brew --prefix)/opt/gnu-sed/libexec/gnubin
     path_prefix=${path_prefix}:$(brew --prefix)/opt/coreutils/libexec/gnubin

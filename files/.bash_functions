@@ -19,6 +19,15 @@ _rc_file_hook() {
     fi
 }
 
+# Stop the ssh agent when the shell exits.  It is not really intended to called by users, as it
+# exits the shell.
+function _stop_ssh_agent {
+    if [ "$SSH_AGENT_PID" != "" ]; then
+		eval $(/usr/bin/ssh-agent -k)
+	fi
+	exit
+}
+
 # The decode function can't be an alias because we're using $1 twice.
 function decode {
   'tr A-MN-Za-mn-z N-ZA-Mn-za-m < $1 > $1.out'
@@ -108,16 +117,14 @@ function start-gpg {
 	eval $(gpg-agent --daemon --pinentry-program /usr/bin/pinentry)
 }
 
-# Function to start Cygwin's ssh-agent. It starts the agent, then creates an
-# RC file that other shells can use to access the agent.  Then it adds the
-# private key to the agent, which is the only part of the process that prompts.
-# Only the first shell to start will ask for a password because other shells
-# will see the RC file.
+# Function to start Cygwin's ssh-agent. It starts the agent, then creates an RC file that other
+# shells can use to access the agent.  Then it adds the private key to the agent, which is the only
+# part of the process that prompts.  Only the first shell to start will ask for a password because
+# other shells will see the RC file.
 function start_ssh_agent {
 	if [ -f "${SSHRC}" ]; then
 		. "${SSHRC}" > /dev/null
-		# Just because we have an RC file, doesn't mean the process is
-		# actually running.
+		# Just because we have an RC file, doesn't mean the process is actually running.
 		ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
 			_start_ssh_agent;
 		}
@@ -140,19 +147,9 @@ function _start_ssh_agent {
     fi
 }
 
-# Stop the ssh agent when the shell exits.  It is not really intended to
-# called by users, as it exits the shell.
-function stop_ssh_agent {
-    if [ "$SSH_AGENT_PID" != "" ]; then
-		eval $(/usr/bin/ssh-agent -k)
-	fi
-	exit
-}
-
-# The vi function plays with the home directory so that I can use my vim config
-# regardless of who I am. The double quotes around the $@ are very important.
-# Without them, filenames with spaces will be interpereted as several different
-# filenames when they are passed to vi.
+# The vi function plays with the home directory so that I can use my vim config regardless of who I
+# am.  The double quotes around the $@ are very important.  Without them, filenames with spaces
+# will be interpereted as several different filenames when they are passed to vi.
 function vi {
 	if [[ $user == $me ]]; then
 		vim -X "$@"

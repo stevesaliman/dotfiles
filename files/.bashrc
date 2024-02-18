@@ -23,8 +23,7 @@ fi
 # Next, set up a basic path that works for all environments. This is needed to execute the rest of
 # this script which uses things like uname, grep, etc.  We always want our own bin at the front of
 # the path.
-export PATH=${HOME}/bin:${HOME}/.cargo/bin
-export PATH=$PATH:/usr/local/bin:/usr/local/sbin:/sbin:/usr/sbin:/bin:/usr/bin
+export PATH=/usr/local/bin:/usr/local/sbin:/sbin:/usr/sbin:/bin:/usr/bin
 export PATH=$PATH:/opt/bin:/etc:/usr/local/etc:/usr/etc
 
 # Next, we need to make sure later code can find the brew command.  On intel Macs, there is a link
@@ -34,7 +33,7 @@ if [ $os_type == Darwin -a -d /opt/homebrew ]; then
 fi
 
 # Next, figure out where this .bashrc file lives so we can source the right files later.
-bash_script_dir=$(dirname "${BASH_SOURCE[0]}")
+bash_script_dir=$(dirname $(realpath "${BASH_SOURCE[0]}"))
 
 #############################################################################
 # Load variables and local overides from .bash_vars and .bash_local
@@ -127,7 +126,7 @@ shopt -s dotglob
 shopt -s histappend
 
 # Trap the shell exit and kill ssh-agent when it exits
-trap stop_ssh_agent EXIT SIGTERM
+trap _stop_ssh_agent EXIT SIGTERM
 
 # Fix terminal oddities
 stty erase 
@@ -190,6 +189,11 @@ if [[ $os_type == CYGWIN* ]]; then
     unset ORACLE_HOME
 fi
 
+# Load "z" for remembering directories, but don't expand symlinks.  This is near the end because we
+# want everything that will modify the PROMPT_COMMAND to be stable first.
+export _Z_NO_RESOLVE_SYMLINKS=1
+. ${bash_script_dir}/bin/z.sh
+
 ## RVM
 # Load RVM into a shell session *as a function*
 [[ -s "${RVM_DIR}/scripts/rvm" ]] && source "${RVM_DIR}/scripts/rvm"
@@ -203,7 +207,7 @@ fi
 # Load NVM if we have an nvm directory.  The readlink command is used to get the real location of
 # $NVM_DIR because nvm has issues with symlinks
 export NVM_DIR="$(readlink -f ${NVM_DIR})"
-[ -s "$NVM_DIR/nvm.sh" ] &&. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Angular CLI autocomletion, if we have Angular installed.
@@ -236,13 +240,13 @@ fi
 #fi
 #export SOURCED=true
 
-# Finish the path.  We always want the bin dir under the bash script at the very front, so scripts
-# from this project are used ahead of whatever comes from things like sdkman.
-# We also want to make sure that "." is dead last.
-export PATH=${bash_script_dir}/bin:$PATH:.
+# Finish the path.  We always want the user's bin at the very front, followed by the bin and cargo
+# dirs under this script's dir so that scripts from this project are used ahead of whatever comes
+# from things like sdkman.
+export PATH=${bash_script_dir}/bin:${bash_script_dir}/.cargo/bin:$PATH
+if [ -d "${HOME}/bin" ] && [[ ":$PATH:" != *":${HOME}/bin:"* ]]; then
+    export PATH=${HOME}/bin:$PATH
+fi
 
-# Load "z" for remembering directories, but don't expand symlinks.  This is last because we want
-# everything that will modify the PROMPT_COMMAND to be stable first.
-export _Z_NO_RESOLVE_SYMLINKS=1
-. ${bash_script_dir}/bin/z.sh
-
+# And we want "." dead last
+export PATH=$PATH:.

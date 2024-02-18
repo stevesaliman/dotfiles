@@ -11,7 +11,7 @@ alias deploy='sudo /usr/local/bin/deploy.sh'
 alias diffr='diff -r -X ~/.diff_excludes'
 alias df='df -h'
 alias du='du -hx'
-alias gradled='gradle $@ --no-daemon -Dorg.gradle.debug=true'
+alias gradled='gw $@ --no-daemon -Dorg.gradle.debug=true'
 alias grep='grep --color'
 alias gsu='git status -uno'
 alias kc=kubectl
@@ -39,9 +39,8 @@ alias which=type
 # special from eza, and the normal ls displays setuid and setgid files properly.
 if [[ $os_type == Linux ]]; then
     alias dir='eza -laF --group'
-    #alias ls='eza -aF'
     alias ls='ls --color --human-readable -FA'
-    alias lstr='eza -larF --group --sort=mod'
+    alias lstr='eza -laF --group --sort=mod'
 	alias psg="ps -eawo 'user pid ppid vsz stime etime time tty args' | grep"
 	alias startx=/home/${me}/bin/startx
 elif [[ $os_type == CYGWIN* ]]; then
@@ -58,9 +57,8 @@ elif [[ $os_type == CYGWIN* ]]; then
 	fi
 elif [[ $os_type == Darwin ]]; then
     alias dir='eza -laF --group'
-    #alias ls='eza -aF'
     alias ls='ls --color --human-readable -FA'
-    alias lstr='eza -larF --group --sort=mod'
+    alias lstr='eza -laF --group --sort=mod'
 	# Set an alias for TextMate
 	alias mate=/Applications/TextMate.app/Contents/Resources/mate
 	alias psg="ps -eawo 'user pid ppid vsz stime etime time tty args' | grep"
