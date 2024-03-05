@@ -16,8 +16,8 @@
 # Some applications read the EDITOR variable to determine your favorite text editor.
 export EDITOR=vi
 
-# Set the sorting to the order we'd expect
-export LC_COLLATE=POSIX
+# Set the sorting to ignore case
+export LC_COLLATE="en_US.UTF-8"
 
 # Where is the file that has the PID of the ssh-agent?
 export SSHRC="$HOME/.ssh/.sshrc"
