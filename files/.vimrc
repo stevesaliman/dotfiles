@@ -2,6 +2,7 @@
 set term=xterm-vt220
 set autoindent
 set showmatch
+set belloff=all
 "set mouse=a
 " Set the default tabstop to 4 and use spaces, override it in language plugins
 " when something else is desired.
@@ -142,7 +143,7 @@ if has("autocmd")
   augroup cprog
     " Remove all cprog autocommands
     au!
-  
+
     " When starting to edit a file:
     "   For *.c and *.h files set formatting of comments and set C-indenting on.
     "   For other files switch it off.
@@ -156,7 +157,7 @@ if has("autocmd")
   augroup gzip
     " Remove all gzip autocommands
     au!
-  
+
     " Enable editing of gzipped files
     "	  read:	set binary mode before reading the file
     "		uncompress text in buffer after reading
@@ -168,10 +169,10 @@ if has("autocmd")
     autocmd BufReadPost,FileReadPost	*.gz set nobin
     autocmd BufReadPost,FileReadPost	*.gz let &ch = ch_save|unlet ch_save
     autocmd BufReadPost,FileReadPost	*.gz execute ":doautocmd BufReadPost " . %:r
-  
+
     autocmd BufWritePost,FileWritePost	*.gz !mv <afile> <afile>:r
     autocmd BufWritePost,FileWritePost	*.gz !gzip <afile>:r
-  
+
     autocmd FileAppendPre			*.gz !gunzip <afile>
     autocmd FileAppendPre			*.gz !mv <afile>:r <afile>
     autocmd FileAppendPost		*.gz !mv <afile> <afile>:r
@@ -181,7 +182,7 @@ if has("autocmd")
   augroup bzip2
     " Remove all bzip2 autocommands
     au!
-  
+
     " Enable editing of bzipped files
     "       read: set binary mode before reading the file
     "             uncompress text in buffer after reading
@@ -192,10 +193,10 @@ if has("autocmd")
     autocmd BufReadPost,FileReadPost      *.bz2 set cmdheight=2|'[,']!bunzip2
     autocmd BufReadPost,FileReadPost      *.bz2 set cmdheight=1 nobin|execute ":doautocmd BufReadPost " . %:r
     autocmd BufReadPost,FileReadPost      *.bz2 let &ch = ch_save|unlet ch_save
-  
+
     autocmd BufWritePost,FileWritePost    *.bz2 !mv <afile> <afile>:r
     autocmd BufWritePost,FileWritePost    *.bz2 !bzip2 <afile>:r
-  
+
     autocmd FileAppendPre                 *.bz2 !bunzip2 <afile>
     autocmd FileAppendPre                 *.bz2 !mv <afile>:r <afile>
     autocmd FileAppendPost                *.bz2 !mv <afile> <afile>:r
