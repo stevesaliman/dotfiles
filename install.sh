@@ -7,11 +7,11 @@
 # rsync -av files/ ~
 # chmod 700 ~/.ssh
 # Then find a way to do template substitutions, such as with SED
-# 
+#
 # NOTE: OSX doesn't have an ANSI compliant sed, so you'll need install gsed
 # from macports, and make a link to it in the path before proceding.
 
-# Step 1. source the local overrides.  This must define a couple of values, 
+# Step 1. source the local overrides.  This must define a couple of values,
 # others are optional.
 df_source_dir=$( cd "$( dirname "$0" )" && pwd )
 if [ ! -f $df_source_dir/local_env ]; then
@@ -19,8 +19,8 @@ if [ ! -f $df_source_dir/local_env ]; then
     exit 1
 fi
 
-. $df_source_dir/local_env
 . $df_source_dir/install_functions
+. $df_source_dir/local_env
 
 verify_value "df_git_name" "$df_git_name"
 verify_value "df_git_email" "$df_git_email"
@@ -28,7 +28,7 @@ verify_value "df_env_label" "$df_env_label"
 
 force_deploy="N"
 while getopts :f flag; do
-	case $flag in 
+	case $flag in
 	f)
 		force_deploy="Y"
 		;;
