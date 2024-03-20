@@ -122,6 +122,10 @@ elif [[ $os_type == CYGWIN* ]]; then
     # Specify what git statuses we want to see. Showing the stash state causes
     # performance issues in cygwin.
     export GIT_PS1_SHOWSTASHSTATE=0
+    # Rancher Desktop
+	if [ -d "${bash_script_dir}/.rd/bin" ]; then
+      path_prefix=${path_prefix}:${bash_script_dir}/.rd/bin
+    fi
     # On Cygwin hosts, we want the windows dirs in the path
     path_suffix=/cygdrive/c/WINDOWS/System32:/cygdrive/c/WINDOWS/System32/Wbem
     # We also need Firefox in the path for Selenium to work...
@@ -149,7 +153,9 @@ elif [[ $os_type == Darwin ]]; then
     path_prefix=${path_prefix}:$(brew --prefix)/opt/python/libexec/bin
     path_prefix=${path_prefix}:$(brew --prefix)/opt/postgresql@12/bin
     # Rancher Desktop
-    path_prefix=${path_prefix}:${bash_script_dir}/.rd/bin
+	if [ -d "${bash_script_dir}/.rd/bin" ]; then
+      path_prefix=${path_prefix}:${bash_script_dir}/.rd/bin
+    fi
     export HOMEBREW_NO_ANALYTICS=1
     # Make Parallels the default Vagrant provider
     export VAGRANT_DEFAULT_PROVIDER=parallels
