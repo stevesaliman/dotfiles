@@ -102,6 +102,10 @@ if [[ $os_type == Linux ]]; then
 	export BACKUP_HOME=/media/@local.user@/backup
     export WINEPREFIX="/opt/wine"
     export X11_HOME=/usr/X11R6
+    # Docker cli plugins
+	if [ -d "${bash_script_dir}/.docker/cli-plugins" ]; then
+        path_prefix=${path_prefix}:${bash_script_dir}/.docker/cli-plugins
+    fi
     # for X to start up right, we need gnome on the path.
     path_suffix=/opt/gnome/sbin:/opt/gnome/bin:/opt/kde3/bin
 elif [[ $os_type == CYGWIN* ]]; then
