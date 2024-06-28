@@ -8,7 +8,7 @@ CustomCursorColor=255,51,187
 UseCustomCursorColor=true
 
 [General]
-Command=
+Command=/bin/bash
 Icon=package_internet_terminal
 LocalTabTitleFormat=%h:%D
 Name=Steve
