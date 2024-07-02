@@ -38,9 +38,15 @@ alias which=type
 # platforms, but we use regular ls for short listings.  This is because we don't use anything
 # special from eza, and the normal ls displays setuid and setgid files properly.
 if [[ $os_type == Linux ]]; then
-    alias dir='eza -laF --group'
-    alias ls='ls --color --human-readable -FA'
-    alias lstr='eza -laF --group --sort=mod'
+    if [[ -f "$HOME/.cargo/bin/eza" ]]; then
+        alias dir='eza -laF --group'
+        alias ls='ls --color --human-readable -FA'
+        alias lstr='eza -laF --group --sort=mod'
+    else
+        alias dir='ls --color --human-readable -lFa'
+        alias ls='ls --color --human-readable -FA'
+        alias lstr='ls --color --human-readable -lFatr'
+    fi
 	alias psg="ps -eawo 'user pid ppid vsz stime etime time tty args' | grep"
 	alias startx=/home/${me}/bin/startx
 elif [[ $os_type == CYGWIN* ]]; then
