@@ -226,7 +226,7 @@ fi
 # change directories if we don't have any of the commands installed.
 if [[ -s "$NVM_DIR/nvm.sh" ]]; then
     if ! [[ "${PROMPT_COMMAND:-}" =~ _rc_file_hook ]]; then
-        PROMPT_COMMAND="_rc_file_hook ${PROMPT_COMMAND}"
+        PROMPT_COMMAND="_rc_file_hook; ${PROMPT_COMMAND}"
     fi
 fi
 
