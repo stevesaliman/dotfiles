@@ -10,6 +10,9 @@
 if [ -f /etc/bashrc ]; then
     . /etc/bashrc
 fi
+if [ -f /etc/profile ]; then
+    . /etc/profile
+fi
 
 # if we aren't in an interactive shell, just bail here.
 [ -z "$PS1" ] && return
