@@ -117,10 +117,10 @@ function start-gpg {
 	eval $(gpg-agent --daemon --pinentry-program /usr/bin/pinentry)
 }
 
-# Function to start Cygwin's ssh-agent. It starts the agent, then creates an RC file that other
-# shells can use to access the agent.  Then it adds the private key to the agent, which is the only
-# part of the process that prompts.  Only the first shell to start will ask for a password because
-# other shells will see the RC file.
+# Function to start the ssh-agent and associate it with the current shell.
+# It starts the agent, then creates an RC file that other shells can use to access the agent.  Then
+# it adds the private key to the agent, which is the only part of the process that prompts the user.
+# Only the first shell to start will ask for a password because other shells will see the RC file.
 function start_ssh_agent {
 	if [ -f "${SSHRC}" ]; then
 		. "${SSHRC}" > /dev/null
@@ -135,16 +135,12 @@ function start_ssh_agent {
 
 # Helper function that does the actual work of starting an agent
 function _start_ssh_agent {
-	if [[ $os_type == Darwin ]]; then
-        echo "skipping ssh-agent in an OSX environment"
-    else
-        echo "Initializing new SSH agent..."
-        /usr/bin/ssh-agent | sed 's/^echo/#echo/' > "${SSHRC}"
-        echo succeeded
-        chmod 600 "${SSHRC}"
-        . "${SSHRC}" > /dev/null
-        /usr/bin/ssh-add;
-    fi
+    echo "Initializing new SSH agent..."
+    /usr/bin/ssh-agent | sed 's/^echo/#echo/' > "${SSHRC}"
+    echo succeeded
+    chmod 600 "${SSHRC}"
+    . "${SSHRC}" > /dev/null
+    /usr/bin/ssh-add;
 }
 
 # The vi function plays with the home directory so that I can use my vim config regardless of who I
