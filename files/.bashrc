@@ -15,7 +15,10 @@ if [ -f /etc/profile ]; then
 fi
 
 # if we aren't in an interactive shell, just bail here.
-[ -z "$PS1" ] && return
+case $- in
+    *i*) ;;
+      *) return;;
+esac
 
 # First things first: Figure out what OS and machine I'm on
 os_type=$(uname)
@@ -192,6 +195,15 @@ if [[ $os_type == CYGWIN* ]]; then
     unset ORACLE_HOME
 fi
 
+# Make less friendlier for binary files using lesspipe
+if [[ $os_type == Linux ]]; then
+    lesspipe=/usr/bin/lesspipe
+elif [[ $os_type == CYGWIN* ]]; then
+    lesspipe=/usr/bin/lesspipe.sh
+elif [[ $os_type == Darwin ]]; then
+    lesspipe=$(brew --prefix)/bin/lesspipe.sh
+fi
+[ -x $lesspipe ] && eval "$(SHELL=/bin/sh $lesspipe)"
 # Load "z" for remembering directories, but don't expand symlinks.  This is near the end because we
 # want everything that will modify the PROMPT_COMMAND to be stable first.
 export _Z_NO_RESOLVE_SYMLINKS=1
