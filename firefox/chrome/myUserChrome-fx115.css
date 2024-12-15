@@ -1,11 +1,37 @@
-/* Firefox userChrome.css tweaks ********************************************************/
-/* Github: https://github.com/aris-t2/customcssforfx ************************************/
+/****************************************************************************************/
+/* My overrides for to the CustomCssForFx userChrome.css tweaks.                        */
+/* Github: https://github.com/aris-t2/customcssforfx                                    */
 /****************************************************************************************/
 
 
+/* Overrides to general_variables.css and color_variables.css files.  */
 /* color names, hexcodes, rgb(a) and hsl(a) and gradients can be used */
 
 :root {
+    /* custom height for 'classic squared tabs' only */
+    --classic_squared_tabs_tab_height: 32px !important;
+
+    /* set to '0px' for fully classic squared tabs */
+    --classic_squared_tabs-border-radius: 5px !important;
+
+    /* Bookmark toolbar.  and yes, this one's a hyphen */
+    --toolbar-color: black !important;
+    /* Navbar background */
+    --general_toolbar_color_toolbars: linear-gradient(#006060,#006060) !important;
+    --general_toolbar_color_navbar: linear-gradient(#006060,#006060) !important;
+    --toolbar-bgcolor: #006060 !important; /* fx128 */
+    /* Fields in the navbar */
+    --toolbar-field-color: black !important;
+    --toolbar-field-background-color: white !important;
+    /* Tabs.  This one is a little darker than the navbar. */
+    --tabs_toolbar_color_tabs_not_on_top: linear-gradient(#005555,#005555) !important;
+    /** Selected tab.  This one is a litle lighter than the navbar. */
+    --classic_squared_tabs_active_tab: linear-gradient(to top,#267777,#267777,#267777) !important;
+    --classic_squared_tabs_hovered_tabs: linear-gradient(to top,#2d9e9e, #2d9e9e, #2d9e9e) !important;
+    --classic_squared_tabs_other_tabs: linear-gradient(to top,#005555,#005555,#005555) !important;
+    --classic_squared_tabs_unloaded_tabs: linear-gradient(to top,#005555,#005555,#005555) !important;
+
+    /* Tab colors */
     --default_tabs_bg_selected: linear-gradient(to bottom,#267777,#267777);
     --default_tabs_toolbar_background: linear-gradient(to bottom,#006060,#006060);
     --default_tabs_bg_default: linear-gradient(to bottom,#005555,#005555);
@@ -73,3 +99,22 @@
 .tabbrowser-tab[pending] .tab-label {
     font-style: italic !important;
 }
+
+/* Hamburger menu on the left, workaround for fx102+ */
+#PanelUI-button {
+  -moz-box-ordinal-group: 0 !important;
+  order: -1 !important;
+}
+
+#PanelUI-button #whats-new-menu-button:not([hidden="true"]) {
+  -moz-box-ordinal-group: 10 !important;
+  order: 10 !important;
+  margin-inline-start: 3px !important;
+  margin-inline-end: unset !important;
+}
+
+panel[id="appMenu-popup"][type="arrow"][side="top"],
+panel[id="appMenu-popup"][type="arrow"][side="bottom"] {
+  margin-inline: 0 !important;
+}
+

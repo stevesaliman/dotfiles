@@ -16,19 +16,8 @@ with the `install_gui.sh` script, which copies files to the same location under 
 *firefox*
 This directory contains customizations for Firefox.  They are installed with the
 `install_firefox.sh` script, which takes a Firefox profile directory as an argument. The script
-copies files to the same location under the Firefox profile directory.  Note that most of the hacks
-here came from the https://github.com/Aris-t2/CustomCSSforFx project.  If things don't work in the
-latest version of Firefox, this project is a great place to start the troubleshooting process.
-
-It may be helpful to view the elements of firefox.  To do this, do the following:
-1. Press F12 to open the Page Inspector.
-
-2. Press F1 to open settings.
-
-3. Make sure "Enable Browser chrome and add-on debugging toolbox" and "Enable remote debugging" are
-  checked.
-
-4. Press ctrl-alt-shift-i to open the browser toolbox.
+copies files to the same location under the Firefox profile directory.  See the README.md file in 
+the firefox directory for more information about how the customizations work.
 
 Notes:
 - The signal-reset program came from https://github.com/thomaslee/signal-reset, and is used to work

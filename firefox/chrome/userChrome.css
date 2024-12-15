@@ -5,6 +5,7 @@
  * the working code for earlier versions of Firefox.
  */
 /** Uncomment the file that corresponds to the version of Firefox we're configuring. */
-@import "userChrome_fx91.css"; /**/
 /* @import "userChrome_fx109.css"; /**/
+@import "userChrome-fx115.css"; /**/
+@import "myUserChrome-fx115.css"; /* Also works for fx128 */
 
