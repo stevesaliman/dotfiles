@@ -1,3 +1,0 @@
-#main-window[tabsintitlebar]:not([inFullscreen="true"]) #toolbar-menubar[autohide="true"] ~ #TabsToolbar .titlebar-buttonbox-container {
-  top: -2px !important;
-}
