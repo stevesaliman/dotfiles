@@ -6,7 +6,9 @@
  */
 /** Uncomment the file that corresponds to the version of Firefox we're configuring. */
 /* @import "userChrome_fx109.css"; /**/
-@import "userChrome-fx115.css"; /**/
-@import "myUserChrome-fx115.css"; /* Also works for fx128 */
+/* @import "userChrome-fx115.css"; /**/
+/* @import "myUserChrome-fx115.css"; /* Also works for fx128 */
 /* @import "myUserChrome-osx-fx115.css"; /* OSX version, Also works for fx128 */
 
+@import "userChrome-fx128.css"; /**/
+@import "myUserChrome-fx128.css"; /* Also works for fx128 */

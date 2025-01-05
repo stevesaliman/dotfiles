@@ -178,8 +178,9 @@
    [!] Firefox 88 icon set uses SVG images
 */
 
-@import "./fx128/css/buttons/icons_colorized.css"; /**/
+/* @import "./fx128/css/buttons/icons_colorized.css"; /* SCS DISABLED */
 /* @import "./fx128/css/buttons/icons_white_icons.css"; /**/
+@import "./fx128/css/buttons/icons_black_icons.css"; /* SCS ENABLED */
 /* @import "./fx128/css/buttons/icons_custom_icons.css"; /**/
 /* @import "./fx128/css/buttons/icons_custom_icons_fx1.css"; /**/
 /* @import "./fx128/css/buttons/icons_custom_icons_fx2.css"; /**/
@@ -219,11 +220,11 @@
    [!] good for Dark themes: buttons_on_navbar_glass_appearance.css
 */
 
-@import "./fx128/css/buttons/buttons_on_navbar_classic_appearance.css"; /**/
+/* @import "./fx128/css/buttons/buttons_on_navbar_classic_appearance.css"; /* SCS DISABLED */
 /* @import "./fx128/css/buttons/buttons_on_navbar_classic_appearance_v2.css"; /**/
 /* @import "./fx128/css/buttons/buttons_on_navbar_classic_appearance_dark.css"; /**/
 /* @import "./fx128/css/buttons/buttons_on_navbar_aero_appearance.css"; /**/
-/* @import "./fx128/css/buttons/buttons_on_navbar_windows_classic_theme_appearance.css"; /**/
+@import "./fx128/css/buttons/buttons_on_navbar_windows_classic_theme_appearance.css"; /* SCS ENABLED */
 /* @import "./fx128/css/buttons/buttons_on_navbar_glass_appearance.css"; /**/
 /* @import "./fx128/css/buttons/buttons_on_navbar_osx_appearance.css"; /**/
 
@@ -423,7 +424,7 @@
    -----------------------------------
 */
 
-/* @import "./fx128/css/appbutton/appbutton_on_navbar_start_position.css"; /**/
+@import "./fx128/css/appbutton/appbutton_on_navbar_start_position.css"; /* SCS ENABLED */
 
 
 /* -----------------------------------
@@ -483,7 +484,7 @@
 */
 
 /* label only */
-@import "./fx128/css/appbutton/appbutton_in_titlebar.css"; /**/
+/* @import "./fx128/css/appbutton/appbutton_in_titlebar.css"; /* SCS DISABLED */
 
 /* icon only */
 /* @import "./fx128/css/appbutton/appbutton_in_titlebar_icon_only.css"; /**/
@@ -513,7 +514,7 @@
    [!] only use one option at a time
 */
 
-@import "./fx128/css/appbutton/appbutton_in_titlebar_autocolor.css"; /**/
+/* @import "./fx128/css/appbutton/appbutton_in_titlebar_autocolor.css"; /* SCS DISABLED */
 /* @import "./fx128/css/appbutton/appbutton_in_titlebar_autocolor57p.css"; /**/
 /* @import "./fx128/css/appbutton/appbutton_in_titlebar_transparent.css"; /**/
 /* @import "./fx128/css/appbutton/appbutton_in_titlebar_semi_transparent.css"; /**/
@@ -536,10 +537,10 @@
 */
 
 /* Classic tabs appearance known from Firefox 4-28 */
-@import "./fx128/css/tabs/classic_squared_tabs.css"; /**/
+/* @import "./fx128/css/tabs/classic_squared_tabs.css"; /* SCS DISABLED */
 
 /* Classic tabs appearance known from Firefox 4-28 for active tab only  */
-/* @import "./fx128/css/tabs/classic_squared_tabs_australized.css"; /**/
+@import "./fx128/css/tabs/classic_squared_tabs_australized.css"; /* SCS ENABLED */
 
 /* Default tab appearance with increased contrast for non-active tabs */
 /* @import "./fx128/css/tabs/default_tabs_enhanced.css"; /**/
@@ -580,7 +581,7 @@
 */
 
 /* @import "./fx128/css/tabs/tabs_below_navigation_toolbar.css"; /**/ /* for Firefox 133+ */
-/* @import "./fx128/css/tabs/tabs_below_navigation_toolbar_fx128-132.css"; /**/ /* for Firefox 128-132 */
+@import "./fx128/css/tabs/tabs_below_navigation_toolbar_fx128-132.css"; /**/ /* for Firefox 128-132  SCS ENABLED */
 
 
 /* Alternative for multi-lined tabs (Possible glitches with inactive menubar!)

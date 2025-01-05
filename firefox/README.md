@@ -14,9 +14,9 @@ To add a new version of Firefox, do the following:
 2. Copy the `current` directory of the aris project into the dotfile's `chrome `directory, renaming
   it `fx###` so we know what version of Firefox it is for.
 
-3. From the chrome directory, run `cp fx###/userChrome.css userChrome-fx###.css` to make a 
+3. From the chrome directory, run `cp fx###/userChrome.css userChrome-fx###.css` to make a new
   userChrome.css file specific to the version of Firefox.  We'll modify this new file so we can see
-  what changes we made to the aris options.
+  what changes we made to the original aris options.
 
 4. Edit the new userChrome file and change all the `./` references to `./fx###`.
 
@@ -26,6 +26,15 @@ To add a new version of Firefox, do the following:
 
 6. Edit `userChrome.css` and add imports for the 2 new files, commenting out the ones from the
   previous version.
+
+7. Commit the changes so far so we know what the userChrome.css file looked like out of the box.
+
+8. Compare the `userChrome-fx###.css` file to the previous version that was in use.  Make the same
+  changes to the new file.  To help identify specifica changes made in the future, any import that
+  gets added or removed should have "SCS ENABLED" or "SCS DISABLED" in the comments.
+
+  Note that `icons_black_icons.css` doesn't exist, and will need to be made by making a copy of 
+  `icons_white_icons.css`.
 
 Debugging style problems
 ------------------------
