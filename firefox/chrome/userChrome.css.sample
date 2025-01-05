@@ -11,4 +11,5 @@
 /* @import "myUserChrome-osx-fx115.css"; /* OSX version, Also works for fx128 */
 
 @import "userChrome-fx128.css"; /**/
-@import "myUserChrome-fx128.css"; /* Also works for fx128 */
+@import "myUserChrome-fx128.css"; /* Linux and Windows */
+/* @import "myUserChrome-osx-fx128.css"; /* OSX version */

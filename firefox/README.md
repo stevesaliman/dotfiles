@@ -24,10 +24,11 @@ To add a new version of Firefox, do the following:
   make any changes to the files in fx###.  This is where our color variables and other things will
   go.  The best way to start is to copy the myUserChrome file from the last version.
 
-6. Edit `userChrome.css` and add imports for the 2 new files, commenting out the ones from the
-  previous version.
+6. Edit `userChrome.css.sample` and add imports for the 2 new files, commenting out the ones from
+  the previous version.
 
-7. Commit the changes so far so we know what the userChrome.css file looked like out of the box.
+7. Commit the changes so far so we know what the `userChrome-fx###.css` file looked like out of the
+  box.
 
 8. Compare the `userChrome-fx###.css` file to the previous version that was in use.  Make the same
   changes to the new file.  To help identify specifica changes made in the future, any import that
@@ -35,6 +36,9 @@ To add a new version of Firefox, do the following:
 
   Note that `icons_black_icons.css` doesn't exist, and will need to be made by making a copy of 
   `icons_white_icons.css`.
+
+  Also note that when installing the new version, it will be necessary to edit the `userChrome.css`
+  file manually one time to get the right versions.
 
 Debugging style problems
 ------------------------
