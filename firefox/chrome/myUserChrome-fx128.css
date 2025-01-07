@@ -3,6 +3,8 @@
 /* Github: https://github.com/aris-t2/customcssforfx                                    */
 /****************************************************************************************/
 
+/* First things first, Linux and windows use black icons.  Don't forget to create the file. */
+@import "./fx128/css/buttons/icons_black_icons.css"; /**/
 
 /* Overrides to general_variables.css and color_variables.css files.  */
 /* color names, hexcodes, rgb(a) and hsl(a) and gradients can be used */

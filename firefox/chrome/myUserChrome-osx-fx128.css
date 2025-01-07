@@ -3,6 +3,9 @@
 /* Github: https://github.com/aris-t2/customcssforfx                                    */
 /****************************************************************************************/
 
+/** First things first.  On OSX, we use either white or color icons */
+@import "./fx128/css/buttons/icons_white_icons.css"; /**/
+/* @import "./fx128/css/buttons/icons_colorized.css"; /**/
 
 /* Overrides to general_variables.css and color_variables.css files.  */
 /* color names, hexcodes, rgb(a) and hsl(a) and gradients can be used */

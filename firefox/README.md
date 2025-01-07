@@ -34,8 +34,9 @@ To add a new version of Firefox, do the following:
   changes to the new file.  To help identify specifica changes made in the future, any import that
   gets added or removed should have "SCS ENABLED" or "SCS DISABLED" in the comments.
 
-  Note that `icons_black_icons.css` doesn't exist, and will need to be made by making a copy of 
-  `icons_white_icons.css`.
+  Make sure that all the icon colors are disabled - they are an OS specific thing, and need to be
+  imported later.  Also note that `icons_black_icons.css` doesn't exist, and will need to be made
+  by making a copy of `icons_white_icons.css`.
 
   Also note that when installing the new version, it will be necessary to edit the `userChrome.css`
   file manually one time to get the right versions.
