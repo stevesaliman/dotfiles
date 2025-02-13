@@ -53,3 +53,5 @@ if [ -f /tmp/userChrome.css.bak ]; then
 else
     cp ${profile_dir}/chrome/userChrome.css.sample ${profile_dir}/chrome/userChrome.css
 fi
+echo ""
+echo "NOTE: Don't forget to check the userChrome.css file!"
