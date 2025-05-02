@@ -140,10 +140,10 @@ function _start_ssh_agent {
     echo succeeded
     chmod 600 "${SSHRC}"
     . "${SSHRC}" > /dev/null
-	if [ -f "~/.ssh/id_ed25519" ]; then
-        /usr/bin/ssh-add ~/.ssh/id_ed25519;
+	if [ -f "${HOME}/.ssh/id_ed25519" ]; then
+        /usr/bin/ssh-add ${HOME}/.ssh/id_ed25519;
     else
-        /usr/bin/ssh-add ~/.ssh/id_rsa;
+        /usr/bin/ssh-add ${HOME}/.ssh/id_rsa;
     fi
 }
 
