@@ -140,7 +140,11 @@ function _start_ssh_agent {
     echo succeeded
     chmod 600 "${SSHRC}"
     . "${SSHRC}" > /dev/null
-    /usr/bin/ssh-add;
+	if [ -f "~/.ssh/id_ed25519" ]; then
+        /usr/bin/ssh-add ~/.ssh/id_ed25519;
+    else
+        /usr/bin/ssh-add ~/.ssh/id_rsa;
+    fi
 }
 
 # The vi function plays with the home directory so that I can use my vim config regardless of who I
