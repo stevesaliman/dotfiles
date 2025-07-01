@@ -17,7 +17,7 @@ sep_display=
 Name=Data Grip
 
 #S+[Default] Image's name or path:
-Icon=~/.config/cairo-dock/current_theme/launchers/datagrip.png
+Icon=/home/ssaliman/.config/cairo-dock/current_theme/icons/datagrip.png
 
 #s[Default] Command to launch on click:
 #{Example: nautilus --no-desktop, gedit, etc. You can even enter a shortkey, e.g. <Alt>F1, <Ctrl>c,  <Ctrl>v, etc}
@@ -43,7 +43,7 @@ Terminal=false
 ShowOnViewport=0
 
 #f[0;100] Order you want for this launcher among the others:
-Order=1.4
+Order=1.3999999999999999
 
 Icon Type=0
 Type=Application

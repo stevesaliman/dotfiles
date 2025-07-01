@@ -17,11 +17,11 @@ sep_display=
 Name=Intellij Idea
 
 #S+[Default] Image's name or path:
-Icon=~/.config/cairo-dock/current_theme/launchers/idea.png
+Icon=/home/ssaliman/.config/cairo-dock/current_theme/icons/idea.svg
 
 #s[Default] Command to launch on click:
 #{Example: nautilus --no-desktop, gedit, etc. You can even enter a shortkey, e.g. <Alt>F1, <Ctrl>c,  <Ctrl>v, etc}
-Exec=~/bin/signal-reset /opt/idea/bin/idea.sh
+Exec=/opt/idea/bin/idea
 
 
 #X[Extra parameters]
@@ -43,7 +43,7 @@ Terminal=false
 ShowOnViewport=0
 
 #f[0;100] Order you want for this launcher among the others:
-Order=1.1
+Order=1.1000000000000001
 
 Icon Type=0
 Type=Application
