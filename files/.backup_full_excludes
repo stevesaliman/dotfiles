@@ -11,6 +11,7 @@ SharePoint/
 /var/run/media/
 /var/run/user/
 /Volumes/
+/System/Volumes/Data/Volumes/
 
 # Files that should be excluded when doing a "full" backup.  It includes directories we don't need
 # to backup like the /dev directory or caches like the local Maven repo, but also files in project
