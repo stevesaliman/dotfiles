@@ -2,7 +2,6 @@
 /home/
 
 # Exclude files that aren't really local like OneDrive and SharePoint mounts, or mounted USB media.
-# This also includes the Volumes directory on a Mac.
 OneDrive/
 SharePoint/
 /media/
@@ -10,6 +9,13 @@ SharePoint/
 /run/media/
 /var/run/media/
 /var/run/user/
+
+# Exclude files on a Mac that we don't need.  This includes things like caches or th Volumes
+# directory.
+.fseventsd/
+.Spotlight*
+Library/Caches/
+Library/Containers/com.apple.safari/Data/Library/Caches
 /Volumes/
 /System/Volumes/Data/Volumes/
 

@@ -49,7 +49,7 @@ process_args() {
 	fi
 
 	# Make sure we have a valid backup type.
-	case "$backup_type" in 
+	case "$backup_type" in
 	  full)
 		BACKUP_DIR="${backup_base}/${HOSTNAME%%.*}/full"
 	    ;;
@@ -66,10 +66,13 @@ process_args() {
 	local os_type=$(uname)
 	if [[ $os_type == Linux ]]; then
 		USER_HOME="/home/${backup_user}"
+        SYSTEM_ROOT="/"
 	elif [[ $os_type == CYGWIN* ]]; then
 		USER_HOME="/home/${backup_user}"
+        SYSTEM_ROOT="/"
 	elif [[ $os_type == Darwin ]]; then
 		USER_HOME="/Users/${backup_user}"
+        SYSTEM_ROOT="/System/Volumes/Data/"
 	fi
 	if [ ! -d "${USER_HOME}" ]; then
 		usage "Backup user ${backup_user}'s home directory does not exist!"
@@ -85,21 +88,21 @@ process_args() {
 }
 
 #-----------------------------------------------------------------------------
-# Function to perform a full backup.  It takes 1 arguments: name of the user 
+# Function to perform a full backup.  It takes 1 arguments: name of the user
 # that uses the machine.  It also depends on the global BACKUP_DIR variable
 # being set.
 full_backup() {
 	local backup_user=$1
 	local exclude_file="${USER_HOME}/.backup_full_excludes"
-	echo "Performing a full backup to $BACKUP_DIR for user $backup_user"
-	rsync -avi --delete --exclude-from="${exclude_file}" / "${BACKUP_DIR}" | grep -v \.[fd]\/\/\/pog\.\.\.
+	echo "Performing a full backup of ${SYSTEM_ROOT} to $BACKUP_DIR for user $backup_user"
+	rsync -avi --delete --exclude-from="${exclude_file}" "${SYSTEM_ROOT}" "${BACKUP_DIR}" | grep -v \.[fd]\/\/\/pog\.\.\.
 }
 
 #-----------------------------------------------------------------------------
-# Function to perform backup of certain directories.  This is meant for 
-# directories that change frequently, where we might want to keep multiple 
+# Function to perform backup of certain directories.  This is meant for
+# directories that change frequently, where we might want to keep multiple
 # versions of a file, such as project directories or document directories.
-# The fastest way to do this is to keep a staging directory with the most 
+# The fastest way to do this is to keep a staging directory with the most
 # recent backup, use rsync to bring that directory current by only copying
 # changed files, then making a tar of that directory.
 file_backup() {
@@ -109,7 +112,7 @@ file_backup() {
 	local dt=$(date +%Y-%m-%d_%H-%M)
 
 	# This code gets a lot easier if we are in the directory of interest.  It
-	# means the find command will always return files with just 2 characters 
+	# means the find command will always return files with just 2 characters
 	# (./) before the filename.
 	pushd ${BACKUP_DIR}
 
@@ -132,7 +135,7 @@ file_backup() {
 		local dest_file="${BACKUP_DIR}/${subdir}-${dt}.tgz"
 		mkdir -p "$dest_dir"
 		chown ${backup_user} "$dest_dir"
-		# Need the trailing slash on src to get contents without the src dir 
+		# Need the trailing slash on src to get contents without the src dir
 		# itself.
 	    rsync -avi --delete --exclude-from="${exclude_file}" "${src_dir}/" "${dest_dir}" | grep -v \.[fd]\/\/\/pog\.\.\.
 		# Use -C to change the directory so our files will be relative.
@@ -144,7 +147,7 @@ file_backup() {
 #-----------------------------------------------------------------------------
 # main part of code
 while getopts :d:t:u: opt; do
-  case $opt in 
+  case $opt in
   d)
     backup_base=$OPTARG
     ;;
@@ -170,7 +173,7 @@ if [[ -z "$USER_HOME" ]]; then
 	echo "Somehow, the user home directory was not set when processing args!"
 	exit 1
 fi
-	
+
 echo "Backup started: $(date)"
 backup_func="${backup_type}_backup"
 $backup_func $backup_user
