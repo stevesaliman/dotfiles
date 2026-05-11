@@ -39,9 +39,9 @@ alias which=type
 # special from eza, and the normal ls displays setuid and setgid files properly.
 if [[ $os_type == Linux ]]; then
     if [[ -f "$HOME/.cargo/bin/eza" ]]; then
-        alias dir='eza -laF --group'
+        alias dir='eza -laF --group --git '
         alias ls='ls --color --human-readable -FA'
-        alias lstr='eza -laF --group --sort=mod'
+        alias lstr='eza -laF --group --git --sort=mod'
     else
         alias dir='ls --color --human-readable -lFa'
         alias ls='ls --color --human-readable -FA'
@@ -62,9 +62,9 @@ elif [[ $os_type == CYGWIN* ]]; then
 	    alias nvmw=nvmw.bat
 	fi
 elif [[ $os_type == Darwin ]]; then
-    alias dir='eza -laF --group'
+    alias dir='eza -laF --group --git'
     alias ls='ls --color --human-readable -FA'
-    alias lstr='eza -laF --group --sort=mod'
+    alias lstr='eza -laF --group --git --sort=mod'
 	# Set an alias for TextMate
 	alias mate=/Applications/TextMate.app/Contents/Resources/mate
 	alias psg="ps -eawo 'user pid ppid vsz stime etime time tty args' | grep"
