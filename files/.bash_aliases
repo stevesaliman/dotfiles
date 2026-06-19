@@ -39,7 +39,7 @@ alias which=type
 # special from eza, and the normal ls displays setuid and setgid files properly.
 if [[ $os_type == Linux ]]; then
     if [[ -f "$HOME/.cargo/bin/eza" ]]; then
-        alias dir='eza -laF --group --git '
+        alias dir='eza -laF --group --git'
         alias ls='ls --color --human-readable -FA'
         alias lstr='eza -laF --group --git --sort=mod'
     else
