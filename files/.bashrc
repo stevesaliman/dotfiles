@@ -131,6 +131,9 @@ if hash aws_completer 2>/dev/null; then
 	complete -C aws_completer aws
 fi
 
+# So does terraform
+complete -C /usr/bin/terraform terraform
+
 # Angular CLI autocomletion, if we have Angular installed.
 if  type "ng" > /dev/null 2>&1; then
     source <(ng completion script)
