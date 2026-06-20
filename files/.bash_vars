@@ -1,17 +1,24 @@
 # This file is part of my custom bash configuration.  It is called by .bashrc to define environment
-# variables used by my environment.  It attempts to define defaults for common things like
-# SDKMAN_DIR based on the assumption that software tends to get installed to the same place from
-# machine to machine.
+# variables used by my environment.  It initialized the prompy and defines defaults for global
+# things like LC_COLLATE or EDITOR that are the same in all environments, along with variables that
+# don't really need to go in an application or command specific configuration fragment.
 #
-# os_type will be set by .bashrc before this script is called. This variable can be used to set
-# sensible defaults based on the type of operating system.
+# It depends on the $os_type variable, which will be set by .bashrc before this script is called,
+# and is used when we need to set a variable differently based on the operating system.
 #
-# Two variables of note that are set here are $path_prefix and $path_suffix.  These are used to
-# store non-standard things we want on the path, such as Gnome on Linux hosts, or Windows/system32
-# on Cygwin hosts.  .bashrc will use this later to put things at the start or end of the path.
+# This script sets two variables of note to be used later; $path_prefix and $path_suffix.  These
+# are used to store non-standard things we want on the path, such as Gnome on Linux hosts, or
+# Windows/system32 on Cygwin hosts.  .bashrc will use this later to put things at the start or end
+# of the path.
 #
 # Values in this file can be overridden by .bash_local, which is sourced after this one.
-#
+
+# Start with an empty path prefix and suffix. To modify these variables, use either
+# PATH="${path_prefix:+${path_prefix}:}/some/bin"  # to append
+# PATH="~/some/bin${path_prefix:+:${path_prefix}}" # to prepend
+
+path_prefix=""
+path_suffix=""
 
 # Some applications read the EDITOR variable to determine your favorite text editor.
 export EDITOR=vi
@@ -38,11 +45,11 @@ shopt -s histappend
 # What user is the "normal" user on the box, and what user am I currently?  These will be used later
 # to set the prompt based on whether or not I'm currently logged in as the normal user. $me will
 # probably need to be overridden in .bash_local.
-me="@local.user@"
+me="steve"
 # what user am I currently using?
 user=`/usr/bin/whoami`
 # in what environment am I currently running.  This is set to a bogus value to prevent bad builds.
-environment_name="@env.label@"
+environment_name="local"
 
 # variables are easier to read later than escape sequences.
 normal="\[\e[0m\]"
@@ -69,100 +76,50 @@ fi
 # We need to keep track of the user's real home directory for the VIM alias.
 export USER_HOME=${HOME}
 
-# By default, we're not using Oracle's instant client.
-instant_client=0
-
-# Variables for the tldr command (https://github.com/raylee/tldr-sh-client)
-export TLDR_HEADER='magenta bold underline'
-export TLDR_QUOTE='bold'
-export TLDR_DESCRIPTION='green'
-export TLDR_CODE='red'
-export TLDR_PARAM='blue'
-
-# Specify what git statuses we want to see. By default, we want 'em all.
-export GIT_PS1_SHOWDIRTYSTATE=1
-export GIT_PS1_SHOWSTASHSTATE=1
-export GIT_PS1_SHOWUNTRACKEDFILES=1
-export GIT_PS1_SHOWUPSTREAM=1
-
+# Set up the inital prompt and prompt command.  If I'm not myself, add the username to the prompt
+# and xterm title. I'm using the dirs command instead of the more usual ${PWD/#$HOME/~} substitution
+# because, for some reason, the substitution wasn't happening in some environments.
+if [[ $user == $me ]]; then
+    #PS1="\h: \[\033[00;34m\]\w ${yellow}\$(parse_git_branch)\n\[\033[00m\]\!>"
+    PS1="\h:${bold_blue}\w\$(__git_ps1)\n${normal}\!>"
+    PROMPT_COMMAND='printf "\033]0;%s %s:%s\007" "${XTERM_NAME}" "${HOSTNAME%%.*}" "$(dirs)"'
+else
+    #PS1="\[\033[01;31m\]\u\[\033[00m\]@\h: \[\033[00;34m\]\w \$(parse_git_branch)\n\r\[\033[00m\]\!>"
+    PS1="${bold_red}\u${normal}@\h: ${bold_blue}\w\$(__git_ps1)\n\r${normal}\!>"
+    PROMPT_COMMAND='printf "\033]0;%s %s@%s:%s\007" "${XTERM_NAME}" "${USER}" "${HOSTNAME%%.*}" "$(dirs)"'
+fi
 # Set up some sensible default variables and paths based on the OS I'm on, and the fact that I tend
 # to be pretty consistent from machine to machine
 if [[ $os_type == Linux ]]; then
     echo "Setting variables for Linux"
-    export SDKMAN_DIR=/opt/sdkman
-    export NVM_DIR=/opt/nvm
-    export RVM_DIR=/opt/rvm
-    export JAVA_OPTS='-Xmx256m -Xms256m'
-    # export CATALINA_HOME=/opt/tomcat-8.0.39
-    # cat_opts="-XX:PermSize=64m -XX:MaxPermSize=256m"
-    # cat_opts="$cat_opts -Xms512m -Xmx512m -Djava.awt.headless=true"
-    # export CATALINA_OPTS="$cat_opts"
-    export ORACLE_HOME=/opt/oracle/product/19.3
-    export ORACLE_SID=devl
-	export BACKUP_HOME=/media/@local.user@/backup
+	export BACKUP_HOME=/media/steve/backup
     export WINEPREFIX="/opt/wine"
     export X11_HOME=/usr/X11R6
-    # Docker cli plugins
-    if [ -d "${bash_script_dir}/.docker/cli-plugins" ]; then
-        path_prefix=${path_prefix}:${bash_script_dir}/.docker/cli-plugins
-    fi
     # for X to start up right, we need gnome on the path.
     path_suffix=/opt/gnome/sbin:/opt/gnome/bin:/opt/kde3/bin
 elif [[ $os_type == CYGWIN* ]]; then
     echo "Setting variables for Cygwin"
-    export SDKMAN_DIR=/cygdrive/c/opt/sdkman
-    export RVM_DIR=/cygdrive/c/opt/rvm
-    export CATALINA_HOME=/cygdrive/c/opt/tomcat-8.0.39
-    #export CATALINA_PID $CATALINA_HOME/work/catalina.pid
-    cat_opts="-XX:PermSize=64m -XX:MaxPermSize=256m"
-    cat_opts="$cat_opts -Xms512m -Xmx512m -Djava.awt.headless=true"
-    #cat_opts="$cat_opts -Dcom.sun.management.jmxremote"
-    #cat_opts="$cat_opts -Dcom.sun.management.jmxremote.port=9012"
-    #cat_opts="$cat_opts -Dcom.sun.management.jmxremote.ssl=false"
-    #cat_opts="$cat_opts -Dcom.sun.management.jmxremote.authenticate=false"
-    export CATALINA_OPTS="$cat_opts"
-    export ORACLE_HOME=/cygdrive/c/opt/oracle/product/11.2.0
 	export BACKUP_HOME=/cygdrive/f
-    # Specify what git statuses we want to see. Showing the stash state causes
-    # performance issues in cygwin.
-    export GIT_PS1_SHOWSTASHSTATE=0
-    # Rancher Desktop
-	if [ -d "${bash_script_dir}/.rd/bin" ]; then
-      path_prefix=${path_prefix}:${bash_script_dir}/.rd/bin
-    fi
     # On Cygwin hosts, we want the windows dirs in the path
-    path_suffix=/cygdrive/c/WINDOWS/System32:/cygdrive/c/WINDOWS/System32/Wbem
+    path_suffix="${path_suffix:+${path_suffix}:}/cygdrive/c/WINDOWS/System32"
+    path_suffix="${path_suffix:+${path_suffix}:}/cygdrive/c/WINDOWS/System32/Wbem"
     # We also need Firefox in the path for Selenium to work...
-    path_suffix=$path_suffix:/cygdrive/c/network/firefox
-	# If we have NVMW, add it to the path
-	if [ -d "$HOME/.nvmw" ]; then
-	  path_suffix="$HOME/.nvmw:$path_suffix"
-	fi
+    path_suffix="${path_suffix:+${path_suffix}:}/cygdrive/c/network/firefox"
 elif [[ $os_type == Darwin ]]; then
     echo "Setting variables for OSX"
-    export SDKMAN_DIR=/opt/sdkman
-    export NVM_DIR=/opt/nvm
-    export RVM_DIR=/opt/rvm
-    export CATALINA_HOME=/opt/tomcat-8.0.39
-    cat_opts="-XX:PermSize=64m -XX:MaxPermSize=256m"
-    cat_opts="$cat_opts -Xms512m -Xmx512m -Djava.awt.headless=true"
-    export CATALINA_OPTS="$cat_opts"
     export MYSQL_HOME=/usr/local/mysql
 	export BACKUP_HOME=/Volumes/backup
-    # Add Git to the path, since the OSX installer puts it in a subdir.
     # homebrew - remember that the bin directory is already in our path.
-    path_prefix=$(brew --prefix)/sbin
+    path_prefix="${path_prefix:+${path_prefix}:}$(brew --prefix)/sbin"
     path_prefix=${path_prefix}:$(brew --prefix)/opt/gnu-sed/libexec/gnubin
     path_prefix=${path_prefix}:$(brew --prefix)/opt/coreutils/libexec/gnubin
     path_prefix=${path_prefix}:$(brew --prefix)/opt/python/libexec/bin
     path_prefix=${path_prefix}:$(brew --prefix)/opt/postgresql@12/bin
-    # Rancher Desktop
-	if [ -d "${bash_script_dir}/.rd/bin" ]; then
-      path_prefix=${path_prefix}:${bash_script_dir}/.rd/bin
-    fi
     export HOMEBREW_NO_ANALYTICS=1
     # Make Parallels the default Vagrant provider
     export VAGRANT_DEFAULT_PROVIDER=parallels
 else
     echo "$os_type is unknown, chaos will probably ensue..."
 fi
+
+
