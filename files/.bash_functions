@@ -135,15 +135,19 @@ function start_ssh_agent {
 
 # Helper function that does the actual work of starting an agent
 function _start_ssh_agent {
-    echo "Initializing new SSH agent..."
-    /usr/bin/ssh-agent | sed 's/^echo/#echo/' > "${SSHRC}"
-    echo succeeded
-    chmod 600 "${SSHRC}"
-    . "${SSHRC}" > /dev/null
-    if [ -f "${HOME}/.ssh/id_ed25519" ]; then
-        /usr/bin/ssh-add ${HOME}/.ssh/id_ed25519;
+    if [[ $os_type == Darwin ]]; then
+        echo "skipping ssh-agent in an OSX environment"
     else
-        /usr/bin/ssh-add ${HOME}/.ssh/id_rsa;
+        echo "Initializing new SSH agent..."
+        /usr/bin/ssh-agent | sed 's/^echo/#echo/' > "${SSHRC}"
+        echo succeeded
+        chmod 600 "${SSHRC}"
+        . "${SSHRC}" > /dev/null
+        if [ -f "${HOME}/.ssh/id_ed25519" ]; then
+            /usr/bin/ssh-add ${HOME}/.ssh/id_ed25519;
+        else
+            /usr/bin/ssh-add ${HOME}/.ssh/id_rsa;
+        fi
     fi
 }
 
