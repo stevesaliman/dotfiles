@@ -12,6 +12,6 @@ fi
 
 # Add rvm to the path, if we've got RVM
 if [ -d "${RVM_DIR}/bin" ]; then
-    path_prefix="${path_prefix:+${path_prefix}:}${RVM_DIR}/bin"
+    path_suffix="${path_suffix:+${path_suffix}:}${RVM_DIR}/bin"
 fi
 
