@@ -1,13 +1,14 @@
-# This file loads all the aliases we want to use in our shell. It is sourced
-# by .bashrc
+# This file loads the default aliases we want to use in our shell.
+#
+# This file doesn't have all the aliases we'll use.  Configuration fragments can add to, or override
+# The aliaes in this file.  For example, the alias for nvm in a cygwin environment is in the nvm
+# fragment, and the final aliases for ls are determined by the eza fragment.
 
-# standard aliases - make sure color ls is before /bin/ls in the path.
-# Also make sure OSX machines has the GNU coreutils installed.
+# aliases that are not OS specific. It assumes that color ls is before /bin/ls in the path, and that
+# OSX machines have the GNU coreutils installed.
 alias backup='sudo ~/bin/backup.sh -d ${BACKUP_HOME} -u ${USER}'
 alias backup_data='sudo rsync -avi --delete --exclude=/usr/local/oradata/ /usr/local/ /var/run/media/${USER}/Elements/${HOSTNAME%%.*}/usr/local | grep -v \.[fd]\/\/\/pog\.\.\.'
-alias catalina=catalina.sh
 alias cls=clear
-alias deploy='sudo /usr/local/bin/deploy.sh'
 alias diffr='diff -r -X ~/.diff_excludes'
 alias dir='ls --color --human-readable -lFa'
 alias df='df -h'
@@ -20,14 +21,12 @@ alias lame='lame -q 2 -b 256'
 alias less='less -R'
 alias ls='ls --color --human-readable -FA'
 alias lstr='ls --color --human-readable -lFatr'
-alias microdeploy='sudo /usr/local/bin/microdeploy.sh'
 alias mk=minikube
 alias mk-env='eval $(minikube docker-env)'
 alias ms=minishift
 alias ms-env='eval $(minishift oc-env); eval $(minishift docker-env)'
 alias nyx='telnet nyx10.nyx.net'
 alias path='echo $PATH'
-alias prepare="gradle -PenvironmentName=${environment_name} clean; gradle -PenvironmentName=${environment_name} -x test stageRelease"
 alias scp='scp -p'
 alias unkube='unset ${!DOCKER_*}'
 alias vil=vi
@@ -37,9 +36,7 @@ alias vt100='set term=vt100; stty rows 24'
 alias watch='watch '
 alias which=type
 
-# Aliases that differ by OS.  We set up "ls" aliases to use eza for long listings on Linux and Mac
-# platforms, but we use regular ls for short listings.  This is because we don't use anything
-# special from eza, and the normal ls displays setuid and setgid files properly.
+# Aliases that differ by OS.
 if [[ $os_type == Linux ]]; then
 	alias psg="ps -eawo 'user pid ppid vsz stime etime time tty args' | grep"
 	alias startx=/home/${me}/bin/startx

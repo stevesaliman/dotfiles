@@ -17,11 +17,14 @@ export EXA_COLORS="${EXA_COLORS}sn=0:sb=0:"
 # Dates are bold blue.
 export EXA_COLORS="${EXA_COLORS}da=1;34:"
 
+# Set up "ls" aliases to use eza for long listings on Linux and Mac platforms, but keep the regular
+# ls for short listings.  This is because we don't use anything special from eza, and the normal ls
+# displays setuid and setgid files properly
 if [ $os_type == Linux -a -f "$HOME/.cargo/bin/eza" ]; then
-    alias dir='eza -laF --group --git'       
+    alias dir='eza -laF --group --git'
     alias lstr='eza -laF --group --git --sort=mod'
 elif [ $os_type == Darwin -a -f "$(brew --prefix)/bin/eza" ]; then
-    alias dir='eza -laF --group --git'       
+    alias dir='eza -laF --group --git'
     alias lstr='eza -laF --group --git --sort=mod'
 fi
 

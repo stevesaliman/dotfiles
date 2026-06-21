@@ -1,23 +1,10 @@
-# This file is sourced by .bashrc to load all the functions we want to use.
+# This file is sourced by .bashrc to load the basic functions we want to use.  Configuration
+# fragments can also define functions specific to the command(s) covered by the fragment.
+#
+# The general convention in this file is that functions that start with an underscore are internal
+# and not to be called directly.  Ones that don't start with underscores are essentially complex
+# aliases.
 
-# Helper function to run "nvm use" when we change to a directory that has an .nvmrc file in it. The
-# method name starts with an underscore because we don't intend for anyone to call it directly, but
-# is used in the PROMPT_COMMAND
-_rc_file_hook() {
-    if [[ $PWD == $PREV_PWD ]]; then
-        return
-    fi
-
-    PREV_PWD=$PWD
-
-    if [[ -f ".nvmrc" && -s "$NVM_DIR/nvm.sh" ]]; then
-        nvm use
-        # Angular CLI autocomletion, if we have Angular installed.
-        if type "ng" > /dev/null 2>&1; then
-            source <(ng completion script)
-        fi
-    fi
-}
 
 # Stop the ssh agent when the shell exits.  It is not really intended to called by users, as it
 # exits the shell.
@@ -31,21 +18,6 @@ function _stop_ssh_agent {
 # The decode function can't be an alias because we're using $1 twice.
 function decode {
   'tr A-MN-Za-mn-z N-ZA-Mn-za-m < $1 > $1.out'
-}
-
-# Remove all exited docker containers
-function drm {
-  docker rm $(docker ps -a -f status=exited -q)
-}
-
-# Remove all unused images
-function drmi {
-  docker rmi $(docker images -f dangling=true -q)
-}
-
-# Login to a running docker container
-function dsh {
-  docker exec -it $1 /bin/bash
 }
 
 # Functions to get the screen resolution
@@ -78,36 +50,6 @@ function h {
 # function to display swap usage
 function ls-swap {
     for file in /proc/*/status ; do awk '/VmSwap|Name/{printf $2 " " $3}END{ print ""}' $file; done | sort -k 2 -n -r | less
-}
-
-# function to enable/disable a starship module.  This function takes advantage of the fact that
-# starship reads the config every time it runs.  It takes 2 arguments; a module name, and either
-# "on" or "off".  This function makes a couple of assumptions:
-# 1. The module being used exists in the starship.toml file.
-# 2. The disabled option is the first thing after the module name itself.
-function st-mod {
-    if [ "$#" -lt 2 ]; then
-      echo "usage: st-mod <module name> on|off"
-      return 1
-    fi
-    # Starship uses a disable flag, but our arg acts as an enable flag, so we reverse it here...
-    if [ $2 = "on" ]; then
-        local newval="false"
-    else
-        local newval="true"
-    fi
-    # Start by making a new config file for just this shell, if we don't already have one.  We'll
-    # use the bash "$$" variable to get the shell's PID.  We then set an environment variable to
-    # tell starship that we want to use our new file as the config file.
-    local default_config=$HOME/.config/starship.toml
-    local local_config=/tmp/starship/starship-$$.toml
-    if [ ! -f $local_config ]; then
-        mkdir -p /tmp/starship
-        cp $default_config $local_config
-        export STARSHIP_CONFIG=${local_config}
-    fi
-
-    sed -i "/\[$1\]/{n;s/.*/disabled = $newval/;}" $local_config
 }
 
 # function to start a gpg agent so we can generate pgp keys.

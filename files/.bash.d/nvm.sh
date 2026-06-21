@@ -21,11 +21,30 @@ export NVM_DIR="$(readlink -f ${NVM_DIR})"
 # uninstall by removing these lines or running `tabtab uninstall jhipster`
 [ -f "${NVM_DIR}/versions/node/v6.9.5/lib/node_modules/generator-jhipster/node_modules/tabtab/.completions/jhipster.bash" ] && . "${NVM_DIR}/versions/node/v6.9.5/lib/node_modules/generator-jhipster/node_modules/tabtab/.completions/jhipster.bash"
 
-# Add the rc file hook if nvm is installed.  No need to call it everytime we change directories if
-# we don't have any of the commands installed.
+# Helper function to run "nvm use" when we change to a directory that has an .nvmrc file in it. The
+# method name starts with an underscore because we don't intend for anyone to call it directly, but
+# is used in the PROMPT_COMMAND
+_nvmrc_hook() {
+    if [[ $PWD == $PREV_PWD ]]; then
+        return
+    fi
+
+    PREV_PWD=$PWD
+
+    if [[ -f ".nvmrc" && -s "$NVM_DIR/nvm.sh" ]]; then
+        nvm use
+        # Angular CLI autocomletion, if we have Angular installed.
+        if type "ng" > /dev/null 2>&1; then
+            source <(ng completion script)
+        fi
+    fi
+}
+
+# Add the nvmrrc hook if nvm is installed, and we don't already have the hook in the prompt command.
+# No need to call it everytime we change directories if we don't have any of the commands installed.
 if [[ -s "$NVM_DIR/nvm.sh" ]]; then
-    if ! [[ "${PROMPT_COMMAND:-}" =~ _rc_file_hook ]]; then
-        PROMPT_COMMAND="_rc_file_hook; ${PROMPT_COMMAND}"
+    if ! [[ "${PROMPT_COMMAND:-}" =~ _nvmrc_hook ]]; then
+        PROMPT_COMMAND="_nvmrc_hook; ${PROMPT_COMMAND}"
     fi
 fi
 

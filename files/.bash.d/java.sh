@@ -24,5 +24,6 @@ fi
 
 if [ -n "$CATALINA_HOME" ]; then
     path_suffix="${path_suffix:+${path_suffix}:}/$CATALINA_HOME/bin"
+    alias catalina=catalina.sh
 fi
 
