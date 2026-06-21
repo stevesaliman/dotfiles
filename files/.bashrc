@@ -8,18 +8,20 @@
 
 # This file works in 6 basic steps:
 #
-# 1. Load system files, Set up a very basic path and initialize some things we'll use in the rest of
-# the script
+# 1. Load system files, set shell options, and set up a very basic path with things we'll need in
+# the rest of the script
 #
 # 2. Load variables, and process local overrides to the variables.
 #
-# 3. Load the configuration fragments from the bash.d directory
+# 3. Load the default alises and functions
 #
-# 4. Load the alises and functions
+# 4. Load the configuration fragments from the bash.d directory. In general, configuration fragments
+#   are for things that are installed after the basic OS install, or which have complex 
+#   configurations like Docker.
 #
 # 5. Set up auto completion
 #
-# 6. Final pathing and other things like ld_library path.
+# 6. Finalize pathing and other things like LD_LIBRARY PATH.
 
 # Load in the system profile, if we have one.
 if [ -f /etc/bashrc ]; then
@@ -35,7 +37,29 @@ case $- in
       *) return;;
 esac
 
-# First things first: Figure out what OS and machine I'm on
+# Set bash options, starting with the one that checks for background jobs before exiting.
+if [[ $BASH_VERSION > 4 ]]; then
+    shopt -s checkjobs
+fi
+# check the window size after each command and update the values of LINES and COLUMNS if necessary.
+shopt -s checkwinsize
+# Include dotfiles when globbing (expanding wildcards)
+shopt -s dotglob
+# append to the history file, don't overwrite it
+shopt -s histappend
+
+# Trap the shell exit and kill ssh-agent when it exits
+trap _stop_ssh_agent EXIT SIGTERM
+
+# Fix terminal oddities
+stty erase 
+stty intr 
+stty kill 
+# Turn off the ctrl-s "freezing" behavior
+stty -ixon
+umask 022
+
+# Next, figure out what OS and machine I'm on, so we can make os-specific aliases, paths, etc.
 os_type=$(uname)
 if [ -z "$HOSTNAME" ]; then
     export HOSTNAME=`/bin/hostname`
@@ -46,9 +70,13 @@ fi
 # the path.
 export PATH=/usr/local/bin:/usr/local/sbin:/sbin:/usr/sbin:/bin:/usr/bin
 export PATH=$PATH:/opt/bin:/etc:/usr/local/etc:/usr/etc
+# Set up a basic library load path, manpath, etc.
+export LD_LIBRARY_PATH=/usr/local/lib:$X11_HOME/lib:$HOME/lib
+export MANPATH=$HOME/man:/usr/man:/usr/share/man:/usr/local/man:$X11_HOME/man
 
-# Next, we need to make sure later code can find the brew command.  On intel Macs, there is a link
-# in /usr/local, but on ARM platforms, it is in /opt/homebrew.
+# Next, we need to make sure we can find the brew command.  On intel Macs, there is a link in
+# /usr/local, but on ARM platforms, it is in /opt/homebrew.  We need this for the rest of this
+# script to work properly.
 if [ $os_type == Darwin -a -d /opt/homebrew ]; then
     export PATH=/opt/homebrew/bin:$PATH
 fi
@@ -77,6 +105,10 @@ fi
 # is installed on the system.
 . ${bash_script_dir}/.bash_aliases
 . ${bash_script_dir}/.bash_functions
+
+###################################################################################################
+# Load configuration fragments
+###################################################################################################
 
 # Load command specific configuration fragments early in case we need to modify the path. Fragments
 # can set variables, but they need to use myvar="${myvar:=newvalue}" to avoid overriding a locally
@@ -126,45 +158,14 @@ fi
 . ${bash_script_dir}/.git-prompt
 
 #############################################################################
-# Pathing and environment variables for things like Oracle, Maven, etc.
+# Finalize pathing
 #############################################################################
 
-# Set bash options, starting with the one that checks for background jobs before exiting.
-if [[ $BASH_VERSION > 4 ]]; then
-    shopt -s checkjobs
-fi
-# check the window size after each command and update the values of LINES and COLUMNS if necessary.
-shopt -s checkwinsize
-# Include dotfiles when globbing (expanding wildcards)
-shopt -s dotglob
-# append to the history file, don't overwrite it
-shopt -s histappend
-
-# Trap the shell exit and kill ssh-agent when it exits
-trap _stop_ssh_agent EXIT SIGTERM
-
-# Fix terminal oddities
-stty erase 
-stty intr 
-stty kill 
-# Turn off the ctrl-s "freezing" behavior
-stty -ixon
-umask 022
-
 # Add paths that depend on variables. Only add things for which we've defined a variable that says
-# we've got the package. We'll use a helper variable for the Load Library Path. This variable gets
-# used with a funny looking syntax that only puts in a separating colon if there is already a value
-# in the variable.
-unset local_libs
-
+# we've got the package.
 if [ -n "$X11_HOME" ]; then
     export PATH=$PATH:$X11_HOME/bin
     export FONTPATH=$X11_HOME/lib/fonts
-fi
-
-if [ -n "$MYSQL_HOME" ]; then
-    export PATH=$PATH:$MYSQL_HOME/bin
-	local_libs=${local_libs:+${local_libs}:}:$MYSQL_HOME/lib
 fi
 
 # Add the path suffix from our variable setup if we have one.
@@ -172,9 +173,6 @@ if [ -n "$path_suffix" ]; then
     export PATH=$PATH:$path_suffix
 fi
 
-# Set up the library load path, manpath, etc.
-export LD_LIBRARY_PATH=$local_libs:/usr/local/lib:$X11_HOME/lib:$HOME/lib
-export MANPATH=$HOME/man:/usr/man:/usr/share/man:/usr/local/man:$X11_HOME/man
 # On a mac, we need to add the coreutils to the MANPATH
 if [[ $os_type == Darwin ]]; then
     export MANPATH=$(brew --prefix)/opt/coreutils/libexec/gnuman:$MANPATH

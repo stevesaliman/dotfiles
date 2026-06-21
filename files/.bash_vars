@@ -107,7 +107,6 @@ elif [[ $os_type == CYGWIN* ]]; then
     path_suffix="${path_suffix:+${path_suffix}:}/cygdrive/c/network/firefox"
 elif [[ $os_type == Darwin ]]; then
     echo "Setting variables for OSX"
-    export MYSQL_HOME=/usr/local/mysql
 	export BACKUP_HOME=/Volumes/backup
     # homebrew - remember that the bin directory is already in our path.
     path_prefix="${path_prefix:+${path_prefix}:}$(brew --prefix)/sbin"
