@@ -92,26 +92,6 @@ if [ -n "$path_prefix" ]; then
     export PATH=$path_prefix:$PATH
 fi
 
-#set the colors for color ls. This can't be in .bash_vars or an exa fragment because Macs need
-# homebrew in the path, and that doesn't happen until after those files run.
-
-# Set the extended colors for exa per at https://the.exa.website/docs/colour-themes
-export EXA_COLORS=$LS_COLORS
-# Set the "user" permission bits to the terminal color
-export EXA_COLORS="${EXA_COLORS}ur=0:uw=0:ux=0:ue=0:"
-# Set the "group" permission bits to yellow
-export EXA_COLORS="${EXA_COLORS}gr=33:gw=33:gx=33:"
-# Set the "other" permission bits to bold versions of the terminal color
-export EXA_COLORS="${EXA_COLORS}tr=1;0:tw=1;0:tx=1;0:"
-# Set the setuid and setgid colors
-export EXA_COLORS="${EXA_COLORS}sf=30;43:"
-# Set the user and group colors.  Yellow for me and my groups, bold yellow otherwise.
-export EXA_COLORS="${EXA_COLORS}uu=33:un=1;33:gu=33:gn=1;33:"
-# Set the file size colors to normal terminal color
-export EXA_COLORS="${EXA_COLORS}sn=0:sb=0:"
-# Dates are bold blue.
-export EXA_COLORS="${EXA_COLORS}da=1;34:"
-
 ###################################################################################################
 # Set up auto-completion
 ###################################################################################################

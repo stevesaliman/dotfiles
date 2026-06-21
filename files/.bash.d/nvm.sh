@@ -5,6 +5,7 @@ elif [[ $os_type == CYGWIN* ]]; then
     # If we have NVMW, add it to the path
     if [ -d "$HOME/.nvmw" ]; then
       path_suffix="${path_suffix:+${path_suffix}:}$HOME/.nvmw"
+      alias nvmw=nvmw.bat
     fi
 elif [[ $os_type == Darwin ]]; then
     export NVM_DIR="${NVM_DIR:=/opt/nvm}"
