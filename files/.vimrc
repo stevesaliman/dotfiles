@@ -4,8 +4,8 @@ set autoindent
 set showmatch
 set belloff=all
 "set mouse=a
-" Set the default tabstop to 4 and use spaces, override it in language plugins
-" when something else is desired.
+" Set the default tabstop to 4 and use spaces, override it in .vim/after/syntax/{language} when
+" something else is desired.
 set ts=4
 set shiftwidth=4
 set expandtab
@@ -60,21 +60,9 @@ command! PU PlugUpdate | PlugUpgrade
   au BufNewFile,BufRead Jenkinsfile set filetype=groovy
 "endif
 
-" Tweaks to the markdown colors and languages
-autocmd BufNewFile,BufReadPost *.md set filetype=markdown
-let g:markdown_fenced_languages = ['bash=sh', 'css', 'erb=eruby', 'javascript', 'js=javascript', 'json=javascript', 'ruby', 'sass', 'xml']
-let g:markdown_syntax_conceal = 0
-" Set code (single `) and code blocks (triple ```) to red
-hi markdownCode ctermfg=Red guifg=Red
-hi markdownCodeBlock ctermfg=Red guifg=Red
-
-
-" Fix a couple of color issues.
+" Force the background to light, even though it's really black.  I like the color scheme better.
 set bg=light
 syntax on
-" Set the comment color to a slightly less dark blue so it is more easily seen.
-hi Comment term=bold ctermfg=63 guifg=#5454ff
-hi Statement  ctermfg=Yellow guifg=Yellow
 
 "Set a statusbar
 "set statusline=~
