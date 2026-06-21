@@ -56,6 +56,9 @@ fi
 # Next, figure out where this .bashrc file lives so we can source the right files later.
 bash_script_dir=$(dirname $(realpath "${BASH_SOURCE[0]}"))
 
+# Using dircolors to set the LS_COLORS variable for color ls.  This depends on homebrew.
+eval $(dircolors ${bash_script_dir}/.dir_colors)
+
 ###################################################################################################
 # Load variables and local overides from .bash_vars and .bash_local
 ###################################################################################################
@@ -69,6 +72,11 @@ bash_script_dir=$(dirname $(realpath "${BASH_SOURCE[0]}"))
 if [ -f ${bash_script_dir}/.bash_local ]; then
     . ${bash_script_dir}/.bash_local
 fi
+
+# Load default aliases and functions.  Configuration fragments may override these depending on what
+# is installed on the system.
+. ${bash_script_dir}/.bash_aliases
+. ${bash_script_dir}/.bash_functions
 
 # Load command specific configuration fragments early in case we need to modify the path. Fragments
 # can set variables, but they need to use myvar="${myvar:=newvalue}" to avoid overriding a locally
@@ -84,15 +92,9 @@ if [ -n "$path_prefix" ]; then
     export PATH=$path_prefix:$PATH
 fi
 
-# Load aliases and functions.
-. ${bash_script_dir}/.bash_aliases
-. ${bash_script_dir}/.bash_functions
-
 #set the colors for color ls. This can't be in .bash_vars or an exa fragment because Macs need
 # homebrew in the path, and that doesn't happen until after those files run.
 
-#set the colors for color ls. Start by using dircolors to set the basic colors.
-eval $(dircolors ${bash_script_dir}/.dir_colors)
 # Set the extended colors for exa per at https://the.exa.website/docs/colour-themes
 export EXA_COLORS=$LS_COLORS
 # Set the "user" permission bits to the terminal color
