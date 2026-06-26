@@ -1,14 +1,13 @@
 # Setup fzf
 
 # If it isn't installed, we can return here.
-if [ ! -d "${bash_script_dir}/.fzfx" ]; then
-    echo "Not Found!"
+if [ ! -d "${bash_script_dir}/.fzf" ]; then
+    echo "Fzf not Found, skipping"
     return
 fi
 
 # Add it to the path if it isn't there already.
 if [[ ! "$PATH" == *${bash_script_dir}/.fzf/bin* ]]; then
-    echo "Found!"
   PATH="${PATH:+${PATH}:}/home/ssaliman/.fzf/bin"
 fi
 
