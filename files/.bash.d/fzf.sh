@@ -1,14 +1,15 @@
 # Setup fzf
-
+fzf_home="${bash_script_dir}/.fzf"
 # If it isn't installed, we can return here.
-if [ ! -d "${bash_script_dir}/.fzf" ]; then
+if [ ! -d "${fzf_home}" ]; then
     echo "Fzf not Found, skipping"
+    unset fzf_home
     return
 fi
 
 # Add it to the path if it isn't there already.
-if [[ ! "$PATH" == *${bash_script_dir}/.fzf/bin* ]]; then
-  PATH="${PATH:+${PATH}:}/home/ssaliman/.fzf/bin"
+if [[ ! "$PATH" == *${fzf_home}/bin* ]]; then
+  PATH="${PATH:+${PATH}:}${fzf_home}/bin"
 fi
 
 # Use exact match by default, and put the prompt at the top. Disable unicode to use ascii borders
@@ -29,3 +30,5 @@ export BAT_THEME="Steve"
 #export BAT_THEME="ansi"
 # Need to check in this file (under another name), and the .config/bat/ directory
 # Need to tweak the syntax files to get keywords sorted into 2 sets
+
+unset fzf_home
