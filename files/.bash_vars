@@ -111,7 +111,6 @@ elif [[ $os_type == Darwin ]]; then
     # homebrew - remember that the bin directory is already in our path.
     path_prefix="${path_prefix:+${path_prefix}:}$(brew --prefix)/sbin"
     path_prefix=${path_prefix}:$(brew --prefix)/opt/gnu-sed/libexec/gnubin
-    path_prefix=${path_prefix}:$(brew --prefix)/opt/coreutils/libexec/gnubin
     path_prefix=${path_prefix}:$(brew --prefix)/opt/python/libexec/bin
     path_prefix=${path_prefix}:$(brew --prefix)/opt/postgresql@12/bin
     export HOMEBREW_NO_ANALYTICS=1

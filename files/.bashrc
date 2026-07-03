@@ -16,7 +16,7 @@
 # 3. Load the default alises and functions
 #
 # 4. Load the configuration fragments from the bash.d directory. In general, configuration fragments
-#   are for things that are installed after the basic OS install, or which have complex 
+#   are for things that are installed after the basic OS install, or which have complex
 #   configurations like Docker.
 #
 # 5. Set up auto completion
@@ -77,8 +77,14 @@ export MANPATH=$HOME/man:/usr/man:/usr/share/man:/usr/local/man:$X11_HOME/man
 # Next, we need to make sure we can find the brew command.  On intel Macs, there is a link in
 # /usr/local, but on ARM platforms, it is in /opt/homebrew.  We need this for the rest of this
 # script to work properly.
-if [ $os_type == Darwin -a -d /opt/homebrew ]; then
-    export PATH=/opt/homebrew/bin:$PATH
+if [ $os_type == Darwin ]; then
+    if [ -d /opt/homebrew ]; then
+        export PATH=/opt/homebrew/bin:$PATH
+    fi
+    echo "path=$PATH $(which dircolors)"
+    # make sure dircolors is in the path...
+    export PATH=$(brew --prefix)/opt/coreutils/libexec/gnubin:$PATH
+    echo "path=$PATH $(which dircolors)"
 fi
 
 # Next, figure out where this .bashrc file lives so we can source the right files later.
