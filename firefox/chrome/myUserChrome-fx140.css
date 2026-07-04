@@ -4,7 +4,7 @@
 /****************************************************************************************/
 
 /* First things first, Linux and windows use black icons.  Don't forget to create the file. */
-@import "./fx128/css/buttons/icons_black_icons.css"; /**/
+@import "./fx140/css/buttons/icons_black_icons.css"; /**/
 
 /* Overrides to general_variables.css and color_variables.css files.  */
 /* color names, hexcodes, rgb(a) and hsl(a) and gradients can be used */
@@ -41,6 +41,12 @@
     --default_tabs_bg_unloaded: linear-gradient(to bottom,#005555,#004545);
     --default_tabs_bg_newtab: linear-gradient(to bottom,#267777,#267777);
     --default_tabs_bg_newtab_hovered: linear-gradient(to bottom,#2d9e9e,#2d9e9e);
+}
+
+/* File menu, navbar, and bookmarks toolbar  *****************************/
+#toolbar-menubar, #nav-bar, #PersonalToolbar {
+    background: var(--toolbar-bgcolor) !important;
+    color: var(--toolbar-color) !important;
 }
 
 /* default tab *****************************/

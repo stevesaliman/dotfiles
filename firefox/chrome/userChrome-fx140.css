@@ -1,32 +1,32 @@
 /*===============================================================================
   Firefox userChrome.css tweaks: main file
-
-  Custom CSS for Firefox 140+ (128 ESR - 139 compatible with corresponding settings)
+  
+  Custom CSS for Firefox 140+ (128 ESR - 139 compatible with corresponding settings) 
   Current version: 4.7.5
 
-  Based on 'Classic Theme Restorer' & 'Classic Toolbar Buttons' add-ons CSS code
+  Based on 'Classic Theme Restorer' & 'Classic Toolbar Buttons' add-ons CSS code 
   Github: https://github.com/aris-t2/customcssforfx
   Change-log: https://github.com/aris-t2/customcssforfx/commits/
 
-
+  
   Firefox requires the following preference to be enabled for custom styles to be loaded:
-
+  
     'about:config > toolkit.legacyUserProfileCustomizations.stylesheets > true'
-
+  
   Firefox preferences can be accessed by typing `about:config` into the url bar.
-
+  
   ===============================================================================
-
+  
   ======
   README
   ======
 
-  To find the profile folder type `about:support` into url bar and navigate to:
+  To find the profile folder type `about:support` into url bar and navigate to: 
   'Profile Folder > Open Folder'
-
+  
   Create a /chrome/ (chrome) directory btw. folder inside the profile folder you just opened and
   paste projects files and folders into it, so it looks like this:
-
+  
   /chrome/config/
   /chrome/css/
   /chrome/image/
@@ -44,11 +44,11 @@
   /=========================\
   |    TABLE OF CONTENTS    |
   \=========================/
-
+  
   CONFIGURATION FILES
     - general variables / color variables (default browser theme only)
 	- edit target files to change general values
-
+  
   TOOLBAR BUTTONS
     - toolbar button / icon appearance
     - bookmarks menu button / popup
@@ -57,7 +57,7 @@
     - APPLICATION/HAMBURGER BUTTON
       - visibility / popup
       - buttons appearance on navigation toolbar / in Firefox titlebar
-
+  
   TABS
     - custom tab appearance / old squared tabs
     - TABS TOOLBAR POSITION
@@ -66,29 +66,29 @@
     - MULTIROW / multi lined tabs
     - empty tab favicon / custom tab loading animation / tab close icon settings
     - settings for DEFAULT TABS / other tab settings
-
+	
   GENERAL UI
     - general settings / close icons / page context menu items
-
+	
     - overflow menu / sidebar / findbar
-
+    
 	- SEARCHBAR
       - general settings for default search
-
+  
   TOOLBARS
     - ADDONS BAR (simulated bottoms toolbar)
-
+    
 	- GENERAL TOOLBAR settings
       - toolbar context menu settings
-
+    
 	- MENUBAR settings
-
+    
 	- bookmarks toolbar settings
     - BOOKMARKS TOOLBAR - MULTIPLE LINES
     - AeroGlass TOOLBARS / WIN10 fix for GLASS8 (not supported by Firefox 117+)
     - TOOLBAR TEXT MODES
       - icons+text / text only
-
+	
   LOCATION BAR / urlbar / mega bar
     - general location bar tweaks / identity box / padlock icons icon/button tweaks
     - 'autocomplete popup' appearance / result item settings/appearance
@@ -99,8 +99,8 @@
 /* ==========================
    GENERAL / GLOBAL VARIABLES
    ==========================
-
-   [!] set global variables for font and tab size options and more inside target file
+   
+   [!] set global variables for font and tab size options and more inside target file 
 */
 
 @import "./fx140/config/general_variables.css"; /**/
@@ -108,7 +108,7 @@
 /* -------------------------
    MAIN UI / COLOR VARIABLES
    -------------------------
-
+   
    [!] only use one option at a time
    [!] For default browser theme only!
    [!] Set own colors for tabs & toolbars inside 'color_variables.css' or use available presets.
@@ -143,7 +143,7 @@
 /* @import "./fx140/config/color_variables_noia4_lightgrey.css"; /**/
 
 /* Based on 'Noia 4 themes' dark colors */
-/* @import "./fx140/config/color_variables_noia4_dark.css"; /**/
+/* @import "./fx140/config/color_variables_noia4_dark.css"; /**/  
 
 /* Darker "Dark" default theme v1 */
 /* @import "./fx140/css/toolbars/default_dark_theme_darker.css"; /**/
@@ -153,9 +153,9 @@
 
 
 /* ------------------------------------------
-   CUSTOM SCROLLBARS VARIABLES - EXPERIMENTAL
+   CUSTOM SCROLLBARS VARIABLES - EXPERIMENTAL 
    ------------------------------------------
-
+   
    [!] Might not work on every page! This issue is for Mozilla to solve.
    [!] Not compatible with custom scrollbar JavaScript userChrome scripts.
    [!] Custom size values only compatible with 'web content' scrollbars at the moment.
@@ -171,14 +171,14 @@
 
 /* ---------------
    ICON APPEARANCE
-   ---------------
-
+   --------------- 
+   
    [!] only use one option at a time
    [!] custom icon quality does not increase in HiDPI modes
    [!] Firefox 88 icon set uses SVG images
 */
 
-@import "./fx140/css/buttons/icons_colorized.css"; /**/
+/* @import "./fx140/css/buttons/icons_colorized.css"; /* SCS DISABLED */
 /* @import "./fx140/css/buttons/icons_white_icons.css"; /**/
 /* @import "./fx140/css/buttons/icons_custom_icons.css"; /**/
 /* @import "./fx140/css/buttons/icons_custom_icons_fx1.css"; /**/
@@ -213,17 +213,17 @@
 /* -------------------------------------
    Navigation toolbar buttons appearance
    -------------------------------------
-
+   
    [!] only use one option at a time
    [!] good for Dark themes: buttons_on_navbar_classic_appearance_dark.css
    [!] good for Dark themes: buttons_on_navbar_glass_appearance.css
 */
 
-@import "./fx140/css/buttons/buttons_on_navbar_classic_appearance.css"; /**/
+/* @import "./fx140/css/buttons/buttons_on_navbar_classic_appearance.css"; /* SCS DISABLED */
 /* @import "./fx140/css/buttons/buttons_on_navbar_classic_appearance_v2.css"; /**/
-/* @import "./fx140/css/buttons/buttons_on_navbar_classic_appearance_dark.css"; /**/
+/* @import "./fx140/css/buttons/buttons_on_navbar_classic_appearance_dark.css"; /**/		
 /* @import "./fx140/css/buttons/buttons_on_navbar_aero_appearance.css"; /**/
-/* @import "./fx140/css/buttons/buttons_on_navbar_windows_classic_theme_appearance.css"; /**/
+@import "./fx140/css/buttons/buttons_on_navbar_windows_classic_theme_appearance.css"; /* SCS ENABLED */
 /* @import "./fx140/css/buttons/buttons_on_navbar_glass_appearance.css"; /**/
 /* @import "./fx140/css/buttons/buttons_on_navbar_osx_appearance.css"; /**/
 
@@ -231,7 +231,7 @@
 /* -------------------------------------
    Navigation toolbar buttons: roundness
    -------------------------------------
-
+   
    [!] edit file to set roundness
 */
 
@@ -241,7 +241,7 @@
 /* -----------------------------
    Squared buttons / button size
    -----------------------------
-
+   
    [!] edit file to set roundness
 */
 
@@ -267,9 +267,9 @@
 /* ------------------------------------
    Bookmarks toolbar: button appearance
    ------------------------------------
-
+   
    [!] only use one option at a time
-   [!] buttons_on_bookmarks_toolbar_old_size_and_appearance.css uses rebuild Aero appearance and old sizes
+   [!] buttons_on_bookmarks_toolbar_old_size_and_appearance.css uses rebuild Aero appearance and old sizes 
 */
 
 /* @import "./fx140/css/buttons/buttons_on_bookmarks_toolbar_classic_appearance.css"; /**/
@@ -281,7 +281,7 @@
 /* ---------------------------------------------
    Bookmarks toolbar: bookmarks items appearance
    ---------------------------------------------
-
+   
    [!] only use one option at a time
 */
 
@@ -301,7 +301,7 @@
 /* -------------------------------
    Tabs toolbar: button appearance
    -------------------------------
-
+   
    [!] EXPERIMENTAL
 */
 
@@ -324,7 +324,7 @@
 /* --------------------------------------------------
    Unified extensions button - Add-ons toolbar button
    --------------------------------------------------
-
+   
    [!] only use one option at a time
 */
 
@@ -351,7 +351,7 @@
 /* ----------------------------------------
    CUSTOM BACK & FORWARD BUTTONS appearance
    ----------------------------------------
-
+   
    [!] only use one option at a time
 */
 
@@ -390,7 +390,7 @@
 /* -----------------------------------
    Application/hamburger button hidden
    -----------------------------------
-
+   
    [!] disable all other appbutton options when using this option
 */
 
@@ -422,13 +422,13 @@
    -----------------------------------
 */
 
-/* @import "./fx140/css/appbutton/appbutton_on_navbar_start_position.css"; /**/
+@import "./fx140/css/appbutton/appbutton_on_navbar_start_position.css"; /* SCS ENABLED */
 
 
 /* -----------------------------------
    Button on navigation toolbar: color
    -----------------------------------
-
+   
    [!] only use one option at a time
 */
 
@@ -445,7 +445,7 @@
 /* -----------
    Button icon
    -----------
-
+   
    [!] only use one option at a time
 */
 
@@ -458,7 +458,7 @@
 /* ------------
    Button label
    ------------
-
+   
    [!] show label and icon
 */
 
@@ -468,7 +468,7 @@
 /* --------------------------------------------------------------
    Application / hamburger / main menu button in Firefox titlebar
    --------------------------------------------------------------
-
+   
    [!] disable all 'button on navigation toolbar' options for
        'button in Firefox titlebar' options to work properly
 */
@@ -477,12 +477,12 @@
 /* -----------------------------------------------
    Button in titlebar: label / icon / label + icon
    -----------------------------------------------
-
+   
    [!] only use one option at a time
 */
 
 /* label only */
-@import "./fx140/css/appbutton/appbutton_in_titlebar.css"; /**/
+/* @import "./fx140/css/appbutton/appbutton_in_titlebar.css"; /* SCS DISABLED */
 
 /* icon only */
 /* @import "./fx140/css/appbutton/appbutton_in_titlebar_icon_only.css"; /**/
@@ -494,7 +494,7 @@
 /* -----------------------------------
    Button in titlebar: icon appearance
    -----------------------------------
-
+   
    [!] only use one option at a time
    [!] requires 'appbutton_in_titlebar_icon_only.css' or 'appbutton_in_titlebar_label_and_icon.css' to be active
 */
@@ -503,16 +503,16 @@
 /* @import "./fx140/css/appbutton/appbutton_in_titlebar_icon_only_grey.css"; /**/
 /* @import "./fx140/css/appbutton/appbutton_in_titlebar_icon_only_browser_logo.css"; /**/
 /* @import "./fx140/css/appbutton/appbutton_in_titlebar_icon_only_nightly.css"; /**/
-
+ 
 
 /* -------------------------
    Button in titlebar: color
    -------------------------
-
+   
    [!] only use one option at a time
 */
 
-@import "./fx140/css/appbutton/appbutton_in_titlebar_autocolor.css"; /**/
+/* @import "./fx140/css/appbutton/appbutton_in_titlebar_autocolor.css"; /* SCS DISABLED */
 /* @import "./fx140/css/appbutton/appbutton_in_titlebar_autocolor57p.css"; /**/
 /* @import "./fx140/css/appbutton/appbutton_in_titlebar_transparent.css"; /**/
 /* @import "./fx140/css/appbutton/appbutton_in_titlebar_semi_transparent.css"; /**/
@@ -527,18 +527,18 @@
 /* ==============
    TAB appearance
    ==============
-
+   
    [!] only use one option at a time
    [!] custom tab colors can be set inside color_variablesXXX.css file(s)
    [!] curved tabs known from Firefox 29-56 will not be added to this project
-
+   
 */
 
 /* Classic tabs appearance known from Firefox 4-28 */
-@import "./fx140/css/tabs/classic_squared_tabs.css"; /**/
+/* @import "./fx140/css/tabs/classic_squared_tabs.css"; /* SCS DISABLED */
 
 /* Classic tabs appearance known from Firefox 4-28 for active tab only  */
-/* @import "./fx140/css/tabs/classic_squared_tabs_australized.css"; /**/
+@import "./fx140/css/tabs/classic_squared_tabs_australized.css"; /* SCS ENABLED */
 
 /* Default tab appearance with increased contrast for non-active tabs */
 /* @import "./fx140/css/tabs/default_tabs_enhanced.css"; /**/
@@ -554,7 +554,7 @@
 /* ======================================================================================
    TABS TOOLBAR POSITION (below titlebar / below navigation toolbar / below main content)
    ======================================================================================
-
+   
    [!] only use one option at a time
    [!] only use BELOW TITLEBAR or BELOW NAVIGATION BAR or BELOW MAIN CONTENT  <<<<< !!!
 */
@@ -579,7 +579,7 @@
 */
 
 /* @import "./fx140/css/tabs/tabs_below_navigation_toolbar.css"; /**/ /* for Firefox 133+ */
-/* @import "./fx140/css/tabs/tabs_below_navigation_toolbar_fx128-132.css"; /**/ /* for Firefox 128-132 */
+@import "./fx140/css/tabs/tabs_below_navigation_toolbar_fx128-132.css"; /**/ /* for Firefox 128-132  SCS ENABLED */
 
 
 /* Alternative for multi-lined tabs (Possible glitches with inactive menubar!)
@@ -592,7 +592,7 @@
 /* @import "./fx140/css/tabs/tabs_below_navigation_toolbar_alt_force_hidden_menubar.css"; /**/
 
 
-/* Move tabs to a higher position
+/* Move tabs to a higher position 
    [!] not compatible to 'tabs toolbar - multiple tab lines' option up to Fx132, works with Fx133+
    [!] _fx128-132.css is for Firefox 128-132 only
    [!] only use one option at a time
@@ -606,7 +606,7 @@
 /* ----------------------------------------
    TABS BELOW MAIN CONTENT (TABS ON BOTTOM)
    ----------------------------------------
-
+  
    [!] not compatible to 'tabs toolbar - multiple tab lines' option
    [!] only use one option at a time
    [!] tabs_below_main_content_fx128-132.css for Firefox 128-132 only
@@ -628,14 +628,14 @@
 
    [!] Edit target file to set own custom colors
 */
-
+ 
 /* @import "./fx140/config/custom_tab_text_settings.css"; /**/
 
 
 /* ------------------------------------------
    MULTIROW / multi lined tabs - EXPERIMENTAL
    ------------------------------------------
-
+   
    [!] only use one option at a time
    [!] BUG: dragging tabs does not work with multi lined tabs
    [!] not compatible with 'tabs toolbar - below main content' option
@@ -654,7 +654,7 @@
 /* ---------------------------------
    Restore empty/missing tab favicon
    ---------------------------------
-
+   
    [!] only use one option at a time
 */
 
@@ -669,7 +669,7 @@
 /* ----------------------------
    Custom tab loading animation
    ----------------------------
-
+   
    [!] only use one option at a time
 */
 
@@ -683,7 +683,7 @@
 /* -----------------------
    Tab close icon settings
    -----------------------
-
+   
    [!] only use one option at a time
 */
 
@@ -754,9 +754,9 @@
 /* @import "./fx140/css/tabs/tab_maxwidth.css"; /**/
 /* @import "./fx140/css/tabs/tab_titles_remove_blur.css"; /**/
 /* @import "./fx140/css/tabs/alltabs_button_always_visible.css"; /**/  /* hidden, if multiple tab rows are used */
-/* @import "./fx140/css/tabs/alltabs_button_only_visible_in_overflow_mode.css"; /**/
-/* @import "./fx140/css/tabs/alltabs_button_always_hidden.css"; /**/
-/* @import "./fx140/css/tabs/alltabs_button_old_icon.css"; /**/
+/* @import "./fx140/css/tabs/alltabs_button_only_visible_in_overflow_mode.css"; /**/ 
+/* @import "./fx140/css/tabs/alltabs_button_always_hidden.css"; /**/ 
+/* @import "./fx140/css/tabs/alltabs_button_old_icon.css"; /**/ 
 /* @import "./fx140/css/tabs/pinnedtab_empty_favicon_hidden.css"; /**/
 
 /* [!] edit target file to select which items to hide */
@@ -784,7 +784,7 @@
 /* ----------------------------------------
    '>>' Overflow menu in navigation toolbar
    ----------------------------------------
-
+   
    [!] only use one option at a time
 */
 
@@ -795,7 +795,7 @@
 /* -------------------------------------------
    Context menu / menupopup / panel appearance
    -------------------------------------------
-
+   
    [!] not for macOS
    [!] affects context menus, popup menus and panel menus
 */
@@ -819,7 +819,7 @@
 /* @import "./fx140/css/generalui/popup_animation_fade_time_reduced.css"; /**/
 
 /* This removes tab scroll buttons, no CSS fix possible atm */
-/* @import "./fx140/css/generalui/popup_menupopup_with_scrollbars.css"; /**/
+/* @import "./fx140/css/generalui/popup_menupopup_with_scrollbars.css"; /**/  
 
 
 /* -------------------------------------------------------------------------
@@ -844,7 +844,7 @@
 /* -------
    SIDEBAR
    -------
-
+   
    [!] sidebar_header_icons.css adds icons to the popup
 */
 
@@ -856,7 +856,7 @@
 /* -------------------
    SIDEBAR: dimensions
    -------------------
-
+   
    [!] only use one option at a time
 */
 
@@ -867,7 +867,7 @@
 /* -------------------
    SIDEBAR: appearance
    -------------------
-
+   
    [!] only use one option at a time
 */
 
@@ -891,7 +891,7 @@
 /* -----------------------------------
    Close icons for general ui and tabs
    -----------------------------------
-
+   
    [!] only use one option at a time
 */
 
@@ -936,7 +936,7 @@
 /* ------------------------
    MENUBARS bookmarks popup
    ------------------------
-
+   
    [!] not compatible with macOS or Linux
 */
 
@@ -984,10 +984,10 @@
 
 
 /* override titlebars and tab toolbars colors */
-/* @import "./fx140/css/toolbars/top_toolbar_system_accent_colors.css"; /**/
+/* @import "./fx140/css/toolbars/top_toolbar_system_accent_colors.css"; /**/ 
 /* @import "./fx140/css/toolbars/top_toolbar_colors_tabs_on_top.css"; /**/
 /* @import "./fx140/css/toolbars/top_toolbar_colors_tabs_not_on_top.css"; /**/
-/* @import "./fx140/css/toolbars/top_toolbar_colors_tabs_not_on_top_v2.css"; /**/
+/* @import "./fx140/css/toolbars/top_toolbar_colors_tabs_not_on_top_v2.css"; /**/ 
 
 
 /* ----------------------
@@ -1005,7 +1005,7 @@
 /* ----------------------
    Other toolbar settings
    ----------------------
-
+   
    [!] edit target file to select which items to hide
 */
 
@@ -1058,11 +1058,11 @@
 /* @import "./fx140/css/toolbars/additional_bookmarks_toolbar_below_navbar.css"; /**/
 /* @import "./fx140/css/toolbars/additional_bookmarks_toolbar_below_navbar_fx128-132.css"; /**/
 
-
+   
 /* ------------------------------------------
    BOOKMARKS TOOLBAR above navigation toolbar
    ------------------------------------------
-
+   
    [!] only use one option at a time
 */
 
@@ -1073,7 +1073,7 @@
 /* ----------------------------------
    BOOKMARKS TOOLBAR - MULTIPLE LINES
    ----------------------------------
-
+   
    [!] only use one option at a time
    [!] the amount of visible bookmark items is limited internally to ~90-110 bookmarks
    [!] not compatible to 'bookmarks toolbar autohide' option
@@ -1097,7 +1097,7 @@
 /* ------------------
    AeroGlass TOOLBARS
    ------------------
-
+   
    [!] WIN10 fix for GLASS8
    [!] EXPERIMENTAL
    [!] not supported by Firefox 117+
@@ -1114,7 +1114,7 @@
 /* ------------------
    TOOLBAR TEXT MODES
    ------------------
-
+   
    [!] only use one option at a time
 */
 
@@ -1124,11 +1124,11 @@
 
 /* ==================================
    LOCATION BAR / MEGABAR - Settings
-   ==================================
+   ================================== 
 
 
    [!] 'compact mode' got hidden behind the 'about:config' preference 'browser.compactmode.show'
-   [!] enable browser.compactmode.show preference and compact density in 'Customize' mode
+   [!] enable browser.compactmode.show preference and compact density in 'Customize' mode  
 */
 
 /* @import "./fx140/css/locationbar/compact_mode_reduce_fontsize.css"; /**/
@@ -1146,7 +1146,7 @@
 /* ----------------------------------------------------
    Padlock icons in identity box / page identity button
    ----------------------------------------------------
-
+   
    [!] only use one option at a time
 */
 
@@ -1185,7 +1185,7 @@
 /* -----------------------------------------------------------
    Star button / bookmarks star - alternative yellow star icon
    -----------------------------------------------------------
-
+   
    [!] only use one option at a time
 */
 
@@ -1198,7 +1198,7 @@
    ------------------------------
 */
 
-/* @import "./fx140/css/locationbar/ac_popup_result_font_size.css"; /**/
+@import "./fx140/css/locationbar/ac_popup_result_font_size.css"; /* SCS ENABLED */
 /* @import "./fx140/css/locationbar/ac_popup_firefox_background_logo.css"; /**/
 
 
@@ -1224,10 +1224,10 @@
 /* -------------------------------------
    Megabar expanding_breakout_disabled
    -------------------------------------
-
+   
    [!] only use one option at a time
    [!] megabar_expanding_breakout_disabled_fx128-fx132 is for Firefox 128-132.
-
+   
 */
 
 @import "./fx140/css/locationbar/megabar_expanding_breakout_disabled.css"; /**/
@@ -1237,7 +1237,7 @@
 /* -------------------------------------
    Megabar/location bar background color
    -------------------------------------
-
+   
    [!] _old_colors.css restores colors known from Firefox 132 and older
    [!] _old_colors_lwtheme.css restores colors known from Firefox 132 and older for lwthemes
    [!] _color.cs forces a white background color
@@ -1254,7 +1254,7 @@
 /* ---------------------------------------
    Megabar: popup content order/appearance
    ---------------------------------------
-
+   
    [!] only use one option at a time
 */
 
@@ -1280,7 +1280,7 @@
 /* ---------------------
    Custom / own CSS code
    ---------------------
-
+   
    [!] Create a "my_userChrome.css" file and add own/custom code to it.
 */
 
