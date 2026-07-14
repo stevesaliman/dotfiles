@@ -63,6 +63,10 @@ command! PU PlugUpdate | PlugUpgrade
 " Force the background to light, even though it's really black.  I like the color scheme better.
 set bg=light
 syntax on
+" use more lines to set the initial syntax colors.  This fixes an issue where long files, opened in
+" the middle, showed the wrong colors.
+autocmd BufEnter * :syntax sync minlines=200
+
 
 "Set a statusbar
 "set statusline=~
