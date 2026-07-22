@@ -95,6 +95,12 @@ if [[ $os_type == Linux ]]; then
 	export BACKUP_HOME=/media/steve/backup
     export WINEPREFIX="/opt/wine"
     export X11_HOME=/usr/X11R6
+    # If we have CUDA, add it to the path
+    if [ -d /usr/local/cuda ]; then
+        path_prefix="${path_prefix:+${path_prefix}:}/usr/local/cuda/bin"
+        export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH
+    fi
+
     # for X to start up right, we need gnome on the path.
     path_suffix=/opt/gnome/sbin:/opt/gnome/bin:/opt/kde3/bin
 elif [[ $os_type == CYGWIN* ]]; then
