@@ -22,7 +22,7 @@ export EXA_COLORS="${EXA_COLORS}da=1;34:"
 # displays setuid and setgid files properly.
 #
 # Assume a local cargo installation unless we are on a mac.
-eza_bin="${bash_script_dir}/.cargo/bin/eza"
+eza_bin="${df_home}/.cargo/bin/eza"
 if [ $os_type == Darwin ]; then
     eza_bin="$(brew --prefix)/bin/eza"
 fi

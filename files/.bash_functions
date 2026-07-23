@@ -100,8 +100,8 @@ function vi {
 	if [[ $user == $me ]]; then
 		vim -X "$@"
 	else
-		HOME=${bash_script_dir}
-		vim -X -c "let \$HOME = \"${bash_script_dir}\"" "$@"
+		HOME=${df_home}
+		vim -X -c "let \$HOME = \"${df_home}\"" "$@"
 		HOME=${USER_HOME}
 	fi
 }

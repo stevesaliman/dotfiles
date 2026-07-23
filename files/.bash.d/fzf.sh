@@ -3,7 +3,7 @@
 # continue.
 
 
-local_fzf_home="${bash_script_dir}/.fzf"
+local_fzf_home="${df_home}/.fzf"
 
 # If the local fzf home exists, and it isn't already in the path, add it.
 if [[ -d "${local_fzf_home}" ]] && [[ ! "$PATH" == *${local_fzf_home}/bin* ]]; then

@@ -1,6 +1,6 @@
 # Zoxide configuration
 # Assume a local cargo installation unless we are on a mac.
-zoxide_bin="${bash_script_dir}/.cargo/bin/zoxide"
+zoxide_bin="${df_home}/.cargo/bin/zoxide"
 if [ $os_type == Darwin ]; then
     zoxide_bin="$(brew --prefix)/bin/zoxide"
 fi

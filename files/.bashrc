@@ -88,29 +88,29 @@ if [ $os_type == Darwin ]; then
 fi
 
 # Next, figure out where this .bashrc file lives so we can source the right files later.
-bash_script_dir=$(dirname $(realpath "${BASH_SOURCE[0]}"))
+df_home=$(dirname $(realpath "${BASH_SOURCE[0]}"))
 
 # Using dircolors to set the LS_COLORS variable for color ls.  This depends on homebrew.
-eval $(dircolors ${bash_script_dir}/.dir_colors)
+eval $(dircolors ${df_home}/.dir_colors)
 
 ###################################################################################################
 # Load variables and local overides from .bash_vars and .bash_local
 ###################################################################################################
 
 # Load global environment variables.
-. ${bash_script_dir}/.bash_vars
+. ${df_home}/.bash_vars
 
 # Load local overrides to global variables.  This runs before configuration fragments so that they
 # use the right values in the fragments.
 # override anything there.
-if [ -f ${bash_script_dir}/.bash_local ]; then
-    . ${bash_script_dir}/.bash_local
+if [ -f ${df_home}/.bash_local ]; then
+    . ${df_home}/.bash_local
 fi
 
 # Load default aliases and functions.  Configuration fragments may override these depending on what
 # is installed on the system.
-. ${bash_script_dir}/.bash_aliases
-. ${bash_script_dir}/.bash_functions
+. ${df_home}/.bash_aliases
+. ${df_home}/.bash_functions
 
 ###################################################################################################
 # Load configuration fragments
@@ -120,7 +120,7 @@ fi
 # can set variables, but they need to use myvar="${myvar:=newvalue}" to avoid overriding a locally
 # defined value.  This because the configuration fragments set up path fragments and we need the
 # right values.
-for bfile in ${bash_script_dir}/.bash.d/*.sh ; do
+for bfile in ${df_home}/.bash.d/*.sh ; do
 	. $bfile
 done
 
@@ -142,7 +142,7 @@ if [[ $os_type == Darwin ]]; then
 fi
 
 # Load local completion scripts.
-for bcfile in ${bash_script_dir}/.bash_completion.d/* ; do
+for bcfile in ${df_home}/.bash_completion.d/* ; do
 	. $bcfile
 done
 
@@ -161,7 +161,7 @@ fi
 
 # Load in the git functions and define what we want to see.  This comes after bash completion in
 # case any of the completion scripts have their own git prompt, like Homebrew's.
-. ${bash_script_dir}/.git-prompt
+. ${df_home}/.git-prompt
 
 #############################################################################
 # Finalize pathing
@@ -187,7 +187,7 @@ fi
 # Load "z" for remembering directories, but don't expand symlinks.  This is near the end because we
 # want everything that will modify the PROMPT_COMMAND to be stable first.
 export _Z_NO_RESOLVE_SYMLINKS=1
-. ${bash_script_dir}/bin/z.sh
+. ${df_home}/bin/z.sh
 
 
 # Make sure we start in the correct home directory.  If our environment has a START_DIR, go to it.
@@ -203,7 +203,7 @@ export _Z_NO_RESOLVE_SYMLINKS=1
 # Finish the path.  We always want the user's bin at the very front, followed by the bin and cargo
 # dirs under this script's dir so that scripts from this project are used ahead of whatever comes
 # from things like sdkman.
-export PATH=${bash_script_dir}/bin:${bash_script_dir}/.cargo/bin:$PATH
+export PATH=${df_home}/bin:${df_home}/.cargo/bin:$PATH
 if [ -d "${HOME}/bin" ] && [[ ":$PATH:" != *":${HOME}/bin:"* ]]; then
     export PATH=${HOME}/bin:$PATH
 fi
