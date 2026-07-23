@@ -19,7 +19,7 @@ function st-mod {
     # Start by making a new config file for just this shell, if we don't already have one.  We'll
     # use the bash "$$" variable to get the shell's PID.  We then set an environment variable to
     # tell starship that we want to use our new file as the config file.
-    local default_config=$HOME/.config/starship.toml
+    local default_config=${bash_script_dir}/.config/starship.toml
     local local_config=/tmp/starship/starship-$$.toml
     if [ ! -f $local_config ]; then
         mkdir -p /tmp/starship
