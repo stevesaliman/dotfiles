@@ -184,12 +184,6 @@ if [[ $os_type == Darwin ]]; then
     export MANPATH=$(brew --prefix)/opt/coreutils/libexec/gnuman:$MANPATH
 fi
 
-# Load "z" for remembering directories, but don't expand symlinks.  This is near the end because we
-# want everything that will modify the PROMPT_COMMAND to be stable first.
-export _Z_NO_RESOLVE_SYMLINKS=1
-. ${df_home}/bin/z.sh
-
-
 # Make sure we start in the correct home directory.  If our environment has a START_DIR, go to it.
 # Otherwise, see if we have a certain variable, and if not do a cd to go to the home directory.
 # Then set the var
