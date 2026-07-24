@@ -7,6 +7,11 @@ fi
 
 if [ -f "$zoxide_bin" ]; then
     eval "$($zoxide_bin init bash)"
+    # reduce index scope
+    export _ZO_EXCLUDE_DIRS="/tmp:/proc:/sys"
+    alias za='zoxide add'
+    alias zq='zoxide query'
+    alias zr='zoxide remove'
 fi
 
 
