@@ -93,9 +93,21 @@ process_args() {
 # being set.
 full_backup() {
 	local backup_user=$1
-	local exclude_file="${USER_HOME}/.backup_full_excludes"
+	local global_exclude_file="${USER_HOME}/.backup_full_excludes"
+    local local_exclude_file="${USER_HOME}/.backup_local_excludes"
+
+    # Make an excludes file that combines the global backup excludes, the local excludes (if
+    # present), and any nfs mounts.
+    local exclude_file="/tmp/backup_excludes-$(date +%Y%m%d-%H%M%S)"
+    cp "$global_exclude_file" "$exclude_file"
+    awk '$3 ~ /^nfs/ {print $2}' /proc/mounts >> "$exclude_file"
+    if [ -f "$local_exclude_file" ]; then
+        cat "$local_exclude_file" >> "$exclude_file"
+    fi
+
 	echo "Performing a full backup of ${SYSTEM_ROOT} to $BACKUP_DIR for user $backup_user"
 	rsync -avi --delete --exclude-from="${exclude_file}" "${SYSTEM_ROOT}" "${BACKUP_DIR}" | grep -v \.[fd]\/\/\/pog\.\.\.
+    #rm "$exclude_file"
 }
 
 #-----------------------------------------------------------------------------
