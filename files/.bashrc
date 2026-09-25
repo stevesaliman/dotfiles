@@ -98,6 +98,7 @@ eval $(dircolors ${df_home}/.dir_colors)
 ###################################################################################################
 
 # Load global environment variables.
+. ${df_home}/.bash_colors
 . ${df_home}/.bash_vars
 
 # Load local overrides to global variables.  This runs before configuration fragments so that they

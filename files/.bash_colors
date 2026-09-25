@@ -1,0 +1,24 @@
+# This file is part of my custom bash configuration.  It defines variables that reference ANSI
+# color codes.  This file is sourced .bashrc near the beginning of the bash configuration process.
+#
+# This file can also be imported by any script that needs colors so we don't have to assume the
+# variable is in the current environment.
+
+# variables are easier to read later than escape sequences.  We use \033 instead of \e because it
+# offers better backwards compatability
+export NORMAL=$'\033[0m'
+export DIM=$'\033[2m'
+export BLACK=$'\033[00;00m'
+export RED=$'\033[00;31m'
+export GREEN=$'\033[00;32m'
+export YELLOW=$'\033[00;33m'
+export BLUE=$'\033[00;34m'
+export PURPLE=$'\033[00;35m'
+export CYAN=$'\033[00;36m'
+export WHITE=$'\033[00;37m'
+export BOLD_RED=$'\033[01;31m'
+export BOLD_GREEN=$'\033[01;32m'
+#export BOLD_BLUE=$'\033[01;34m'
+export BOLD_BLUE=$'\033[01;38;5;63m'
+export BOLD_GRAY=$'\033[00;37m'
+
