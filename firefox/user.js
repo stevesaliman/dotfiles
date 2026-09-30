@@ -12,6 +12,6 @@ user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
 // Turn off geo location
 user_pref("geo.enabled", false);
 
-// turn off WASM
+// turn off WASM.  Note that some things like Jira will require this to be turned back on.
 user_pref("javascript.options.wasm", false);
 
